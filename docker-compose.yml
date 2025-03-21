@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  postgres_users:
+    image: postgres:16-alpine
+    container_name: umeko_users_db
+    environment:
+      POSTGRES_DB: umeko_users
+      POSTGRES_USER: umeko
+      POSTGRES_PASSWORD: umeko_password
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_users_data:/var/lib/postgresql/data
+
+  postgres_vocab:
+    image: postgres:16-alpine
+    container_name: umeko_vocab_db
+    environment:
+      POSTGRES_DB: umeko_vocab
+      POSTGRES_USER: umeko
+      POSTGRES_PASSWORD: umeko_password
+    ports:
+      - '5433:5432'
+    volumes:
+      - postgres_vocab_data:/var/lib/postgresql/data
+
+  mongodb:
+    image: mongo:latest
+    container_name: umeko_spaced_repetition_db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: umeko
+      MONGO_INITDB_ROOT_PASSWORD: umeko_password
+      MONGO_INITDB_DATABASE: umeko_spaced_repetition
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongodb_data:/data/db
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: umeko_rabbitmq
+    ports:
+      - '5672:5672' # AMQP protocol port
+      - '15672:15672' # Management UI port
+    environment:
+      RABBITMQ_DEFAULT_USER: umeko
+      RABBITMQ_DEFAULT_PASS: umeko_password
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+volumes:
+  postgres_users_data:
+  postgres_vocab_data:
+  mongodb_data:
+  rabbitmq_data:
