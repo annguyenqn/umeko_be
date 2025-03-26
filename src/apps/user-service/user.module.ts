@@ -11,7 +11,8 @@ import { databaseConfig } from '../../libs/config/database.config';
 import { jwtConfig } from '../../libs/config/jwt.config';
 import { UserController } from './controllers/user.controller';
 import { UserService } from './services/user.service';
-
+import { TokenBlacklistService } from 'src/libs/common/services/token-blacklist.service';
+import { RedisModule } from 'src/redis/redis.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -36,8 +37,9 @@ import { UserService } from './services/user.service';
       }),
       inject: [ConfigService],
     }),
+    RedisModule,
   ],
   controllers: [AuthController, UserController],
-  providers: [AuthService, UserService, JwtStrategy, RolesGuard],
+  providers: [AuthService, UserService, JwtStrategy, RolesGuard,TokenBlacklistService,],
 })
 export class UserModule {} 
