@@ -11,9 +11,11 @@ import { databaseConfig } from '../../libs/config/database.config';
 import { jwtConfig } from '../../libs/config/jwt.config';
 import { UserController } from './controllers/user.controller';
 import { UserService } from './services/user.service';
+import { MailModule } from '../mail/mail.module';
 
 @Module({
   imports: [
+    MailModule,
     ConfigModule.forRoot({
       isGlobal: true,
       load: [databaseConfig, jwtConfig],

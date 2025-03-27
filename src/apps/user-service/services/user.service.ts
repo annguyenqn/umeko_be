@@ -1,7 +1,9 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { BadGatewayException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from '../entities/user.entity';
+import * as dayjs from 'dayjs';
+import { CodeAuthDto } from '../dto/code-auth.dto';
 
 @Injectable()
 export class UserService {
@@ -52,4 +54,24 @@ export class UserService {
 
     return user;
   }
+
+  async handleActive(data: CodeAuthDto): Promise<any> {
+    const user = await this.userRepository.findOne({
+      where: { id: data._id },
+    });
+
+    if (!user) {
+      throw new BadGatewayException('The code is invalid or expired');
+    }
+
+    //check expire code
+    const isBeforeCheck = dayjs().isBefore(user.codeExpired);
+    if (isBeforeCheck) {
+      await this.userRepository.update({ id: data._id }, { isActive: true });
+      return { isBeforeCheck };
+    } else {
+      throw new BadGatewayException('The code is invalid or expired');
+    }
+  }
+
 } 
