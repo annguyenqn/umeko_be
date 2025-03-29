@@ -7,7 +7,7 @@ import { User } from '../entities/user.entity';
 import * as bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
 import * as nodemailer from 'nodemailer';
-import { TokenBlacklistService } from 'src/libs/common/services/token-blacklist.service';
+import { TokenBlacklistService } from '@src/libs/common/services/token-blacklist.service';
 @Injectable()
 export class AuthService {
   private transporter: nodemailer.Transporter;
