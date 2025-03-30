@@ -19,7 +19,7 @@ export class VocabService {
   async getVocabByLesson(lessonNumber: number): Promise<Vocabulary[]> {
     const lesson = await this.lessonRepo.findOne({
       where: { lesson_number: lessonNumber },
-      relations: ['vocabularies', 'vocabularies.kanjis'],
+      relations: ['vocabularies', 'vocabularies.kanjis', 'vocabularies.examples'],
     });
 
     if (!lesson) {
@@ -28,6 +28,7 @@ export class VocabService {
 
     return lesson.vocabularies;
   }
+
   async getAllCategories(): Promise<Category[]> {
     return this.categoryRepo.find();
   }

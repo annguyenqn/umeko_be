@@ -46,6 +46,6 @@ async function bootstrap() {
   const port = process.env.APP_PORT || 8081;
   await app.listen(port);
   console.log(`🚀 Vocab Service is running on http://localhost:${port}`);
-  console.log(`Swagger documentation available at http://localhost:${port}/api`);
+  console.log(`Swagger documentation available at http://localhost:${port}/api/vocab`);
 }
 bootstrap();
