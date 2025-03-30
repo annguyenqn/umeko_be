@@ -21,9 +21,10 @@ import {
 } from '../dto/auth.dto';
 import { UserResponseDto } from '../dto/user.dto';
 import { Public } from '../decorators/public.decorator';
-
+import { ApiBearerAuth } from '@nestjs/swagger';
 @ApiTags('Authentication')
 @Controller('auth')
+@ApiBearerAuth()
 export class AuthController {
   constructor(private readonly authService: AuthService,
     private mailerService: MailerService
@@ -91,19 +92,17 @@ export class AuthController {
   @ApiResponse({ status: 200, description: 'User successfully logged out' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   async logout(@Req() req) {
-    return this.authService.logout(req.user.id);
+    const token = req.headers.authorization
+    return this.authService.logout(req.user.id, token)
   }
 
-  @Get('users')
-  @UseGuards(JwtAuthGuard)
-  @ApiOperation({ summary: 'Get all users' })
-  @ApiResponse({
-    status: 200,
-    description: 'List of all users',
-    type: [UserResponseDto],
-  })
-  @ApiResponse({ status: 401, description: 'Unauthorized' })
-  async getAllUsers() {
-    return this.authService.findAllUsers();
-  }
+  @Get('me')
+@UseGuards(JwtAuthGuard)
+@ApiOperation({ summary: 'Get current logged in user' })
+@ApiResponse({ status: 200, description: 'Current user info', type: UserResponseDto })
+@ApiResponse({ status: 401, description: 'Unauthorized' })
+async getMe(@Req() req) {
+  return req.user;
+}
+
 } 

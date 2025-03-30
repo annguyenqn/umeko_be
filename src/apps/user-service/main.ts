@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import { UserModule } from './apps/user-service/user.module';
+import { UserModule } from './user.module';
 import * as cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 

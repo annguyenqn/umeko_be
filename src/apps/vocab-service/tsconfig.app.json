@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/apps/vocab-service",
+    "rootDir": "./",
+    "composite": true
+  },
+  "include": ["**/*.ts"],
+  "files": ["data-source.ts"]
+}

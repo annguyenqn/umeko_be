@@ -12,7 +12,8 @@ import { jwtConfig } from '../../libs/config/jwt.config';
 import { UserController } from './controllers/user.controller';
 import { UserService } from './services/user.service';
 import { MailModule } from '../mail/mail.module';
-
+import { TokenBlacklistService } from '@src/libs/common/services/token-blacklist.service';
+import { RedisModule } from '@src/redis/redis.module';
 @Module({
   imports: [
     MailModule,
@@ -24,6 +25,7 @@ import { MailModule } from '../mail/mail.module';
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
         ...configService.get('database.users'),
+        entities: [User],
       }),
       inject: [ConfigService],
     }),
@@ -38,8 +40,9 @@ import { MailModule } from '../mail/mail.module';
       }),
       inject: [ConfigService],
     }),
+    RedisModule,
   ],
   controllers: [AuthController, UserController],
-  providers: [AuthService, UserService, JwtStrategy, RolesGuard],
+  providers: [AuthService, UserService, JwtStrategy, RolesGuard,TokenBlacklistService,],
 })
 export class UserModule {} 

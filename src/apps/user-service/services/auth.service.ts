@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
 import * as nodemailer from 'nodemailer';
 import { CodeAuthDto } from '../dto/code-auth.dto';
 import { UserService } from './user.service';
-
+import { TokenBlacklistService } from '@src/libs/common/services/token-blacklist.service';
 @Injectable()
 export class AuthService {
   private transporter: nodemailer.Transporter;
@@ -22,6 +22,7 @@ export class AuthService {
     private readonly jwtService: JwtService,
     private readonly mailService: MailService,
     private readonly configService: ConfigService,
+    private readonly tokenBlacklistService: TokenBlacklistService,
   ) {
     this.transporter = nodemailer.createTransport({
       host: this.configService.get('MAIL_HOST'),
@@ -177,7 +178,7 @@ export class AuthService {
     return { message: 'Password successfully reset' };
   }
 
-  async logout(userId: string) {
+  async logout(userId: string,  token: string) {
     const user = await this.userRepository.findOne({ where: { id: userId } });
     if (!user) {
       throw new NotFoundException('User not found');
@@ -189,6 +190,9 @@ export class AuthService {
 
     user.refreshToken = null;
     await this.userRepository.save(user);
+    const pureToken = token.replace('Bearer ', '')
+    const expiresIn = 900
+    await this.tokenBlacklistService.blacklistToken(pureToken, expiresIn)
     return { message: 'Successfully logged out' };
   }
 
