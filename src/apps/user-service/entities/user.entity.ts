@@ -51,6 +51,15 @@ export class User {
   @Exclude()
   passwordResetExpires?: Date;
 
+  @CreateDateColumn({ type: 'timestamp' })
+  codeExpired: Date;
+
+  @Column({ type: 'varchar', length: 10, nullable: true })
+  codeId: string;
+
+  @Column({ type: 'boolean', default: false })
+  isActive: boolean;
+
   @CreateDateColumn()
   createdAt: Date;
 

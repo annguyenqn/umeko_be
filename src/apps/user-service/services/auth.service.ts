@@ -4,9 +4,12 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
 import { User } from '../entities/user.entity';
+import { MailService } from '../../mail/services/mail.service';
 import * as bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
 import * as nodemailer from 'nodemailer';
+import { CodeAuthDto } from '../dto/code-auth.dto';
+import { UserService } from './user.service';
 import { TokenBlacklistService } from '@src/libs/common/services/token-blacklist.service';
 @Injectable()
 export class AuthService {
@@ -15,7 +18,9 @@ export class AuthService {
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
+    private readonly userSerive: UserService,
     private readonly jwtService: JwtService,
+    private readonly mailService: MailService,
     private readonly configService: ConfigService,
     private readonly tokenBlacklistService: TokenBlacklistService,
   ) {
@@ -29,8 +34,17 @@ export class AuthService {
     });
   }
 
+  private generateOtp(): string {
+    return Math.floor(100000 + Math.random() * 900000).toString();
+  }
+
+  async verifyOtp(data: CodeAuthDto): Promise<any> {
+    return this.userSerive.handleActive(data);
+  }
+
   async signup(email: string, password: string, firstName?: string, lastName?: string) {
     const existingUser = await this.userRepository.findOne({ where: { email } });
+    const otp = this.generateOtp();
     if (existingUser) {
       throw new BadRequestException('User with this email already exists');
     }
@@ -41,7 +55,7 @@ export class AuthService {
       firstName,
       lastName,
     });
-
+    await this.mailService.sendUserConfirmation(email, otp);
     await this.userRepository.save(user);
     return this.generateTokens(user);
   }

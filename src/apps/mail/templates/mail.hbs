@@ -1,0 +1,27 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta
+      name='viewport'
+      content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'
+    />
+    <meta http-equiv='X-UA-Compatible' content='ie=edge' />
+    <title>Email xác thực</title>
+  </head>
+  <body>
+
+    <p>Xin chào <span>{{email}}</span></p>
+
+    <p>Cảm ơn bạn đã đăng ký tài khoản trên
+      <span>{{appName}}</span>. Để có được trải nghiệm dịch vụ và được hỗ trợ
+      tốt nhất, bạn cần hoàn thiện xác thực tài khoản.</p>
+    {{!-- <span>Vui lòng click vào
+      <a href='{{url}}'>xác thực</a>
+      để hoàn tất quá trình này
+    </span> --}}
+    <span>Đây là mã OTP của bạn:<br /> {{otp}}</span>
+    <br />
+    <p>Trân trọng,</p>
+    <p>{{appName}}</p>
+  </body>
+</html>
