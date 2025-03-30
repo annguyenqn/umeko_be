@@ -4,7 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
 import { User } from '../entities/user.entity';
-import { MailService } from '../../mail/services/mail.service';
+import { MailService } from '../mail/services/mail.service';
 import * as bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
 import * as nodemailer from 'nodemailer';
