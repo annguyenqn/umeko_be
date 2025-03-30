@@ -1,21 +1,35 @@
 import { DataSource } from 'typeorm';
 import { databaseConfig } from '../../libs/config/database.config';
 import * as dotenv from 'dotenv';
+
+// ✅ Import các entity rõ ràng
+import { Category } from './entities/Category.entity';
+import { Lesson } from './entities/Lesson.entity';
+import { Vocabulary } from './entities/Vocabulary.entity';
+import { VocabExample } from './entities/VocabExample.entity';
+import { Kanji } from './entities/Kanji.entity';
+import { KanjiExample } from './entities/KanjiExample.entity';
 dotenv.config();
 
 const vocabDB = databaseConfig().vocab;
 
-const AppDataSource = new DataSource({
+const AppDataSource =  new DataSource({
   type: 'postgres',
   host: vocabDB.host,
   port: vocabDB.port,
   username: vocabDB.username,
   password: vocabDB.password,
   database: vocabDB.database,
-  entities: ['dist/apps/vocab-service/entities/*.entity.js'],
-  migrations: ['dist/apps/vocab-service/migrations/*.js'],
   synchronize: false,
   logging: vocabDB.logging,
+  entities: [
+    Category,
+    Lesson,
+    Vocabulary,
+    VocabExample,
+    Kanji,
+    KanjiExample,
+  ],
 });
 
 export default AppDataSource;

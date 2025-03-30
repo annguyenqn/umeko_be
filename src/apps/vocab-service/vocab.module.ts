@@ -1,31 +1,34 @@
-// src/apps/vocab-service/vocab.module.ts
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { VocabService } from './services/vocab.service';
-import { VocabController } from './controllers/vocab.controller';
-import { VocabExample } from './entities/vocabExample.entity';
+import { VocabularyController } from './controllers/vocab.controller';
+import { VocabExample } from './entities/VocabExample.entity';
 import { Vocabulary } from './entities/Vocabulary.entity';
+import { Kanji } from './entities/Kanji.entity';
 import { Lesson } from './entities/Lesson.entity';
 import { KanjiExample } from './entities/KanjiExample.entity';
-import { Kanji } from './entities/Kanji.entity';
 import { Category } from './entities/Category.entity';
+import { databaseConfig } from '@src/libs/config/database.config';
+
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Vocabulary, VocabExample, Lesson, KanjiExample, Kanji, Category]),
-    TypeOrmModule.forRootAsync({
-      useFactory: () => ({
-        type: 'postgres',
-        host: 'localhost',
-        port: 5432,
-        username: 'youruser',
-        password: 'yourpass',
-        database: 'yourdb',
-        entities: [__dirname + '/**/*.entity.{ts,js}'],
-        synchronize: true,
-      }),
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [databaseConfig],
     }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: (configService: ConfigService) => ({
+        ...configService.get('database.vocab'),
+        entities: [VocabExample, Vocabulary, Kanji, Lesson, KanjiExample, Category],
+      }),
+      inject: [ConfigService],
+    }),
+    TypeOrmModule.forFeature([VocabExample, Vocabulary, Kanji, Lesson, KanjiExample, Category]),
   ],
-  controllers: [VocabController],
+  controllers: [VocabularyController],
   providers: [VocabService],
+  exports: [VocabService],
 })
 export class VocabModule {}

@@ -1,5 +1,4 @@
 import dataSourceSeed from '../dataSourceSeed';
-
 import { Lesson } from '../entities/Lesson.entity';
 import { Category } from '../entities/Category.entity';
 
@@ -9,13 +8,17 @@ async function seedLessons() {
   const categoryRepo = dataSourceSeed.getRepository(Category);
   const lessonRepo = dataSourceSeed.getRepository(Lesson);
 
+  // Tìm category N5 và N4
   const n5 = await categoryRepo.findOne({ where: { name: 'N5' } });
-  if (!n5) {
-    console.error('❌ Category N5 not found. Please seed categories first.');
+  const n4 = await categoryRepo.findOne({ where: { name: 'N4' } });
+  if (!n5 || !n4) {
+    console.error('❌ Category N5 or N4 not found. Please seed categories first.');
     process.exit(1);
   }
 
+  // Mảng mô tả cho N5 (bài 1-25) và N4 (bài 26-47)
   const descriptions = [
+    // N5: Bài 1-25
     ['Giới thiệu bản thân và chào hỏi cơ bản.', 'Self-introduction and basic greetings.'],
     ['Hỏi và trả lời về đồ vật xung quanh.', 'Asking and answering about surrounding objects.'],
     ['Hỏi về địa điểm và nơi chốn.', 'Talking about locations and places.'],
@@ -41,9 +44,33 @@ async function seedLessons() {
     ['Hỏi và đưa ra lời khuyên.', 'Asking and giving advice.'],
     ['Diễn đạt dự định và kế hoạch tương lai.', 'Talking about plans and intentions.'],
     ['Tổng kết và ôn tập kiến thức đã học.', 'Review and summarize learned content.'],
+    // N4: Bài 26-47
+    ['Sử dụng thể bị động để mô tả sự việc.', 'Using passive form to describe events.'],
+    ['Nói về nguyên nhân và lý do.', 'Talking about causes and reasons.'],
+    ['Diễn đạt sự thay đổi trạng thái bằng thể quá khứ.', 'Describing state changes with past tense.'],
+    ['Hỏi và trả lời về kinh nghiệm cá nhân.', 'Asking and answering about personal experiences.'],
+    ['Sử dụng câu điều kiện để diễn đạt giả định.', 'Using conditional sentences for assumptions.'],
+    ['Mô tả hành động xảy ra đồng thời.', 'Describing simultaneous actions.'],
+    ['Nói về sự thay đổi trong cuộc sống.', 'Talking about life changes.'],
+    ['Diễn đạt ý định và kế hoạch cụ thể.', 'Expressing specific intentions and plans.'],
+    ['Sử dụng thể sai khiến để yêu cầu.', 'Using causative form for requests.'],
+    ['Mô tả hành động bắt buộc hoặc tự nguyện.', 'Describing obligatory or voluntary actions.'],
+    ['Nói về thói quen và tần suất.', 'Talking about habits and frequency.'],
+    ['Diễn đạt sự so sánh giữa các sự vật.', 'Comparing objects and things.'],
+    ['Hỏi và trả lời về cảm xúc chi tiết.', 'Detailed questions and answers about emotions.'],
+    ['Sử dụng câu ghép để nối ý.', 'Using compound sentences to connect ideas.'],
+    ['Nói về dự định tương lai với mức độ chắc chắn.', 'Talking about future plans with certainty.'],
+    ['Mô tả sự kiện và lễ hội truyền thống.', 'Describing traditional events and festivals.'],
+    ['Diễn đạt lời mời và đề nghị lịch sự.', 'Expressing polite invitations and suggestions.'],
+    ['Nói về kinh nghiệm làm việc và nghề nghiệp.', 'Talking about work and career experiences.'],
+    ['Sử dụng thể bị động trong ngữ cảnh xã hội.', 'Using passive form in social contexts.'],
+    ['Mô tả hành động đã hoàn thành và kết quả.', 'Describing completed actions and results.'],
+    ['Diễn đạt sự tôn trọng và kính ngữ cơ bản.', 'Expressing respect and basic honorifics.'],
+    ['Tổng kết và ôn tập kiến thức N4.', 'Review and summarize N4 content.'],
   ];
 
-  for (let i = 0; i < descriptions.length; i++) {
+  // Seed N5 (bài 1-25)
+  for (let i = 0; i < 25; i++) {
     const lesson_number = i + 1;
     const [description_vi, description_en] = descriptions[i];
 
@@ -63,7 +90,28 @@ async function seedLessons() {
     }
   }
 
-  console.log('✅ Seeded lessons!');
+  // Seed N4 (bài 26-47)
+  for (let i = 25; i < 47; i++) {
+    const lesson_number = i + 1; // Bắt đầu từ 26 đến 47
+    const [description_vi, description_en] = descriptions[i];
+
+    const exists = await lessonRepo.findOne({
+      where: { lesson_number, level: 'N4' },
+    });
+
+    if (!exists) {
+      const lesson = lessonRepo.create({
+        lesson_number,
+        level: 'N4',
+        description_vi,
+        description_en,
+        category: n4,
+      });
+      await lessonRepo.save(lesson);
+    }
+  }
+
+  console.log('✅ Seeded lessons for N5 and N4!');
   process.exit(0);
 }
 

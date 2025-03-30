@@ -49,7 +49,7 @@ async function bootstrap() {
     .addTag('Authentication')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('api/user', app, document);
 
   const port = process.env.APP_PORT || 3000;
   await app.listen(port);

@@ -1,17 +1,24 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { VocabService } from '../services/vocab.service';
+import { Vocabulary } from '../entities/Vocabulary.entity';
+import { Category } from '../entities/Category.entity';
+import { Lesson } from '../entities/Lesson.entity';
+@Controller('vocabularies')
+export class VocabularyController {
+  constructor(private readonly vocabularyService: VocabService) {}
 
-@Controller('vocab')
-export class VocabController {
-  constructor(private readonly vocabService: VocabService) {}
-
-  @Get()
-  findAll() {
-    return this.vocabService.findAll();
+  @Get('lesson/:lessonNumber')
+  async getVocabByLesson(@Param('lessonNumber') lessonNumber: number): Promise<Vocabulary[]> {
+    return this.vocabularyService.getVocabByLesson(Number(lessonNumber));
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.vocabService.findOne(id);
+  @Get('categories')
+  async getAllCategories(): Promise<Category[]> {
+    return this.vocabularyService.getAllCategories();
+  }
+
+  @Get('category/:categoryId/lessons')
+  async getLessonsByCategory(@Param('categoryId') categoryId: string): Promise<Lesson[]> {
+    return this.vocabularyService.getLessonsByCategory(categoryId);
   }
 }
