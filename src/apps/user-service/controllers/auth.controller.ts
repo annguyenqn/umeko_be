@@ -9,6 +9,7 @@ import {
   Get,
 } from '@nestjs/common';
 import { AuthService } from '../services/auth.service';
+import { MailerService } from '@nestjs-modules/mailer';
 import { JwtAuthGuard } from '../guards/jwt-auth.guard';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import {
@@ -25,7 +26,10 @@ import { ApiBearerAuth } from '@nestjs/swagger';
 @Controller('auth')
 @ApiBearerAuth()
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService,
+    private mailerService: MailerService
+
+  ) {}
 
   @Public()
   @Post('signup')
