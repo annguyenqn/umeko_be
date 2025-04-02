@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { BadRequestException, Controller, Get, Param, Query } from '@nestjs/common';
 import { VocabService } from '../services/vocab.service';
 import { Vocabulary } from '../entities/Vocabulary.entity';
 import { Category } from '../entities/Category.entity';
@@ -8,8 +8,15 @@ export class VocabularyController {
   constructor(private readonly vocabularyService: VocabService) {}
 
   @Get('lesson/:lessonNumber')
-  async getVocabByLesson(@Param('lessonNumber') lessonNumber: number): Promise<Vocabulary[]> {
-    return this.vocabularyService.getVocabByLesson(Number(lessonNumber));
+  async getVocabByLesson(
+    @Param('lessonNumber') lessonNumber: number,
+    @Query('categoryId') categoryId: string
+  ): Promise<Vocabulary[]> {
+    if (!categoryId) {
+      throw new BadRequestException('Category ID is required');
+    }
+
+    return this.vocabularyService.getVocabByLesson(Number(lessonNumber), categoryId);
   }
 
   @Get('categories')

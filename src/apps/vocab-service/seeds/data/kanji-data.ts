@@ -27327,5 +27327,5897 @@ export const kanjiSeedData: KanjiSeedData[] = [
         "radicals": "",
         "meaning_en": "Gather, gather"
     },
+    
+  {
+    "kanji": "輩",
+    "han_viet": "BỐI",
+    "meaning_vi": "Bạn (học, làm)",
+    "on_reading": [
+      "ハイ"
+    ],
+    "kun_reading": [
+      "ばら",
+      "やから",
+      "やかい",
+      "ともがら"
+    ],
+    "level": "N1",
+    "strokes": 15,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "私は年輩の人を敬う。",
+        "furigana": "私は年輩の人を敬う。",
+        "meaning_vi": "Tôi tôn trọng những người cao tuổi.",
+        "meaning_en": "I respect the elderly."
+      },
+      {
+        "example_text": "トムは高校の後輩です。",
+        "furigana": "トムは高校の後輩です。",
+        "meaning_vi": "Tom là hậu bối ở trường trung học phổ thông của tôi.",
+        "meaning_en": "Tom is a junior at my high school."
+      }
+    ],
+    "meaning_en": "You (study, do)"
+  },
+  {
+    "kanji": "進",
+    "han_viet": "TIẾN",
+    "meaning_vi": "Tiến tới, tiến triển",
+    "on_reading": [
+      "シン"
+    ],
+    "kun_reading": [
+      "すす-む",
+      "すす-める"
+    ],
+    "level": "N3",
+    "strokes": 11,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "光は秒速１８６、０００マイルで進む。",
+        "furigana": "光は秒速１８６、０００マイルで進む。",
+        "meaning_vi": "Ánh sáng truyền đi với tốc độ 186.000 dặm mỗi giây.",
+        "meaning_en": "The light transmits at 186,000 miles per second."
+      },
+      {
+        "example_text": "光は音よりも速く進む。",
+        "furigana": "光は音よりも速く進む。",
+        "meaning_vi": "Ánh sáng đi nhanh hơn cả âm thanh.",
+        "meaning_en": "The light goes faster than the sound."
+      }
+    ],
+    "meaning_en": "Progress, progress"
+  },
+  {
+    "kanji": "就",
+    "han_viet": "TỰU",
+    "meaning_vi": "Sắp đặt, bố trí, đảm nhiệm",
+    "on_reading": [
+      "シュウ",
+      "ジュ"
+    ],
+    "kun_reading": [
+      "つ-く",
+      "つ-ける"
+    ],
+    "level": "N1",
+    "strokes": 12,
+    "radicals": "",
+    "examples": [],
+    "meaning_en": "Arrangement, arrangement, responsibility"
+  },
+  {
+    "kanji": "職",
+    "han_viet": "CHỨC",
+    "meaning_vi": "Việc làm, công việc",
+    "on_reading": [
+      "ショク",
+      "ソク"
+    ],
+    "kun_reading": [],
+    "level": "N3",
+    "strokes": 18,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "転職をした。",
+        "furigana": "転職をした。",
+        "meaning_vi": "Tôi đã chuyển việc.",
+        "meaning_en": "I moved my job."
+      },
+      {
+        "example_text": "教職は私が自分で選んだ職業です。",
+        "furigana": "教職は私が自分で選んだ職業です。",
+        "meaning_vi": "Nghề sư phạm là nghề nghiệp mà tự tôi lựa chọn.",
+        "meaning_en": "Pedagogy is a career that I choose."
+      }
+    ],
+    "meaning_en": "Jobs, jobs"
+  },
+  {
+    "kanji": "光",
+    "han_viet": "QUANG",
+    "meaning_vi": "Ánh sáng",
+    "on_reading": [
+      "コウ"
+    ],
+    "kun_reading": [
+      "ひか-る",
+      "ひかり"
+    ],
+    "level": "N3",
+    "strokes": 6,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "身に余る栄光。",
+        "furigana": "身に余る栄光。",
+        "meaning_vi": "Bản thân tôi không xứng đáng với vinh quang đó.",
+        "meaning_en": "I myself do not deserve that glory."
+      },
+      {
+        "example_text": "稲妻が光った。",
+        "furigana": "稲妻が光った。",
+        "meaning_vi": "Tia sét đã lóe lên.",
+        "meaning_en": "Lightning has flashed."
+      }
+    ],
+    "meaning_en": "Light"
+  },
+  {
+    "kanji": "省",
+    "han_viet": "TỈNH",
+    "meaning_vi": "Xem xét, tỉnh (đơn vị hành chính)",
+    "on_reading": [
+      "セイ",
+      "ショウ"
+    ],
+    "kun_reading": [
+      "かえり-みる",
+      "はぶ-く"
+    ],
+    "level": "N2",
+    "strokes": 9,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "彼は休暇で帰省中です。",
+        "furigana": "彼は休暇で帰省中です。",
+        "meaning_vi": "Anh ấy đang về quê vì có kỳ nghỉ.",
+        "meaning_en": "He is going back to his hometown because he has a holiday."
+      },
+      {
+        "example_text": "「ごめん、反省してる」「反省だけなら猿でもできるよ」",
+        "furigana": "「ごめん、反省してる」「反省だけなら猿でもできるよ」",
+        "meaning_vi": "\"Xin lỗi, tôi đang kiểm điểm lại\" \"Nếu chỉ kiểm điểm thì cho dù là con khỉ cũng làm được\".",
+        "meaning_en": "\"Sorry, I am reviewing\" \"If only to review, even if the monkey can do it.\""
+      }
+    ],
+    "meaning_en": "Consider, province (administrative unit)"
+  },
+  {
+    "kanji": "参",
+    "han_viet": "THAM",
+    "meaning_vi": "Đi, tham gia",
+    "on_reading": [
+      "サン",
+      "シン"
+    ],
+    "kun_reading": [
+      "まい-る"
+    ],
+    "level": "N3",
+    "strokes": 8,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "前記参照。",
+        "furigana": "前記参照。",
+        "meaning_vi": "Các tài liệu tham khảo.",
+        "meaning_en": "References."
+      },
+      {
+        "example_text": "人参は目によい。",
+        "furigana": "人参は目によい。",
+        "meaning_vi": "Cà rốt tốt cho mắt.",
+        "meaning_en": "Carrots are good for the eyes."
+      }
+    ],
+    "meaning_en": "Go, join"
+  },
+  {
+    "kanji": "加",
+    "han_viet": "GIA",
+    "meaning_vi": "Thêm vào, tăng thêm",
+    "on_reading": [
+      "カ"
+    ],
+    "kun_reading": [
+      "くわ-える",
+      "くわ-わる"
+    ],
+    "level": "N3",
+    "strokes": 5,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "いい加減にしろ。",
+        "furigana": "いい加減にしろ。",
+        "meaning_vi": "Hãy nghiêm túc 1 chút đi.",
+        "meaning_en": "Be a little serious."
+      },
+      {
+        "example_text": "人口は増加しつつある。",
+        "furigana": "人口は増加しつつある。",
+        "meaning_vi": "Dân số đang ngày càng gia tăng.",
+        "meaning_en": "The population is increasing."
+      }
+    ],
+    "meaning_en": "Add, increase"
+  },
+  {
+    "kanji": "欠",
+    "han_viet": "KHIẾM",
+    "meaning_vi": "Khiếm khuyết, thiếu vắng",
+    "on_reading": [
+      "ケツ",
+      "ケン"
+    ],
+    "kun_reading": [
+      "か-ける",
+      "か-く"
+    ],
+    "level": "N3",
+    "strokes": 4,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "会を欠席した。",
+        "furigana": "会を欠席した。",
+        "meaning_vi": "Tôi đã vắng mặt trong cuộc họp.",
+        "meaning_en": "I was absent from the meeting."
+      },
+      {
+        "example_text": "会議を欠席した。",
+        "furigana": "会議を欠席した。",
+        "meaning_vi": "Tôi đã vắng mặt trong cuộc họp.",
+        "meaning_en": "I was absent from the meeting."
+      }
+    ],
+    "meaning_en": "Defect, lack"
+  },
+  {
+    "kanji": "美",
+    "han_viet": "MĨ",
+    "meaning_vi": "Đẹp, yêu kiều",
+    "on_reading": [
+      "ビ",
+      "ミ"
+    ],
+    "kun_reading": [
+      "うつく-しい"
+    ],
+    "level": "N3",
+    "strokes": 9,
+    "radicals": "",
+    "examples": [],
+    "meaning_en": "Beautiful, lovely"
+  },
+  {
+    "kanji": "蔵",
+    "han_viet": "TÀNG",
+    "meaning_vi": "Nhà kho, nơi cất giữ",
+    "on_reading": [
+      "ゾウ",
+      "ソウ"
+    ],
+    "kun_reading": [
+      "くら",
+      "おさ-める",
+      "かく-れる"
+    ],
+    "level": "N2",
+    "strokes": 15,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "樽はワインやウイスキーを発酵させ熟成させる目的で、液体を貯蔵するために用いられる。",
+        "furigana": "樽はワインやウイスキーを発酵させ熟成させる目的で、液体を貯蔵するために用いられる。",
+        "meaning_vi": "Thùng gỗ được sử dụng để đựng chất lỏng với mục đích lên men và ủ thành rượu hay whisky.",
+        "meaning_en": "Wooden barrels are used for liquids for fermentation purposes and brewed into alcohol or whiskey."
+      }
+    ],
+    "meaning_en": "Warehouse, storage"
+  },
+  {
+    "kanji": "透",
+    "han_viet": "THẤU",
+    "meaning_vi": "Xuyên qua",
+    "on_reading": [
+      "トウ"
+    ],
+    "kun_reading": [
+      "す-く",
+      "す-かす",
+      "す-ける",
+      "とう-る",
+      "とう-す"
+    ],
+    "level": "N1",
+    "strokes": 10,
+    "radicals": "",
+    "examples": [],
+    "meaning_en": "Through"
+  },
+  {
+    "kanji": "冗",
+    "han_viet": "NHŨNG",
+    "meaning_vi": "Vô tích sự, phiền nhiễu, chuyện phiếm",
+    "on_reading": [
+      "ジョウ"
+    ],
+    "kun_reading": [],
+    "level": "N1",
+    "strokes": 4,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "御冗談でしょう。",
+        "furigana": "御冗談でしょう。",
+        "meaning_vi": "Bạn đùa à?",
+        "meaning_en": "Are you kidding?"
+      },
+      {
+        "example_text": "冗談ですよ。",
+        "furigana": "冗談ですよ。",
+        "meaning_vi": "Chỉ là chuyện đùa thôi mà.",
+        "meaning_en": "It's just a joke."
+      }
+    ],
+    "meaning_en": "Invisible, troublesome, gossip"
+  },
+  {
+    "kanji": "談",
+    "han_viet": "ĐÀM",
+    "meaning_vi": "Bàn bạc, thảo luận",
+    "on_reading": [
+      "ダン"
+    ],
+    "kun_reading": [],
+    "level": "N3",
+    "strokes": 15,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "冗談だろ？",
+        "furigana": "冗談だろ？",
+        "meaning_vi": "Cậu đang đùa đấy à?",
+        "meaning_en": "Are you kidding?"
+      },
+      {
+        "example_text": "冗談ですよ。",
+        "furigana": "冗談ですよ。",
+        "meaning_vi": "Chỉ là chuyện đùa thôi mà.",
+        "meaning_en": "It's just a joke."
+      }
+    ],
+    "meaning_en": "Discussion, discussion"
+  },
+  {
+    "kanji": "遠",
+    "han_viet": "VIỄN",
+    "meaning_vi": "Xa xôi",
+    "on_reading": [
+      "エン",
+      "オン"
+    ],
+    "kun_reading": [
+      "とお-い"
+    ],
+    "level": "N3",
+    "strokes": 13,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "親類も足が遠のきはじめた。",
+        "furigana": "",
+        "meaning_vi": "Những người thân cũng đã bắt đầu rời xa anh ấy.",
+        "meaning_en": "The relatives also began to leave him."
+      },
+      {
+        "example_text": "遠くの物が望遠鏡で見える。",
+        "furigana": "遠くの物が望遠鏡で見える。",
+        "meaning_vi": "Chúng tôi có thể nhìn được một vật từ xa nhờ kính thiên văn.",
+        "meaning_en": "We can see an object from afar thanks to telescopes."
+      }
+    ],
+    "meaning_en": "Distant"
+  },
+  {
+    "kanji": "不",
+    "han_viet": "BẤT, PHI",
+    "meaning_vi": "Chẳng, không thể",
+    "on_reading": [
+      "フ",
+      "ブ"
+    ],
+    "kun_reading": [],
+    "level": "N4",
+    "strokes": 4,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "彼は不慮の死を遂げた。",
+        "furigana": "彼は不慮の死を遂げた。",
+        "meaning_vi": "Ông ấy đột ngột qua đời.",
+        "meaning_en": "He suddenly died."
+      },
+      {
+        "example_text": "私達は彼の不健康を考慮しなければならない。",
+        "furigana": "私達は彼の不健康を考慮しなければならない。",
+        "meaning_vi": "Chúng ta phải xem xét tình trạng sức khỏe kém của anh ta.",
+        "meaning_en": "We must consider his poor health status."
+      }
+    ],
+    "meaning_en": "No, impossible"
+  },
+  {
+    "kanji": "我",
+    "han_viet": "NGÃ",
+    "meaning_vi": "Ta (tiếng tự xưng mình)",
+    "on_reading": [
+      "ガ"
+    ],
+    "kun_reading": [
+      "われ",
+      "わ"
+    ],
+    "level": "N1",
+    "strokes": 7,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "我思う、故に我あり。",
+        "furigana": "我思う、故に我あり。",
+        "meaning_vi": "Tôi suy nghĩ,do đó tôi tồn tại.",
+        "meaning_en": "I thought, so I existed."
+      },
+      {
+        "example_text": "我々は我々の計画に固執するべきだ。",
+        "furigana": "我々は我々の計画に固執するべきだ。",
+        "meaning_vi": "Chúng ta nên kiên nhẫn làm theo kế hoạch của mình.",
+        "meaning_en": "We should patiently follow our plans."
+      }
+    ],
+    "meaning_en": "Ta (self -proclaimed)"
+  },
+  {
+    "kanji": "慢",
+    "han_viet": "MẠN",
+    "meaning_vi": "Chế giễu, lười biếng",
+    "on_reading": [
+      "マン"
+    ],
+    "kun_reading": [],
+    "level": "N4",
+    "strokes": 14,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "私は彼の傲慢な態度が我慢できない。",
+        "furigana": "",
+        "meaning_vi": "Tôi không thể chịu đựng được thái độ láo xược của anh ta.",
+        "meaning_en": "I could not stand his insolent attitude."
+      },
+      {
+        "example_text": "彼はとても頭がいいが傲慢ではない。",
+        "furigana": "",
+        "meaning_vi": "Anh ấy thông minh nhưng lại không hề kiêu căng.",
+        "meaning_en": "He is smart but not arrogant."
+      }
+    ],
+    "meaning_en": "Mocking, lazy"
+  },
+  {
+    "kanji": "迷",
+    "han_viet": "MÊ",
+    "meaning_vi": "Lạc đường, mất phương hướng",
+    "on_reading": [
+      "メイ",
+      "マイ"
+    ],
+    "kun_reading": [
+      "まよ-う"
+    ],
+    "level": "N3",
+    "strokes": 9,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "迷惑をおかけして申し訳ありません。",
+        "furigana": "",
+        "meaning_vi": "Tôi rất xin lỗi vì đã làm phiền.",
+        "meaning_en": "I am very sorry for bothering."
+      },
+      {
+        "example_text": "僕は彼に迷惑をかけてしまった。",
+        "furigana": "",
+        "meaning_vi": "Tôi đã gây phiền hà cho anh ấy mất rồi.",
+        "meaning_en": "I have caused him to be troublesome."
+      }
+    ],
+    "meaning_en": "Lost, disoriented"
+  },
+  {
+    "kanji": "迷",
+    "han_viet": "MÊ",
+    "meaning_vi": "Lạc đường, mất phương hướng",
+    "on_reading": [
+      "メイ",
+      "マイ"
+    ],
+    "kun_reading": [
+      "まよ-う"
+    ],
+    "level": "N3",
+    "strokes": 9,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "迷惑をおかけして申し訳ありません。",
+        "furigana": "",
+        "meaning_vi": "Tôi rất xin lỗi vì đã làm phiền.",
+        "meaning_en": "I am very sorry for bothering."
+      },
+      {
+        "example_text": "僕は彼に迷惑をかけてしまった。",
+        "furigana": "",
+        "meaning_vi": "Tôi đã gây phiền hà cho anh ấy mất rồi.",
+        "meaning_en": "I have caused him to be troublesome."
+      }
+    ],
+    "meaning_en": "Lost, disoriented"
+  },
+  {
+    "kanji": "想",
+    "han_viet": "TƯỞNG",
+    "meaning_vi": "Tưởng tượng, ý niệm",
+    "on_reading": [
+      "ソウ",
+      "ソ"
+    ],
+    "kun_reading": [
+      "おも-う"
+    ],
+    "level": "N3",
+    "strokes": 13,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "想定の範囲外だ。",
+        "furigana": "想定の範囲外だ。",
+        "meaning_vi": "Nó nằm ngoài phạm vi của giả thiết.",
+        "meaning_en": "It is beyond the scope of the assumption."
+      },
+      {
+        "example_text": "想像もできない。",
+        "furigana": "想像もできない。",
+        "meaning_vi": "Thật không thể tưởng tượng nổi.",
+        "meaning_en": "It is unimaginable."
+      }
+    ],
+    "meaning_en": "Imagine, ideas"
+  },
+  {
+    "kanji": "像",
+    "han_viet": "TƯỢNG",
+    "meaning_vi": "Hình tượng",
+    "on_reading": [
+      "ゾウ"
+    ],
+    "kun_reading": [],
+    "level": "N2",
+    "strokes": 14,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "想像もできない。",
+        "furigana": "想像もできない。",
+        "meaning_vi": "Thật không thể tưởng tượng nổi.",
+        "meaning_en": "It is unimaginable."
+      },
+      {
+        "example_text": "想像力を解き放て。",
+        "furigana": "想像力を解き放て。",
+        "meaning_vi": "Giải phóng năng lực tưởng tượng.",
+        "meaning_en": "Liberating imagination."
+      }
+    ],
+    "meaning_en": "Image"
+  },
+  {
+    "kanji": "努",
+    "han_viet": "NỖ",
+    "meaning_vi": "Cố gắng, nỗ lực",
+    "on_reading": [
+      "ド"
+    ],
+    "kun_reading": [
+      "つと-める"
+    ],
+    "level": "N3",
+    "strokes": 7,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "トマス君、努力してよ！",
+        "furigana": "トマス君、努力してよ！",
+        "meaning_vi": "Thomas cố lên.",
+        "meaning_en": "Thomas struggled."
+      },
+      {
+        "example_text": "説得に努めた。",
+        "furigana": "説得に努めた。",
+        "meaning_vi": "Chúng tôi đã cố gắng thuyết phục anh ta.",
+        "meaning_en": "We tried to convince him."
+      }
+    ],
+    "meaning_en": "Trying, effort"
+  },
+  {
+    "kanji": "乾",
+    "han_viet": "CÀN, CAN, KIỀN",
+    "meaning_vi": "Cạn, khô",
+    "on_reading": [
+      "カン"
+    ],
+    "kun_reading": [
+      "かわ-く",
+      "かわ-かす"
+    ],
+    "level": "N2",
+    "strokes": 11,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "当地は夏はひどく湿気が多いが、逆に冬は乾燥する。",
+        "furigana": "当地は夏はひどく湿気が多いが、逆に冬は乾燥する。",
+        "meaning_vi": "Ở đây cực kì ẩm thấp vào mùa hè, nhưng khô căn vào mùa đông",
+        "meaning_en": "Here is extremely humid in the summer, but dry in the winter"
+      }
+    ],
+    "meaning_en": "Dry, dry"
+  },
+  {
+    "kanji": "梅",
+    "han_viet": "MAI",
+    "meaning_vi": "Cây mơ Nhật",
+    "on_reading": [
+      "バイ"
+    ],
+    "kun_reading": [
+      "うめ"
+    ],
+    "level": "N1",
+    "strokes": 10,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "いい塩梅だ。",
+        "furigana": "いい塩梅だ。",
+        "meaning_vi": "Tình trạng tốt.",
+        "meaning_en": "Good condition."
+      },
+      {
+        "example_text": "梅雨が始まった。",
+        "furigana": "梅雨が始まった。",
+        "meaning_vi": "Mùa mưa đã bắt đầu.",
+        "meaning_en": "The rainy season has begun."
+      }
+    ],
+    "meaning_en": "Japanese apricot"
+  },
+  {
+    "kanji": "皮",
+    "han_viet": "BÌ",
+    "meaning_vi": "Da",
+    "on_reading": [
+      "ヒ"
+    ],
+    "kun_reading": [
+      "かわ"
+    ],
+    "level": "N2",
+    "strokes": 5,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "樹皮からエキスを抽出する。",
+        "furigana": "",
+        "meaning_vi": "Tinh dầu được chiết xuất từ vỏ cây.",
+        "meaning_en": "Essential oils are extracted from bark."
+      },
+      {
+        "example_text": "少年は木の皮をはいだ。",
+        "furigana": "",
+        "meaning_vi": "Cậu bé đã tước vỏ của cây.",
+        "meaning_en": "The boy stripped the tree's bark."
+      }
+    ],
+    "meaning_en": "Skin"
+  },
+  {
+    "kanji": "犯",
+    "han_viet": "PHẠM",
+    "meaning_vi": "Xâm phạm",
+    "on_reading": [
+      "ハン",
+      "ボン"
+    ],
+    "kun_reading": [
+      "おか-す"
+    ],
+    "level": "N3",
+    "strokes": 5,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "法を犯してはならない。",
+        "furigana": "法を犯してはならない。",
+        "meaning_vi": "Không được vi phạm pháp luật.",
+        "meaning_en": "Do not violate the law."
+      },
+      {
+        "example_text": "彼は実は犯罪者だった。",
+        "furigana": "彼は実は犯罪者だった。",
+        "meaning_vi": "Anh ấy thực sự là kẻ phạm tội.",
+        "meaning_en": "He is really an offender."
+      }
+    ],
+    "meaning_en": "Violate"
+  },
+  {
+    "kanji": "銭",
+    "han_viet": "TIỀN",
+    "meaning_vi": "Một phần trăm của một yên, một xu",
+    "on_reading": [
+      "セン",
+      "ゼン"
+    ],
+    "kun_reading": [
+      "ぜに",
+      "すき"
+    ],
+    "level": "N1",
+    "strokes": 13,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "小銭をお持ちですか。",
+        "furigana": "小銭をお持ちですか。",
+        "meaning_vi": "Bạn có tiền lẻ không?",
+        "meaning_en": "Do you have a change?"
+      },
+      {
+        "example_text": "安物買いの銭失い。",
+        "furigana": "安物買いの銭失い。",
+        "meaning_vi": "Của rẻ là của ôi.",
+        "meaning_en": "Cheap is mine."
+      }
+    ],
+    "meaning_en": "One percentage of a yen, a penny"
+  },
+  {
+    "kanji": "制",
+    "han_viet": "CHẾ",
+    "meaning_vi": "Phép tắc, quy định",
+    "on_reading": [
+      "セイ"
+    ],
+    "kun_reading": [],
+    "level": "N3",
+    "strokes": 8,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "柔よく剛を制す。",
+        "furigana": "柔よく剛を制す。",
+        "meaning_vi": "Lấy nhu chế cương.",
+        "meaning_en": "Take the supplies."
+      },
+      {
+        "example_text": "彼らは日給制だ。",
+        "furigana": "彼らは日給制だ。",
+        "meaning_vi": "Họ được trả tiền theo ngày.",
+        "meaning_en": "They are paid by day."
+      }
+    ],
+    "meaning_en": "Rules, regulations"
+  },
+  {
+    "kanji": "剤",
+    "han_viet": "TỄ",
+    "meaning_vi": "Viên thuốc, liều thuốc",
+    "on_reading": [
+      "ザイ",
+      "スイ",
+      "セイ"
+    ],
+    "kun_reading": [
+      "かる",
+      "けず-る"
+    ],
+    "level": "N1",
+    "strokes": 10,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "この錠剤は何ですか。",
+        "furigana": "この錠剤は何ですか。",
+        "meaning_vi": "Thuốc này là thuốc gì?",
+        "meaning_en": "What is this medicine?"
+      },
+      {
+        "example_text": "アスピリン、ペニシリン、サルファ剤にアレルギーです。",
+        "furigana": "アスピリン、ペニシリン、サルファ剤にアレルギーです。",
+        "meaning_vi": "Dị ứng với các loại thuốc Aspirin, Penicillin, Sulfa.",
+        "meaning_en": "Allergy to aspirin, penicillin, sulfa drugs."
+      }
+    ],
+    "meaning_en": "Drug tablets, medicine dose"
+  },
+  {
+    "kanji": "底",
+    "han_viet": "ĐỂ",
+    "meaning_vi": "Đáy, nền, sàn",
+    "on_reading": [
+      "テイ"
+    ],
+    "kun_reading": [
+      "そこ"
+    ],
+    "level": "N1",
+    "strokes": 8,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "大洋の底は今科学者によって調査されている。",
+        "furigana": "",
+        "meaning_vi": "Hiện nay đáy đại dương đang được nghiên cứu bởi các nhà khoa học.",
+        "meaning_en": "Currently the ocean bottom is being studied by scientists."
+      },
+      {
+        "example_text": "船は海底に沈んだ。",
+        "furigana": "",
+        "meaning_vi": "Con tàu đắm dưới đáy biển.",
+        "meaning_en": "The ship is immersed in the sea floor."
+      }
+    ],
+    "meaning_en": "Bottom, floor, floor"
+  },
+  {
+    "kanji": "路",
+    "han_viet": "LỘ",
+    "meaning_vi": "Đường cái, đường đi",
+    "on_reading": [
+      "ロ",
+      "ル"
+    ],
+    "kun_reading": [
+      "じ",
+      "みち"
+    ],
+    "level": "N3",
+    "strokes": 13,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "鉄道線路と道路は平行している。",
+        "furigana": "鉄道線路と道路は平行している。",
+        "meaning_vi": "Các tuyến đường sắt song song với đường.",
+        "meaning_en": "The railways are parallel to the road."
+      },
+      {
+        "example_text": "市の北のはずれは路地の迷路である。",
+        "furigana": "市の北のはずれは路地の迷路である。",
+        "meaning_vi": "Phía bắc của thành phố là mê cung của những con hẻm.",
+        "meaning_en": "The north of the city is the maze of the alleys."
+      }
+    ],
+    "meaning_en": "Road, road"
+  },
+  {
+    "kanji": "坂",
+    "han_viet": "PHẢN",
+    "meaning_vi": "Đường dốc, đồi",
+    "on_reading": [
+      "ハン"
+    ],
+    "kun_reading": [
+      "さか"
+    ],
+    "level": "N2",
+    "strokes": 7,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "私たちは険しい坂を登った。",
+        "furigana": "",
+        "meaning_vi": "Chúng tôi đã trèo lên con dốc hiểm trở.",
+        "meaning_en": "We climbed up the rugged slope."
+      },
+      {
+        "example_text": "我々は坂をスキーで滑り降りた。",
+        "furigana": "",
+        "meaning_vi": "Chúng tôi trượt tuyết xuống dốc.",
+        "meaning_en": "We ski downhill."
+      }
+    ],
+    "meaning_en": "Road, hill"
+  },
+  {
+    "kanji": "灰",
+    "han_viet": "HÔI",
+    "meaning_vi": "Tro tàn, hỏa táng",
+    "on_reading": [
+      "カイ"
+    ],
+    "kun_reading": [
+      "はい"
+    ],
+    "level": "N2",
+    "strokes": 6,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "Son Doong洞窟は石灰洞です。",
+        "furigana": "Son Doong洞窟は石灰洞です。",
+        "meaning_vi": "Hang Sơn Đoòng là hang đá vôi.",
+        "meaning_en": "Son Doong cave is limestone cave."
+      },
+      {
+        "example_text": "灰燼に帰する。",
+        "furigana": "灰燼に帰する。",
+        "meaning_vi": "Trở về với cát bụi.",
+        "meaning_en": "Return to dust."
+      }
+    ],
+    "meaning_en": "Ashes, cremation"
+  },
+  {
+    "kanji": "判",
+    "han_viet": "PHÁN",
+    "meaning_vi": "Phán quyết, dấu hiệu",
+    "on_reading": [
+      "ハン",
+      "バン"
+    ],
+    "kun_reading": [
+      "わか-る"
+    ],
+    "level": "N3",
+    "strokes": 7,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "審判の判定は絶対だ。",
+        "furigana": "審判の判定は絶対だ。",
+        "meaning_vi": "Quyết định của trọng tài là tuyệt đối.",
+        "meaning_en": "The referee's decision is absolute."
+      },
+      {
+        "example_text": "猫に小判。",
+        "furigana": "猫に小判。",
+        "meaning_vi": "Sách nằm trên kệ.",
+        "meaning_en": "The book is on the shelf."
+      }
+    ],
+    "meaning_en": "Ruling, signs"
+  },
+  {
+    "kanji": "刺",
+    "han_viet": "THÍCH",
+    "meaning_vi": "Danh thiếp, chích, đâm",
+    "on_reading": [
+      "シ"
+    ],
+    "kun_reading": [
+      "さ-す",
+      "さ-さる",
+      "さ-し",
+      "とげ"
+    ],
+    "level": "N2",
+    "strokes": 8,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "蚊が刺した。",
+        "furigana": "蚊が刺した。",
+        "meaning_vi": "Con muỗi đốt tôi.",
+        "meaning_en": "The mosquito bites me."
+      },
+      {
+        "example_text": "いま蚊に刺された。",
+        "furigana": "いま蚊に刺された。",
+        "meaning_vi": "Tôi vừa bị muỗi cắn.",
+        "meaning_en": "I have just been bitten by mosquitoes."
+      }
+    ],
+    "meaning_en": "Business card, stabbing, stabbing"
+  },
+  {
+    "kanji": "免",
+    "han_viet": "MIỄN, VẤN",
+    "meaning_vi": "Bỏ, miễn",
+    "on_reading": [
+      "メン"
+    ],
+    "kun_reading": [
+      "まぬか-れる",
+      "まぬが-れる"
+    ],
+    "level": "N1",
+    "strokes": 8,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "ご免なさい。",
+        "furigana": "ご免なさい。",
+        "meaning_vi": "Tôi xin lỗi.",
+        "meaning_en": "I'm sorry."
+      },
+      {
+        "example_text": "ご免ください。",
+        "furigana": "ご免ください。",
+        "meaning_vi": "Có ai ở nhà không?",
+        "meaning_en": "Is anyone at home?"
+      }
+    ],
+    "meaning_en": "Abandon"
+  },
+  {
+    "kanji": "種",
+    "han_viet": "CHỦNG, CHÚNG",
+    "meaning_vi": "Giống, loài",
+    "on_reading": [
+      "シュ"
+    ],
+    "kun_reading": [
+      "たね",
+      "-ぐさ"
+    ],
+    "level": "N3",
+    "strokes": 14,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "楽は苦の種苦は楽の種。",
+        "furigana": "楽は苦の種苦は楽の種。",
+        "meaning_vi": "Thuốc đắng dã tật.",
+        "meaning_en": "Bitter drugs."
+      },
+      {
+        "example_text": "ある種の鳥は飛べない。",
+        "furigana": "ある種の鳥は飛べない。",
+        "meaning_vi": "Một số loài chim không thể bay.",
+        "meaning_en": "Some birds cannot fly."
+      }
+    ],
+    "meaning_en": "Like, species"
+  },
+  {
+    "kanji": "渇",
+    "han_viet": "KHÁT",
+    "meaning_vi": "Sự khát nước",
+    "on_reading": [
+      "カツ"
+    ],
+    "kun_reading": [
+      "かわ-く"
+    ],
+    "level": "N1",
+    "strokes": 11,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "飢渇に苦しむ。",
+        "furigana": "飢渇に苦しむ。",
+        "meaning_vi": "Tôi khổ sở vì đói khát.",
+        "meaning_en": "I am miserable because of hunger."
+      },
+      {
+        "example_text": "喉が渇いた。",
+        "furigana": "喉が渇いた。",
+        "meaning_vi": "Tôi khát nước",
+        "meaning_en": "I was thirsty"
+      }
+    ],
+    "meaning_en": "Thirst"
+  },
+  {
+    "kanji": "嗅",
+    "han_viet": "KHỨU",
+    "meaning_vi": "Ngửi.",
+    "on_reading": [
+      "キュウ"
+    ],
+    "kun_reading": [
+      "か-ぐ"
+    ],
+    "level": "N1",
+    "strokes": 13,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "母は風邪をひいて、においが嗅げなかった。",
+        "furigana": "",
+        "meaning_vi": "Mẹ tôi bị cảm lạnh nên không ngửi thấy mùi.",
+        "meaning_en": "My mother had a cold so she did not smell."
+      }
+    ],
+    "meaning_en": "Smell."
+  },
+  {
+    "kanji": "叩",
+    "han_viet": "KHẤU",
+    "meaning_vi": "Gõ. Hỏi. Lạy rập đầu xuống đất.",
+    "on_reading": [
+      "コウ"
+    ],
+    "kun_reading": [
+      "たた-く",
+      "はた-く",
+      "すぎ"
+    ],
+    "level": "N1",
+    "strokes": 5,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "我が子を叩く親には本当に憤慨させられる。",
+        "furigana": "",
+        "meaning_vi": "Bố mẹ mà đánh con mình quả thật khiến tôi rất căm phẫn.",
+        "meaning_en": "My parents hit my children really making me very indignant."
+      },
+      {
+        "example_text": "人の陰口を叩くのは正しくない。",
+        "furigana": "人の陰口を叩くのは正しくない。",
+        "meaning_vi": "Việc chỉ trích sau lưng người khác là không đúng.",
+        "meaning_en": "The criticism behind others is not right."
+      }
+    ],
+    "meaning_en": "Type. Ask. Lord's head to the ground."
+  },
+  {
+    "kanji": "殴",
+    "han_viet": "ẨU",
+    "meaning_vi": "Đánh đập, công kích, tấn công",
+    "on_reading": [
+      "オウ"
+    ],
+    "kun_reading": [
+      "なぐ-る"
+    ],
+    "level": "N1",
+    "strokes": 8,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "彼は彼女を殴った。",
+        "furigana": "",
+        "meaning_vi": "Anh ta đánh cô ấy.",
+        "meaning_en": "He hit her."
+      },
+      {
+        "example_text": "彼女はハンマーで私の頭を殴った。",
+        "furigana": "",
+        "meaning_vi": "Cô ấy đã đánh vào đầu tôi bằng một cái búa.",
+        "meaning_en": "She hit my head with a hammer."
+      }
+    ],
+    "meaning_en": "Beat, attack, attack"
+  },
+  {
+    "kanji": "抱",
+    "han_viet": "BÃO",
+    "meaning_vi": "Ôm ấp, giữ trong tay",
+    "on_reading": [
+      "ホウ"
+    ],
+    "kun_reading": [
+      "だ-く",
+      "いだ-く",
+      "かか-える"
+    ],
+    "level": "N2",
+    "strokes": 8,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "子供を両手で抱く。",
+        "furigana": "",
+        "meaning_vi": "Ôm con bằng 2 tay.",
+        "meaning_en": "Hug me with 2 hands."
+      },
+      {
+        "example_text": "父は母のことを優しく抱きしめた。",
+        "furigana": "父は母のことを優しく抱きしめた。",
+        "meaning_vi": "Bố tôi ôm mẹ trìu mến.",
+        "meaning_en": "My father hugged his mother affectionately."
+      }
+    ],
+    "meaning_en": "Holding, holding in hand"
+  },
+  {
+    "kanji": "尋",
+    "han_viet": "TẦM",
+    "meaning_vi": "Tìm kiếm",
+    "on_reading": [
+      "ジン"
+    ],
+    "kun_reading": [
+      "たず-ねる",
+      "ひろ"
+    ],
+    "level": "N1",
+    "strokes": 12,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "検事は誘導尋問をした。",
+        "furigana": "検事は誘導尋問をした。",
+        "meaning_vi": "Công tố viên đã đặt ra những câu hỏi khôn ngoan.",
+        "meaning_en": "The prosecutor has raised wise questions."
+      },
+      {
+        "example_text": "ジェーンの死は尋常ではない。",
+        "furigana": "ジェーンの死は尋常ではない。",
+        "meaning_vi": "Cái chết của Jane không bình thường.",
+        "meaning_en": "Jane's death is not normal."
+      }
+    ],
+    "meaning_en": "Search"
+  },
+  {
+    "kanji": "叫",
+    "han_viet": "KHIẾU",
+    "meaning_vi": "Kêu, gọi, hét lên",
+    "on_reading": [
+      "キョウ"
+    ],
+    "kun_reading": [
+      "さけ-ぶ"
+    ],
+    "level": "N2",
+    "strokes": 6,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "彼は「あぶない」と叫んだ。",
+        "furigana": "",
+        "meaning_vi": "Ông hét lên\"nguy hiểm\".",
+        "meaning_en": "He shouted \"dangerous\"."
+      },
+      {
+        "example_text": "彼は驚いて叫んだ。",
+        "furigana": "",
+        "meaning_vi": "Anh ấy giật mình kêu lên.",
+        "meaning_en": "He startled."
+      }
+    ],
+    "meaning_en": "Calling, calling, screaming"
+  },
+  {
+    "kanji": "黙",
+    "han_viet": "MẶC",
+    "meaning_vi": "Im lặng, lặng yên",
+    "on_reading": [
+      "モク",
+      "ボク"
+    ],
+    "kun_reading": [
+      "だま-る",
+      "もだ-す"
+    ],
+    "level": "N1",
+    "strokes": 15,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "黙れ!",
+        "furigana": "黙れ!",
+        "meaning_vi": "Câm đi!",
+        "meaning_en": "Shut up!"
+      },
+      {
+        "example_text": "黙って聞け！",
+        "furigana": "黙って聞け！",
+        "meaning_vi": "Hãy trật tự để có thể nghe được!",
+        "meaning_en": "Order to be able to hear!"
+      }
+    ],
+    "meaning_en": "Silent, quiet"
+  },
+  {
+    "kanji": "畳",
+    "han_viet": "ĐIỆP",
+    "meaning_vi": "Chiếu, gấp (quần áo)",
+    "on_reading": [
+      "ジョウ",
+      "チョウ"
+    ],
+    "kun_reading": [
+      "たたみ",
+      "たた-む"
+    ],
+    "level": "N2",
+    "strokes": 12,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "畳に座っていたので足が痛い。",
+        "furigana": "",
+        "meaning_vi": "Ngồi lâu trên chiếu tatami nên tôi bị đau chân.",
+        "meaning_en": "Sitting for a long time on the tatami mat so I had my leg pain."
+      },
+      {
+        "example_text": "もう畳の上に座るのには慣れました。",
+        "furigana": "",
+        "meaning_vi": "Tôi đã quen với việc ngồi trên chiếu tatami.",
+        "meaning_en": "I was accustomed to sitting on the tatami mat."
+      }
+    ],
+    "meaning_en": "Mat, fold (clothes)"
+  },
+  {
+    "kanji": "捕",
+    "han_viet": "BỘ, BỔ",
+    "meaning_vi": "Nắm bắt, bắt giữ, bị bắt",
+    "on_reading": [
+      "ホ"
+    ],
+    "kun_reading": [
+      "とら-える",
+      "とら-われる",
+      "つか-まる",
+      "つか-まえる"
+    ],
+    "level": "N2",
+    "strokes": 10,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "私の犬はボールを 捕ることができる。",
+        "furigana": "",
+        "meaning_vi": "Con chó của tôi có thể bắt được bóng.",
+        "meaning_en": "My dog ​​can catch the ball."
+      },
+      {
+        "example_text": "おまえを捕縛する。",
+        "furigana": "おまえを捕縛する。",
+        "meaning_vi": "Tao sẽ bắt được mày!",
+        "meaning_en": "I will catch you!"
+      }
+    ],
+    "meaning_en": "Capture, arrest, arrested"
+  },
+  {
+    "kanji": "訪",
+    "han_viet": "PHỎNG, PHÓNG",
+    "meaning_vi": "Thăm hỏi, thăm viếng",
+    "on_reading": [
+      "ホウ"
+    ],
+    "kun_reading": [
+      "おとず-れる",
+      "たず-ねる",
+      "と-う"
+    ],
+    "level": "N3",
+    "strokes": 11,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "警察は家々を訪問した。",
+        "furigana": "警察は家々を訪問した。",
+        "meaning_vi": "Cảnh sát đã đến thăm hỏi từng nhà.",
+        "meaning_en": "Police visited each house."
+      },
+      {
+        "example_text": "訪問者は歓迎する。",
+        "furigana": "訪問者は歓迎する。",
+        "meaning_vi": "Chào mừng khách đến thăm quan.",
+        "meaning_en": "Welcome visitors."
+      }
+    ],
+    "meaning_en": "Visiting, visiting"
+  },
+  {
+    "kanji": "効",
+    "han_viet": "HIỆU",
+    "meaning_vi": "Công hiệu, hiệu quả",
+    "on_reading": [
+      "コウ"
+    ],
+    "kun_reading": [
+      "き-く",
+      "ききめ",
+      "なら-う"
+    ],
+    "level": "N2",
+    "strokes": 8,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "この薬は効能がある。",
+        "furigana": "この薬は効能がある。",
+        "meaning_vi": "Thuốc này có hiệu quả.",
+        "meaning_en": "This drug is effective."
+      },
+      {
+        "example_text": "この丸薬は心臓に効く。",
+        "furigana": "この丸薬は心臓に効く。",
+        "meaning_vi": "Loại thuốc này có tác dụng cho tim mạch .",
+        "meaning_en": "This drug works for the heart."
+      }
+    ],
+    "meaning_en": "Effective, effective"
+  },
+  {
+    "kanji": "鳴",
+    "han_viet": "MINH",
+    "meaning_vi": "Kêu, hót",
+    "on_reading": [
+      "メイ"
+    ],
+    "kun_reading": [
+      "な-く",
+      "な-る",
+      "な-らす"
+    ],
+    "level": "N3",
+    "strokes": 14,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "突然ベルが鳴った。",
+        "furigana": "",
+        "meaning_vi": "Đột nhiên chuông reo.",
+        "meaning_en": "Suddenly the bell rang."
+      },
+      {
+        "example_text": "雷が鳴ると、雨が降り始めた。",
+        "furigana": "",
+        "meaning_vi": "Khi tiếng sấm vang lên, trời bắt đầu mưa.",
+        "meaning_en": "When the thunder rang, it began to rain."
+      }
+    ],
+    "meaning_en": "Cheers"
+  },
+  {
+    "kanji": "喜",
+    "han_viet": "HỈ",
+    "meaning_vi": "Vui mừng, phấn khởi",
+    "on_reading": [
+      "キ"
+    ],
+    "kun_reading": [
+      "よろこ-ぶ",
+      "よろこ-ばす"
+    ],
+    "level": "N3",
+    "strokes": 12,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "お客さんの注意を喜んで聞く。",
+        "furigana": "",
+        "meaning_vi": "Vui vẻ tiếp thu ý kiến của khách hàng.",
+        "meaning_en": "Happy to absorb customer opinions."
+      },
+      {
+        "example_text": "彼女は喜んで私のために何でもしてくれます。",
+        "furigana": "",
+        "meaning_vi": "Cô ấy rất sẵn lòng làm mọi thứ cho tôi.",
+        "meaning_en": "She is very willing to do everything for me."
+      }
+    ],
+    "meaning_en": "Excited, excited"
+  },
+  {
+    "kanji": "驚",
+    "han_viet": "KINH",
+    "meaning_vi": "Ngạc nhiên, kinh ngạc",
+    "on_reading": [
+      "キョウ"
+    ],
+    "kun_reading": [
+      "おどろ-く",
+      "おどろ-かす"
+    ],
+    "level": "N1",
+    "strokes": 22,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "隣の部屋に彼女の声を聞いて驚いた。",
+        "furigana": "",
+        "meaning_vi": "Tôi đã rất ngạc nhiên khi nghe thấy giọng nói của cô ấy ở phòng bên cạnh.",
+        "meaning_en": "I was surprised to hear her voice in the next room."
+      },
+      {
+        "example_text": "彼の博識には驚く。",
+        "furigana": "",
+        "meaning_vi": "Tôi lấy làm ngạc nhiên vì kiến thức sâu rộng của anh ấy.",
+        "meaning_en": "I was surprised by his deep knowledge."
+      }
+    ],
+    "meaning_en": "Surprised, surprised"
+  },
+  {
+    "kanji": "怒",
+    "han_viet": "NỘ",
+    "meaning_vi": "Tức giận, giận dữ",
+    "on_reading": [
+      "ド",
+      "ヌ"
+    ],
+    "kun_reading": [
+      "おこ-る",
+      "いか-る"
+    ],
+    "level": "N2",
+    "strokes": 9,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "「なんで怒ってるの？」 「怒ってないってば」",
+        "furigana": "「なんで怒ってるの？」 「怒ってないってば」",
+        "meaning_vi": "\"Tại sao bạn giận dữ?\" \"Tôi không tức giận\".",
+        "meaning_en": "\"Why are you angry?\" \"I'm not angry\"."
+      },
+      {
+        "example_text": "ジェーンは怒っている。",
+        "furigana": "ジェーンは怒っている。",
+        "meaning_vi": "Jane đang tức giận.",
+        "meaning_en": "Jane is angry."
+      }
+    ],
+    "meaning_en": "Angry, angry"
+  },
+  {
+    "kanji": "得",
+    "han_viet": "ĐẮC",
+    "meaning_vi": "Được, trúng, có lợi",
+    "on_reading": [
+      "トク"
+    ],
+    "kun_reading": [
+      "え-る",
+      "う-る"
+    ],
+    "level": "N3",
+    "strokes": 11,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "株を買ったらすぐに値上がりして得をした。",
+        "furigana": "",
+        "meaning_vi": "Sau khi mua cổ phiếu giá đã tăng ngay, tôi đã được lời.",
+        "meaning_en": "After buying stocks increased immediately, I was profitable."
+      },
+      {
+        "example_text": "今お買い上げになると、２割引きで2000円のお得です。",
+        "furigana": "",
+        "meaning_vi": "Bây giờ nếu mua thêm, ta sẽ được lãi 2000 yên do giảm giá 20 phần trăm.",
+        "meaning_en": "Now if you buy more, we will get a profit of 2000 yen due to a 20 percent discount."
+      }
+    ],
+    "meaning_en": "Okay, hit, beneficial"
+  },
+  {
+    "kanji": "退",
+    "han_viet": "THỐI, THOÁI",
+    "meaning_vi": "Nhún nhường, rút lui",
+    "on_reading": [
+      "タイ"
+    ],
+    "kun_reading": [
+      "しりぞ-く",
+      "しりぞ-ける",
+      "ひ-く",
+      "の-く",
+      "の-ける",
+      "ど-く"
+    ],
+    "level": "N3",
+    "strokes": 9,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "退屈で死にそうだ。",
+        "furigana": "",
+        "meaning_vi": "Tôi dường như chết vì chán.",
+        "meaning_en": "I seemed to die from boredom."
+      },
+      {
+        "example_text": "話の退屈で彼らは一人また一人と立ち去って行った。",
+        "furigana": "",
+        "meaning_vi": "Vì câu chuyện quá nhàm chán nên họ từng người từng người một đứng dậy ra về.",
+        "meaning_en": "Because the story was so boring, each of them stood up and left."
+      }
+    ],
+    "meaning_en": "Humility, withdraw"
+  },
+  {
+    "kanji": "悔",
+    "han_viet": "HỐI",
+    "meaning_vi": "Hối hận, nuối tiếc",
+    "on_reading": [
+      "カイ"
+    ],
+    "kun_reading": [
+      "く-いる",
+      "く-やむ",
+      "くや-しい"
+    ],
+    "level": "N1",
+    "strokes": 9,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "よーし！覚えてろ。後で悔やむなよ。",
+        "furigana": "よーし！覚えてろ。後で悔やむなよ。",
+        "meaning_vi": "Tốt thôi! Hãy nhớ lấy. Sau này đừng có mà hối tiếc!",
+        "meaning_en": "Good! Remember to take. Later, don't regret it!"
+      },
+      {
+        "example_text": "後になって悔やむようなことはしてはいけません。",
+        "furigana": "後になって悔やむようなことはしてはいけません。",
+        "meaning_vi": "Không làm những việc để sau này phải hối tiếc.",
+        "meaning_en": "Do not do things to regret later."
+      }
+    ],
+    "meaning_en": "Regret, regret"
+  },
+  {
+    "kanji": "極",
+    "han_viet": "CỰC",
+    "meaning_vi": "Cực, tột độ",
+    "on_reading": [
+      "キョク",
+      "ゴク"
+    ],
+    "kun_reading": [
+      "きわ-める",
+      "きわ-まる",
+      "きわ-まり",
+      "きわ-み",
+      "き-める",
+      "き-まる"
+    ],
+    "level": "N2",
+    "strokes": 13,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "ヴィーナスは美の極致だ。",
+        "furigana": "ヴィーナスは美の極致だ。",
+        "meaning_vi": "Sao kim mang 1 vẻ đẹp hoàn hảo.",
+        "meaning_en": "Venus has a perfect beauty."
+      },
+      {
+        "example_text": "北極圏とは北極周辺の地域の事である。",
+        "furigana": "北極圏とは北極周辺の地域の事である。",
+        "meaning_vi": "Vùng Bắc Cực là khu vực xung quanh Cực Bắc  Trái Đất.",
+        "meaning_en": "The Arctic region is the area around the northern pole."
+      }
+    ],
+    "meaning_en": "Extreme, extreme"
+  },
+  {
+    "kanji": "満",
+    "han_viet": "MÃN",
+    "meaning_vi": "Thỏa mãn, mãn nguyện",
+    "on_reading": [
+      "マン",
+      "バン"
+    ],
+    "kun_reading": [
+      "み-ちる",
+      "み-つ",
+      "み-たす"
+    ],
+    "level": "N3",
+    "strokes": 12,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "満タンにしてください。",
+        "furigana": "",
+        "meaning_vi": "Hãy chọn phần đầy đủ thịt.",
+        "meaning_en": "Choose the full meat."
+      },
+      {
+        "example_text": "レギュラー満タンでお願いします。",
+        "furigana": "",
+        "meaning_vi": "Cho tôi phần thịt thông thường.",
+        "meaning_en": "Give me the usual meat."
+      }
+    ],
+    "meaning_en": "Satisfaction, contentment"
+  },
+  {
+    "kanji": "構",
+    "han_viet": "CẤU",
+    "meaning_vi": "Dựng nhà, gây nên, xây đắp, cấu tạo",
+    "on_reading": [
+      "コウ"
+    ],
+    "kun_reading": [
+      "かま-える",
+      "かま-う"
+    ],
+    "level": "N3",
+    "strokes": 11,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "6時に起きるのはかまわない。",
+        "furigana": "",
+        "meaning_vi": "Tôi không ngại phải thức dậy lúc 6 giờ.",
+        "meaning_en": "I am not afraid to wake up at 6 o'clock."
+      },
+      {
+        "example_text": "この子供達は親にかまってもらえない。",
+        "furigana": "",
+        "meaning_vi": "Những đứa trẻ này không  được bố mẹ quan tâm.",
+        "meaning_en": "These children are not interested by their parents."
+      }
+    ],
+    "meaning_en": "Building a house, causing, building, structure"
+  },
+  {
+    "kanji": "派",
+    "han_viet": "PHÁI",
+    "meaning_vi": "Nhóm, đảng phái, học phái",
+    "on_reading": [
+      "ハ"
+    ],
+    "kun_reading": [],
+    "level": "N1",
+    "strokes": 9,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "彼は 社長派だった。",
+        "furigana": "",
+        "meaning_vi": "Anh ta là một trong số những người thuộc phe của giám đốc.",
+        "meaning_en": "He is one of the director's side."
+      },
+      {
+        "example_text": "立派ですね。",
+        "furigana": "立派ですね。",
+        "meaning_vi": "Tuyệt vời nhỉ.",
+        "meaning_en": "Great."
+      }
+    ],
+    "meaning_en": "Group, party, school"
+  },
+  {
+    "kanji": "深",
+    "han_viet": "THÂM",
+    "meaning_vi": "Bề sâu, tăng cường",
+    "on_reading": [
+      "シン"
+    ],
+    "kun_reading": [
+      "ふか-い",
+      "ふか-まる",
+      "ふか-める"
+    ],
+    "level": "N3",
+    "strokes": 11,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "彼女は慈悲深い。",
+        "furigana": "彼女は慈悲深い。",
+        "meaning_vi": "Cô ấy có tấm lòng từ bi.",
+        "meaning_en": "She has a compassionate heart."
+      },
+      {
+        "example_text": "深呼吸をして。",
+        "furigana": "深呼吸をして。",
+        "meaning_vi": "Hãy hít một hơi thật sâu.",
+        "meaning_en": "Take a deep breath."
+      }
+    ],
+    "meaning_en": "Depth, strengthening"
+  },
+  {
+    "kanji": "協",
+    "han_viet": "HIỆP",
+    "meaning_vi": "Hợp tác, hợp sức, cộng tác",
+    "on_reading": [
+      "キョウ"
+    ],
+    "kun_reading": [],
+    "level": "N2",
+    "strokes": 8,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "協会は彼を会長にした。",
+        "furigana": "協会は彼を会長にした。",
+        "meaning_vi": "Hiệp hội đã chọn anh ấy làm chủ tịch.",
+        "meaning_en": "The Association chose him as president."
+      },
+      {
+        "example_text": "節水にご協力ください。",
+        "furigana": "節水にご協力ください。",
+        "meaning_vi": "Hãy chung tay tiết kiệm nước.",
+        "meaning_en": "Let's save water."
+      }
+    ],
+    "meaning_en": "Cooperation, strength, collaboration"
+  },
+  {
+    "kanji": "感",
+    "han_viet": "CẢM",
+    "meaning_vi": "Cảm xúc, cảm thấy",
+    "on_reading": [
+      "カン"
+    ],
+    "kun_reading": [],
+    "level": "N3",
+    "strokes": 13,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "同感です。",
+        "furigana": "同感です。",
+        "meaning_vi": "Tôi cũng suy nghĩ như bạn.",
+        "meaning_en": "I also think like you."
+      },
+      {
+        "example_text": "生を感じる。",
+        "furigana": "生を感じる。",
+        "meaning_vi": "Tôi cảm thấy sự sống.",
+        "meaning_en": "I feel life."
+      }
+    ],
+    "meaning_en": "Emotions, feel"
+  },
+  {
+    "kanji": "侘",
+    "han_viet": "SÁ",
+    "meaning_vi": "Sá sế [侘傺] bờ phờ, tả dáng người thất chí.",
+    "on_reading": [
+      "タ"
+    ],
+    "kun_reading": [
+      "わび-しい",
+      "ほこ-る",
+      "わ-びる"
+    ],
+    "level": "N1",
+    "strokes": 8,
+    "radicals": "",
+    "examples": [],
+    "meaning_en": "Si sá [侘傺] shore, describing the body."
+  },
+  {
+    "kanji": "握",
+    "han_viet": "ÁC",
+    "meaning_vi": "Cầm nắm; đút lót, hối lộ",
+    "on_reading": [
+      "アク"
+    ],
+    "kun_reading": [
+      "にぎ-る"
+    ],
+    "level": "N1",
+    "strokes": 12,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "彼は私と握手した。",
+        "furigana": "彼は私と握手した。",
+        "meaning_vi": "Anh ấy đã bắt tay với tôi.",
+        "meaning_en": "He shook hands with me."
+      },
+      {
+        "example_text": "テニスのラケットを固く握った。",
+        "furigana": "テニスのラケットを固く握った。",
+        "meaning_vi": "Tôi đã nắm chắc cây vợt tennis .",
+        "meaning_en": "I grasped the tennis racket."
+      }
+    ],
+    "meaning_en": "Hold; bribe, bribe"
+  },
+  {
+    "kanji": "節",
+    "han_viet": "TIẾT",
+    "meaning_vi": "Mùa, tiết trời",
+    "on_reading": [
+      "セツ",
+      "セチ"
+    ],
+    "kun_reading": [
+      "ふし",
+      "-ぶし",
+      "のっと"
+    ],
+    "level": "N2",
+    "strokes": 13,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "節約したまえ。",
+        "furigana": "節約したまえ。",
+        "meaning_vi": "Thực hành tiết kiệm.",
+        "meaning_en": "Savings practice."
+      },
+      {
+        "example_text": "端午節も連休になる。",
+        "furigana": "端午節も連休になる。",
+        "meaning_vi": "Tết đoan ngọ cũng trở thành kì nghỉ dài.",
+        "meaning_en": "Lunar New Year also becomes a long vacation."
+      }
+    ],
+    "meaning_en": "Season, weather"
+  },
+  {
+    "kanji": "暗",
+    "han_viet": "ÁM",
+    "meaning_vi": "Tối tăm, bóng tối",
+    "on_reading": [
+      "アン"
+    ],
+    "kun_reading": [
+      "くら-い"
+    ],
+    "level": "N3",
+    "strokes": 13,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "支配人の背後で暗躍した。",
+        "furigana": "支配人の背後で暗躍した。",
+        "meaning_vi": "Anh ấy hoạt động bí mật sau lưng người quản lý.",
+        "meaning_en": "He operates secretly behind the manager."
+      }
+    ],
+    "meaning_en": "Darkness, darkness"
+  },
+  {
+    "kanji": "競",
+    "han_viet": "CẠNH",
+    "meaning_vi": "Cạnh tranh, ganh đua",
+    "on_reading": [
+      "キョウ",
+      "ケイ"
+    ],
+    "kun_reading": [
+      "きそ-う",
+      "せ-る",
+      "くら-べる"
+    ],
+    "level": "N2",
+    "strokes": 20,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "ラグビーは屋外競技である。",
+        "furigana": "ラグビーは屋外競技である。",
+        "meaning_vi": "Rugby là môn thể thao ngoài trời",
+        "meaning_en": "Rugby is an outdoor sport"
+      },
+      {
+        "example_text": "馬術競技は男女混合で行われる唯一のオリンピック競技です。",
+        "furigana": "馬術競技は男女混合で行われる唯一のオリンピック競技です。",
+        "meaning_vi": "Cuộc thi đua ngựa là cuộc thi đấu Olympic duy nhất được tố chức cho cả nam và nữ.",
+        "meaning_en": "The horse race competition is the only Olympic competition for both men and women."
+      }
+    ],
+    "meaning_en": "Competition, competition"
+  },
+  {
+    "kanji": "応",
+    "han_viet": "ỨNG",
+    "meaning_vi": "Đối lại, đáp ứng",
+    "on_reading": [
+      "オウ",
+      "ノウ",
+      "ヨウ"
+    ],
+    "kun_reading": [
+      "こた-える"
+    ],
+    "level": "N2",
+    "strokes": 7,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "仕事に応募する。",
+        "furigana": "仕事に応募する。",
+        "meaning_vi": "Tôi đang ứng tuyển việc làm.",
+        "meaning_en": "I am applying for a job."
+      },
+      {
+        "example_text": "ツベルクリン反応は陽性でした。",
+        "furigana": "ツベルクリン反応は陽性でした。",
+        "meaning_vi": "Dương tính với phản ứng Tuberculin.",
+        "meaning_en": "Positive for tuberculin reaction."
+      }
+    ],
+    "meaning_en": "Confidence, meet"
+  },
+  {
+    "kanji": "声",
+    "han_viet": "THANH",
+    "meaning_vi": "Tiếng, giọng nói",
+    "on_reading": [
+      "セイ",
+      "ショウ"
+    ],
+    "kun_reading": [
+      "こえ",
+      "こわ"
+    ],
+    "level": "N3",
+    "strokes": 7,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "声援がやんだ。",
+        "furigana": "声援がやんだ。",
+        "meaning_vi": "Tiếng reo hò cổ vũ đã ngớt.",
+        "meaning_en": "The cheers cheered."
+      },
+      {
+        "example_text": "その野球の試合の観客は自分達のチームに声援を送った。",
+        "furigana": "その野球の試合の観客は自分達のチームに声援を送った。",
+        "meaning_vi": "Các khán giả tại trận đấu bóng chày cổ vũ đội bóng của họ.",
+        "meaning_en": "The audience in the baseball match cheered their team."
+      }
+    ],
+    "meaning_en": "Voice, voice"
+  },
+  {
+    "kanji": "拍",
+    "han_viet": "PHÁCH",
+    "meaning_vi": "Gõ nhịp, gõ phách",
+    "on_reading": [
+      "ハク",
+      "ヒョウ"
+    ],
+    "kun_reading": [],
+    "level": "N1",
+    "strokes": 8,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "私は拍手した。",
+        "furigana": "私は拍手した。",
+        "meaning_vi": "Tôi đã vỗ tay.",
+        "meaning_en": "I applauded."
+      },
+      {
+        "example_text": "拍手が湧き上がった。",
+        "furigana": "拍手が湧き上がった。",
+        "meaning_vi": "Những tràng pháo tay vang lên.",
+        "meaning_en": "The applause rang out."
+      }
+    ],
+    "meaning_en": "Type beat, beat beat"
+  },
+  {
+    "kanji": "流",
+    "han_viet": "LƯU",
+    "meaning_vi": "Nước chảy, lưu hành",
+    "on_reading": [
+      "リュウ",
+      "ル"
+    ],
+    "kun_reading": [
+      "なが-れる",
+      "なが-れ",
+      "なが-す"
+    ],
+    "level": "N3",
+    "strokes": 10,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "日本流のあいさつ",
+        "furigana": "",
+        "meaning_vi": "Kiểu chào hỏi theo phong cách Nhật Bản.",
+        "meaning_en": "Greetings in Japanese style."
+      },
+      {
+        "example_text": "あ、流れ星だ！",
+        "furigana": "あ、流れ星だ！",
+        "meaning_vi": "A, sao băng!",
+        "meaning_en": "Ah, meteor!"
+      }
+    ],
+    "meaning_en": "Flowing water, circulation"
+  },
+  {
+    "kanji": "伝",
+    "han_viet": "TRUYỀN",
+    "meaning_vi": "Truyền đạt, truyền động",
+    "on_reading": [
+      "デン",
+      "テン"
+    ],
+    "kun_reading": [
+      "つた-える",
+      "つた-わる",
+      "つた-う",
+      "つだ-う",
+      "づた-い",
+      "つて"
+    ],
+    "level": "N3",
+    "strokes": 6,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "テレビで製品を宣伝する会社が多い。",
+        "furigana": "",
+        "meaning_vi": "Nhiều công ty quảng cáo sản phẩm của họ trên truyền hình.",
+        "meaning_en": "Many companies advertise their products on television."
+      },
+      {
+        "example_text": "悪質な宣伝。",
+        "furigana": "悪質な宣伝。",
+        "meaning_vi": "Tuyên truyền ác ý.",
+        "meaning_en": "Malicious propaganda."
+      }
+    ],
+    "meaning_en": "Communicate, drive"
+  },
+  {
+    "kanji": "告",
+    "han_viet": "CÁO",
+    "meaning_vi": "Thông báo, tuyên bố",
+    "on_reading": [
+      "コク"
+    ],
+    "kun_reading": [
+      "つ-げる"
+    ],
+    "level": "N3",
+    "strokes": 7,
+    "radicals": "",
+    "examples": [],
+    "meaning_en": "Notice, statement"
+  },
+  {
+    "kanji": "渋",
+    "han_viet": "SÁP",
+    "meaning_vi": "Co lại, do dự, bất đắc dĩ",
+    "on_reading": [
+      "ジュウ",
+      "シュウ"
+    ],
+    "kun_reading": [
+      "しぶ",
+      "しぶ-い",
+      "しぶ-る"
+    ],
+    "level": "N1",
+    "strokes": 11,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "トムは渋っている。",
+        "furigana": "トムは渋っている。",
+        "meaning_vi": "Tom đang không hài lòng.",
+        "meaning_en": "Tom is not satisfied."
+      },
+      {
+        "example_text": "渋滞にひっかかった。",
+        "furigana": "渋滞にひっかかった。",
+        "meaning_vi": "Tôi đã dính vào một vụ ách tắc giao thông.",
+        "meaning_en": "I was involved in a traffic congestion."
+      }
+    ],
+    "meaning_en": "Shrink, hesitant, reluctant"
+  },
+  {
+    "kanji": "遅",
+    "han_viet": "TRÌ",
+    "meaning_vi": "Chậm trễ, chậm chạp, quá hạn",
+    "on_reading": [
+      "チ"
+    ],
+    "kun_reading": [
+      "おく-れる",
+      "おく-らす",
+      "おそ-い"
+    ],
+    "level": "N2",
+    "strokes": 12,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "交通渋滞のせいで私は会合に遅れた。",
+        "furigana": "交通渋滞のせいで私は会合に遅れた。",
+        "meaning_vi": "Tôi đã trễ họp vì kẹt xe.",
+        "meaning_en": "I was late for traffic jams."
+      },
+      {
+        "example_text": "バスは交通渋滞のために遅れた。",
+        "furigana": "バスは交通渋滞のために遅れた。",
+        "meaning_vi": "Xe buýt đến muộn vì tắc nghẽn giao thông",
+        "meaning_en": "Buses are late because of traffic congestion"
+      }
+    ],
+    "meaning_en": "Delayed, slow, overdue"
+  },
+  {
+    "kanji": "衝",
+    "han_viet": "XUNG",
+    "meaning_vi": "Đụng độ, xông vào",
+    "on_reading": [
+      "ショウ"
+    ],
+    "kun_reading": [
+      "つ.く"
+    ],
+    "level": "N1",
+    "strokes": 15,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "バンパーが衝撃いくらか吸収してくれた。",
+        "furigana": "",
+        "meaning_vi": "Hãm xung của ô tô giúp giảm va chạm mạnh.",
+        "meaning_en": "The pulse of cars helps reduce collision."
+      },
+      {
+        "example_text": "彼の乗った自動車が電車に衝突した。",
+        "furigana": "",
+        "meaning_vi": "Xe ô tô anh ấy lái đã va chạm với tàu điện.",
+        "meaning_en": "The car he drove collided with the train."
+      }
+    ],
+    "meaning_en": "Clash, rush in"
+  },
+  {
+    "kanji": "突",
+    "han_viet": "ĐỘT",
+    "meaning_vi": "Đột nhiên",
+    "on_reading": [
+      "トツ",
+      "カ"
+    ],
+    "kun_reading": [
+      "つ-く"
+    ],
+    "level": "N2",
+    "strokes": 8,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "くぎが壁を突きぬけた。",
+        "furigana": "くぎが壁を突きぬけた。",
+        "meaning_vi": "Đinh đóng xuyên qua bức tường.",
+        "meaning_en": "Nails through the wall."
+      },
+      {
+        "example_text": "突然うるさくなった。",
+        "furigana": "突然うるさくなった。",
+        "meaning_vi": "Đột nhiên trở nên ồn ào.",
+        "meaning_en": "Suddenly became noisy."
+      }
+    ],
+    "meaning_en": "Suddenly"
+  },
+  {
+    "kanji": "被",
+    "han_viet": "BỊ",
+    "meaning_vi": "Chịu, che chở, che phủ",
+    "on_reading": [
+      "ヒ"
+    ],
+    "kun_reading": [
+      "こうむ-る",
+      "おお-う",
+      "かぶ-る",
+      "かぶせ-る"
+    ],
+    "level": "N2",
+    "strokes": 10,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "その会社は甚大な被害を被った。",
+        "furigana": "その会社は甚大な被害を被った。",
+        "meaning_vi": "Công ty đã phải chịu thiệt hại rất lớn.",
+        "meaning_en": "The company has suffered great damage."
+      },
+      {
+        "example_text": "彼は車にカバーを被せた。",
+        "furigana": "彼は車にカバーを被せた。",
+        "meaning_vi": "Anh ấy phủ khăn lên xe.",
+        "meaning_en": "He covered the towel."
+      }
+    ],
+    "meaning_en": "Bear, protect, cover"
+  },
+  {
+    "kanji": "害",
+    "han_viet": "HẠI",
+    "meaning_vi": "Làm hại, ghen ghét",
+    "on_reading": [
+      "ガイ"
+    ],
+    "kun_reading": [],
+    "level": "N3",
+    "strokes": 10,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "我々は水害の被害者に食物と衣類を支給した。",
+        "furigana": "我々は水害の被害者に食物と衣類を支給した。",
+        "meaning_vi": "Chúng tôi cung cấp đồ ăn và quần áo cho nạn nhân của trận lũ lụt.",
+        "meaning_en": "We provide food and clothes for the victims of the flood."
+      },
+      {
+        "example_text": "その災害の被害はべらぼうに大きかった。",
+        "furigana": "その災害の被害はべらぼうに大きかった。",
+        "meaning_vi": "Thiệt hại sau vụ thảm họa đó thật là kinh khủng khiếp.",
+        "meaning_en": "The damage after that disaster was terrible."
+      }
+    ],
+    "meaning_en": "Harm, jealousy"
+  },
+  {
+    "kanji": "停",
+    "han_viet": "ĐÌNH",
+    "meaning_vi": "Dừng lại, đình chỉ",
+    "on_reading": [
+      "テイ"
+    ],
+    "kun_reading": [
+      "と-める",
+      "と-まる"
+    ],
+    "level": "N2",
+    "strokes": 11,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "この近くにバス停はありますか。",
+        "furigana": "この近くにバス停はありますか。",
+        "meaning_vi": "Gần đây có điểm đó xe buýt nào không?",
+        "meaning_en": "Is there any bus recently?"
+      },
+      {
+        "example_text": "車を停めなさい！",
+        "furigana": "車を停めなさい！",
+        "meaning_vi": "Hãy dừng xe lại!",
+        "meaning_en": "Stop the car!"
+      }
+    ],
+    "meaning_en": "Stop, suspend"
+  },
+  {
+    "kanji": "急",
+    "han_viet": "CẤP",
+    "meaning_vi": "Vội vàng, nóng ruột, sốt ruột",
+    "on_reading": [
+      "キュウ"
+    ],
+    "kun_reading": [
+      "いそ-ぐ",
+      "いそ-ぎ"
+    ],
+    "level": "N4",
+    "strokes": 9,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "緊急に病院へ負傷者を運びなさい。",
+        "furigana": "",
+        "meaning_vi": "Hãy nhanh chóng đưa người bị thương đến bệnh viện.",
+        "meaning_en": "Quickly take the injured to the hospital."
+      },
+      {
+        "example_text": "これは緊急情報です。",
+        "furigana": "",
+        "meaning_vi": "Đây là thông tin khẩn.",
+        "meaning_en": "This is urgent information."
+      }
+    ],
+    "meaning_en": "Hurry, impatient, impatient"
+  },
+  {
+    "kanji": "昂",
+    "han_viet": "NGANG",
+    "meaning_vi": "Lên cao, giá cao",
+    "on_reading": [
+      "コウ",
+      "ゴウ"
+    ],
+    "kun_reading": [
+      "あ-がる",
+      "たか-い",
+      "たか-ぶる"
+    ],
+    "level": "N1",
+    "strokes": 8,
+    "radicals": "",
+    "examples": [],
+    "meaning_en": "Up high, high price"
+  },
+  {
+    "kanji": "解",
+    "han_viet": "GIẢI, GIỚI",
+    "meaning_vi": "Tháo gỡ, giải thích, giải quyết",
+    "on_reading": [
+      "カイ",
+      "ゲ"
+    ],
+    "kun_reading": [
+      "と-く",
+      "と-かす",
+      "と-ける",
+      "ほど-く",
+      "ほど-ける",
+      "わか-る",
+      "さと-る"
+    ],
+    "level": "N3",
+    "strokes": 13,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "了解。",
+        "furigana": "了解。",
+        "meaning_vi": "Tuân lệnh!",
+        "meaning_en": "Obey the command!"
+      },
+      {
+        "example_text": "了解です。",
+        "furigana": "了解です。",
+        "meaning_vi": "Tôi hiểu rồi.",
+        "meaning_en": "I got it."
+      }
+    ],
+    "meaning_en": "Remove, explain, solve"
+  },
+  {
+    "kanji": "挙",
+    "han_viet": "CỬ",
+    "meaning_vi": "Tuyển cử, cử động, cử hành",
+    "on_reading": [
+      "キョ"
+    ],
+    "kun_reading": [
+      "あ-げる",
+      "あ-がる",
+      "こぞ-る"
+    ],
+    "level": "N1",
+    "strokes": 10,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "その選挙運動が成功して、彼は選挙に勝った。",
+        "furigana": "その選挙運動が成功して、彼は選挙に勝った。",
+        "meaning_vi": "Cuộc vận động bầu cử thành công và anh ấy đã thắng cử.",
+        "meaning_en": "The campaign was successful and he won the election."
+      },
+      {
+        "example_text": "軽挙妄動を慎むべきだ。",
+        "furigana": "軽挙妄動を慎むべきだ。",
+        "meaning_vi": "Nên thận trọng trước khi hành động.",
+        "meaning_en": "Should be cautious before acting."
+      }
+    ],
+    "meaning_en": "Election, movement, celebration"
+  },
+  {
+    "kanji": "税",
+    "han_viet": "THUẾ",
+    "meaning_vi": "Thuế, tô thuế",
+    "on_reading": [
+      "ゼイ"
+    ],
+    "kun_reading": [],
+    "level": "N2",
+    "strokes": 12,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "税金を払うようになって、初めて人生が始まる。",
+        "furigana": "",
+        "meaning_vi": "Cuộc sống bắt đầu khi bạn phải trả thuế.",
+        "meaning_en": "Life begins when you have to pay taxes."
+      },
+      {
+        "example_text": "英国ではたとい女王であれ税金を払わなければならない。",
+        "furigana": "",
+        "meaning_vi": "Ở nước Anh thì dù là nữ hoàng cũng phải đóng thuế.",
+        "meaning_en": "In England, even the queen must pay taxes."
+      }
+    ],
+    "meaning_en": "Tax, tax"
+  },
+  {
+    "kanji": "責",
+    "han_viet": "TRÁCH, TRÁI",
+    "meaning_vi": "Trách mắng, chỉ trích",
+    "on_reading": [
+      "セキ"
+    ],
+    "kun_reading": [
+      "せ-める"
+    ],
+    "level": "N3",
+    "strokes": 11,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "共同責任無責任。",
+        "furigana": "共同責任無責任。",
+        "meaning_vi": "Thật vô trách nhiệm với việc chung.",
+        "meaning_en": "It is irresponsible to the common."
+      },
+      {
+        "example_text": "責任はコックにある。",
+        "furigana": "責任はコックにある。",
+        "meaning_vi": "Trách nhiệm thuộc về đầu bếp.",
+        "meaning_en": "Responsibility belongs to the chef."
+      }
+    ],
+    "meaning_en": "Scold, criticize"
+  },
+  {
+    "kanji": "任",
+    "han_viet": "NHIỆM",
+    "meaning_vi": "Nhiệm vụ, dựa vào",
+    "on_reading": [
+      "ニン"
+    ],
+    "kun_reading": [
+      "まか-せる",
+      "まか-す"
+    ],
+    "level": "N3",
+    "strokes": 6,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "共同責任無責任。",
+        "furigana": "共同責任無責任。",
+        "meaning_vi": "Thật vô trách nhiệm với việc chung.",
+        "meaning_en": "It is irresponsible to the common."
+      },
+      {
+        "example_text": "任せろよ。",
+        "furigana": "任せろよ。",
+        "meaning_vi": "Để đó cho tôi.",
+        "meaning_en": "Leave it there."
+      }
+    ],
+    "meaning_en": "Mission, based on"
+  },
+  {
+    "kanji": "条",
+    "han_viet": "ĐIỀU",
+    "meaning_vi": "Điều kiện, điều khoản",
+    "on_reading": [
+      "ジョウ",
+      "チョウ",
+      "デキ"
+    ],
+    "kun_reading": [
+      "えだ",
+      "すじ"
+    ],
+    "level": "N2",
+    "strokes": 7,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "契約条件の履行する。",
+        "furigana": "契約条件の履行する。",
+        "meaning_vi": "Thi hành các điều khoản hợp đồng.",
+        "meaning_en": "Implementation of contract terms."
+      },
+      {
+        "example_text": "条件を決める。",
+        "furigana": "条件を決める。",
+        "meaning_vi": "Xác định các điều khoản.",
+        "meaning_en": ""
+      }
+    ],
+    "meaning_en": "Conditions, Terms"
+  },
+  {
+    "kanji": "締",
+    "han_viet": "ĐẾ",
+    "meaning_vi": "Ràng buộc, thắt chặt, đóng lại",
+    "on_reading": [
+      "テイ"
+    ],
+    "kun_reading": [
+      "し-まる",
+      "し-まり",
+      "し-める",
+      "し-め",
+      "じ-め"
+    ],
+    "level": "N1",
+    "strokes": 15,
+    "radicals": "",
+    "examples": [],
+    "meaning_en": "Binding, tightening, closing"
+  },
+  {
+    "kanji": "期",
+    "han_viet": "KÌ, KI",
+    "meaning_vi": "Kì hạn, thời hạn",
+    "on_reading": [
+      "キ",
+      "ゴ"
+    ],
+    "kun_reading": [],
+    "level": "N3",
+    "strokes": 12,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "よい結果を期待しましょう。",
+        "furigana": "よい結果を期待しましょう。",
+        "meaning_vi": "Hãy kỳ vọng vào một kết quả tốt.",
+        "meaning_en": "Expect a good result."
+      },
+      {
+        "example_text": "ゲームは無期延期になった。",
+        "furigana": "ゲームは無期延期になった。",
+        "meaning_vi": "Trận đấu bị hoãn lại vô thời hạn.",
+        "meaning_en": "The match was delayed indefinitely."
+      }
+    ],
+    "meaning_en": "Term, term"
+  },
+  {
+    "kanji": "穴",
+    "han_viet": "HUYỆT",
+    "meaning_vi": "Người này đang chui vào huyệt 穴 đạo.",
+    "on_reading": [
+      "ケツ"
+    ],
+    "kun_reading": [
+      "あな"
+    ],
+    "level": "N1",
+    "strokes": 5,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "私は地面に穴を掘った。",
+        "furigana": "",
+        "meaning_vi": "Tôi đã đào một lỗ trên mặt đất.",
+        "meaning_en": "I dug a hole on the ground."
+      },
+      {
+        "example_text": "壁に穴をあける。",
+        "furigana": "",
+        "meaning_vi": "Đục cái lỗ trên tường.",
+        "meaning_en": "Punch holes on the wall."
+      }
+    ],
+    "meaning_en": "This person is getting into the acupuncture point 穴 Dao."
+  },
+  {
+    "kanji": "列",
+    "han_viet": "LIỆT",
+    "meaning_vi": "Hàng lối, thứ hạng",
+    "on_reading": [
+      "レツ",
+      "レ"
+    ],
+    "kun_reading": [],
+    "level": "N3",
+    "strokes": 6,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "彼女は列の先頭だ。",
+        "furigana": "",
+        "meaning_vi": "Cô ấy đứng đầu hàng.",
+        "meaning_en": "She surrendered."
+      },
+      {
+        "example_text": "彼はその列の中にいた。",
+        "furigana": "",
+        "meaning_vi": "Anh ta đứng trong hàng này.",
+        "meaning_en": "He stood in this line."
+      }
+    ],
+    "meaning_en": "Row of ways, rankings"
+  },
+  {
+    "kanji": "幅",
+    "han_viet": "PHÚC",
+    "meaning_vi": "Bề rộng, ảnh hưởng",
+    "on_reading": [
+      "フク"
+    ],
+    "kun_reading": [
+      "はば"
+    ],
+    "level": "N2",
+    "strokes": 12,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "その川は幅が広い。",
+        "furigana": "",
+        "meaning_vi": "Con sông này rất rộng.",
+        "meaning_en": "This river is very wide."
+      },
+      {
+        "example_text": "この道の幅はどれくらいですか。",
+        "furigana": "",
+        "meaning_vi": "Chiều rộng của con đường này là bao nhiêu.",
+        "meaning_en": "What is the width of this road."
+      }
+    ],
+    "meaning_en": "Width, influence"
+  },
+  {
+    "kanji": "範",
+    "han_viet": "PHẠM",
+    "meaning_vi": "Phép, khuôn mẫu",
+    "on_reading": [
+      "ハン"
+    ],
+    "kun_reading": [],
+    "level": "N1",
+    "strokes": 15,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "想定の範囲外だ。",
+        "furigana": "想定の範囲外だ。",
+        "meaning_vi": "Nó nằm ngoài phạm vi của giả thiết.",
+        "meaning_en": "It is beyond the scope of the assumption."
+      },
+      {
+        "example_text": "これは模範となる。",
+        "furigana": "これは模範となる。",
+        "meaning_vi": "Nó sẽ trở thành một ví dụ điển hình.",
+        "meaning_en": "It will become a typical example."
+      }
+    ],
+    "meaning_en": "Spells, molds"
+  },
+  {
+    "kanji": "囲",
+    "han_viet": "VI",
+    "meaning_vi": "Vây quanh, xung quanh, bao quanh",
+    "on_reading": [
+      "イ"
+    ],
+    "kun_reading": [
+      "かこ-む",
+      "かこ-う",
+      "かこ-い"
+    ],
+    "level": "N2",
+    "strokes": 7,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "日本は海に囲まれている。",
+        "furigana": "",
+        "meaning_vi": "Nhật Bản được bao quanh bởi biển.",
+        "meaning_en": "Japan is surrounded by the sea."
+      },
+      {
+        "example_text": "彼は孫達に囲まれて座っていました。",
+        "furigana": "",
+        "meaning_vi": "Ông ngồi bao quanh bởi các cháu.",
+        "meaning_en": "He sat around by the grandchildren."
+      }
+    ],
+    "meaning_en": "Surrounding, surrounding, surrounding"
+  },
+  {
+    "kanji": "容",
+    "han_viet": "DUNG",
+    "meaning_vi": "Bao dung, chịu đựng, chứa đựng",
+    "on_reading": [
+      "ヨウ"
+    ],
+    "kun_reading": [
+      "い-れる"
+    ],
+    "level": "N3",
+    "strokes": 10,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "子供の声は容易いく識別できる。",
+        "furigana": "子供の声は容易いく識別できる。",
+        "meaning_vi": "Có thể dễ dàng phân biệt giọng nói của trẻ em.",
+        "meaning_en": "Can easily distinguish children's voices."
+      },
+      {
+        "example_text": "事後に事を悟るのは容易だ。",
+        "furigana": "事後に事を悟るのは容易だ。",
+        "meaning_vi": "Sự việc xảy ra rồi thì ai cũng nói khôn được.",
+        "meaning_en": "The incident happened, everyone could speak wisely."
+      }
+    ],
+    "meaning_en": "Tolerance, endure, contain"
+  },
+  {
+    "kanji": "徴",
+    "han_viet": "TRƯNG, CHỦY, TRỪNG",
+    "meaning_vi": "Trưng tập, gọi đến, triệu tập",
+    "on_reading": [
+      "チョウ",
+      "チ"
+    ],
+    "kun_reading": [
+      "しるし"
+    ],
+    "level": "N1",
+    "strokes": 14,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "スクラムはラグビーの特徴だ。",
+        "furigana": "スクラムはラグビーの特徴だ。",
+        "meaning_vi": "Tranh chấp bóng là một đặc trưng của bóng bầu dục.",
+        "meaning_en": "The ball dispute is a characteristic of rugby."
+      },
+      {
+        "example_text": "超高速がコンコルド機の特徴だ。",
+        "furigana": "超高速がコンコルド機の特徴だ。",
+        "meaning_vi": "Đặc trưng của máy bay Concorde là tốc độ cực nhanh.",
+        "meaning_en": "The characteristic of Concorde aircraft is extremely fast speed."
+      }
+    ],
+    "meaning_en": "Solicitation, calling, summoning"
+  },
+  {
+    "kanji": "偽",
+    "han_viet": "NGỤY",
+    "meaning_vi": "Sự bắt chước; sự giả dối, nói dối",
+    "on_reading": [
+      "ギ",
+      "カ"
+    ],
+    "kun_reading": [
+      "いつわ-る",
+      "にせ",
+      "いつわ-り"
+    ],
+    "level": "N1",
+    "strokes": 11,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "偽物にご注意。",
+        "furigana": "偽物にご注意。",
+        "meaning_vi": "Hãy chú ý hàng giả!",
+        "meaning_en": "Pay attention to fake goods!"
+      },
+      {
+        "example_text": "それは偽物です。",
+        "furigana": "それは偽物です。",
+        "meaning_vi": "Đây là đồ giả.",
+        "meaning_en": "This is a fake."
+      }
+    ],
+    "meaning_en": "Imitation; false"
+  },
+  {
+    "kanji": "籍",
+    "han_viet": "TỊCH",
+    "meaning_vi": "Quốc tịch",
+    "on_reading": [
+      "セキ"
+    ],
+    "kun_reading": [],
+    "level": "N2",
+    "strokes": 20,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "彼の国籍はどこですか。",
+        "furigana": "彼の国籍はどこですか。",
+        "meaning_vi": "Quốc tịch của anh ấy là gì ?",
+        "meaning_en": "What is his nationality?"
+      },
+      {
+        "example_text": "トムはアメリカ国籍を取得した。",
+        "furigana": "トムはアメリカ国籍を取得した。",
+        "meaning_vi": "Tôm đã lấy được quốc tịch Mỹ rồi.",
+        "meaning_en": "Shrimp has gained American nationality."
+      }
+    ],
+    "meaning_en": "Nationality"
+  },
+  {
+    "kanji": "宗",
+    "han_viet": "TÔNG",
+    "meaning_vi": "Giáo phái, tôn giáo",
+    "on_reading": [
+      "シュウ",
+      "ソウ"
+    ],
+    "kun_reading": [
+      "むね"
+    ],
+    "level": "N1",
+    "strokes": 8,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "宗教は人類のアヘンである。",
+        "furigana": "宗教は人類のアヘンである。",
+        "meaning_vi": "Tôn giáo là thuốc phiện của nhân loại.",
+        "meaning_en": "Religion is the opium of humanity."
+      },
+      {
+        "example_text": "彼は最近改宗したカトリック信者です。",
+        "furigana": "彼は最近改宗したカトリック信者です。",
+        "meaning_vi": "Anh ấy là một người Công giáo mới được cải tạo.",
+        "meaning_en": "He is a newly renovated Catholic."
+      }
+    ],
+    "meaning_en": "Catholic, religion"
+  },
+  {
+    "kanji": "譲",
+    "han_viet": "NHƯỢNG",
+    "meaning_vi": "Nhượng bộ.",
+    "on_reading": [
+      "ジョウ"
+    ],
+    "kun_reading": [
+      "ゆず.る"
+    ],
+    "level": "N1",
+    "strokes": 20,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "所有権を譲る。",
+        "furigana": "",
+        "meaning_vi": "Nhượng quyền sở hữu.",
+        "meaning_en": "Franchise."
+      },
+      {
+        "example_text": "お年寄に席を譲る。",
+        "furigana": "",
+        "meaning_vi": "Nhường chỗ cho người già.",
+        "meaning_en": "Make way for the elderly."
+      }
+    ],
+    "meaning_en": "Concession."
+  },
+  {
+    "kanji": "盗",
+    "han_viet": "ĐẠO",
+    "meaning_vi": "Ăn cắp, trộm, cướp",
+    "on_reading": [
+      "トウ"
+    ],
+    "kun_reading": [
+      "ぬす-む",
+      "ぬす-み"
+    ],
+    "level": "N2",
+    "strokes": 11,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "何を盗まれましたか。",
+        "furigana": "",
+        "meaning_vi": "Bạn đã bị trộm mất cái gì?",
+        "meaning_en": "What did you get stolen?"
+      },
+      {
+        "example_text": "現金を盗まれた。",
+        "furigana": "",
+        "meaning_vi": "Tôi bị trộm mất tiền mặt.",
+        "meaning_en": "I was stolen cash."
+      }
+    ],
+    "meaning_en": "Stealing, stealing, robbery"
+  },
+  {
+    "kanji": "殺",
+    "han_viet": "SÁT, SÁI, TÁT",
+    "meaning_vi": "Giết, bắt được",
+    "on_reading": [
+      "サツ",
+      "サイ",
+      "セツ"
+    ],
+    "kun_reading": [
+      "ころ-す",
+      "そ-ぐ"
+    ],
+    "level": "N3",
+    "strokes": 10,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "アーロンはエリザベスを殺した。",
+        "furigana": "アーロンはエリザベスを殺した。",
+        "meaning_vi": "Aaron đã giết Elizabeth.",
+        "meaning_en": "Aaron killed Elizabeth."
+      },
+      {
+        "example_text": "アボットはメアリーを殺した。",
+        "furigana": "アボットはメアリーを殺した。",
+        "meaning_vi": "Abott đã giết chết Mary.",
+        "meaning_en": "Abott killed Mary."
+      }
+    ],
+    "meaning_en": "Kill, catch"
+  },
+  {
+    "kanji": "隠",
+    "han_viet": "ẨN",
+    "meaning_vi": "Bao bọc, che, che giấu, che đậy, giấu, giấu giếm",
+    "on_reading": [
+      "イン",
+      "オン"
+    ],
+    "kun_reading": [
+      "かく-す",
+      "かく-し",
+      "かく-れる",
+      "かか-す",
+      "よ-る"
+    ],
+    "level": "N1",
+    "strokes": 14,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "雲が太陽を隠した。",
+        "furigana": "",
+        "meaning_vi": "Mây che mặt trời.",
+        "meaning_en": "Clouds cover the solar."
+      },
+      {
+        "example_text": "私は気持ちを隠せない。",
+        "furigana": "",
+        "meaning_vi": "Tôi không thể che giấu cảm xúc của mình.",
+        "meaning_en": "I cannot hide my emotions."
+      }
+    ],
+    "meaning_en": "Covering, covering, concealing, concealing, hiding, hidden"
+  },
+  {
+    "kanji": "振",
+    "han_viet": "CHẤN, CHÂN",
+    "meaning_vi": "Rung, vẫy",
+    "on_reading": [
+      "シン"
+    ],
+    "kun_reading": [
+      "ふ-る"
+    ],
+    "level": "N2",
+    "strokes": 10,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "雨が一日中降るだろうと彼女は我々に告げた。",
+        "furigana": "雨が一日中降るだろうと彼女は我々に告げた。",
+        "meaning_vi": "Cô ấy đã nói với chúng tôi trời có thể sẽ mưa cả ngày.",
+        "meaning_en": "She told us it would be raining all day."
+      },
+      {
+        "example_text": "クリスはソードを振るった！",
+        "furigana": "クリスはソードを振るった！",
+        "meaning_vi": "Chris đã vung gươm.",
+        "meaning_en": "Chris swung the sword."
+      }
+    ],
+    "meaning_en": "Vibration, waving"
+  },
+  {
+    "kanji": "繰",
+    "han_viet": "SÀO",
+    "meaning_vi": "Tham khảo, tính toán",
+    "on_reading": [
+      "ソウ"
+    ],
+    "kun_reading": [
+      "く-る"
+    ],
+    "level": "N1",
+    "strokes": 19,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "彼女は入退院を繰り返している。",
+        "furigana": "彼女は入退院を繰り返している。",
+        "meaning_vi": "Cô ấy liên tục nhập viện và xuất viện.",
+        "meaning_en": "She was constantly hospitalized and discharged from the hospital."
+      },
+      {
+        "example_text": "ページの下の合計額は繰り越しになっている。",
+        "furigana": "ページの下の合計額は繰り越しになっている。",
+        "meaning_vi": "Tổng số tiền phía dưới trang được chuyển từ kỳ trước sang.",
+        "meaning_en": "The total amount below the page is transferred from the previous period to."
+      }
+    ],
+    "meaning_en": "Reference, calculation"
+  },
+  {
+    "kanji": "揺",
+    "han_viet": "DAO",
+    "meaning_vi": "Dao động, lắc",
+    "on_reading": [
+      "ヨウ"
+    ],
+    "kun_reading": [
+      "ゆ.れる",
+      "ゆ.る",
+      "ゆ.らぐ",
+      "ゆ.るぐ",
+      "ゆ.する",
+      "ゆ.さぶる",
+      "ゆ.すぶる",
+      "うご.く"
+    ],
+    "level": "N1",
+    "strokes": 12,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "揺篭を作った。",
+        "furigana": "揺篭を作った。",
+        "meaning_vi": "Làm một cái nôi.",
+        "meaning_en": "Make a cradle."
+      },
+      {
+        "example_text": "地震で建物が揺れた。",
+        "furigana": "地震で建物が揺れた。",
+        "meaning_vi": "Các tòa nhà bị rung chuyển do động đất.",
+        "meaning_en": "The buildings are shaken by earthquakes."
+      }
+    ],
+    "meaning_en": "Oscillation, shake"
+  },
+  {
+    "kanji": "濡",
+    "han_viet": "NHU, NHI",
+    "meaning_vi": "Sông Nhu. Thấm ướt. Chậm trễ (đợi lâu). Tập quen. Một âm là nhi.",
+    "on_reading": [
+      "ジュ",
+      "ニュ"
+    ],
+    "kun_reading": [
+      "ぬれ-る",
+      "ぬら-す",
+      "ぬ-れる",
+      "ぬ-らす",
+      "うるお-い",
+      "うるお-う",
+      "うるお-す"
+    ],
+    "level": "N1",
+    "strokes": 17,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "トムは濡れてる。",
+        "furigana": "トムは濡れてる。",
+        "meaning_vi": "Tom bị ướt nhẹp.",
+        "meaning_en": "Tom was wet."
+      },
+      {
+        "example_text": "濡れた服を脱ぎなさい。",
+        "furigana": "濡れた服を脱ぎなさい。",
+        "meaning_vi": "Hãy cởi quần áo ướt ra.",
+        "meaning_en": "Take off your wet clothes."
+      }
+    ],
+    "meaning_en": "Nhu River. Wet. Delay (wait long). Tame. One sound is children."
+  },
+  {
+    "kanji": "恐",
+    "han_viet": "KHỦNG",
+    "meaning_vi": "Dọa nạt, sợ hãi",
+    "on_reading": [
+      "キョウ"
+    ],
+    "kun_reading": [
+      "おそ-れる",
+      "おそ-ろしい"
+    ],
+    "level": "N2",
+    "strokes": 10,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "その地震の後、恐慌状態が広がった。",
+        "furigana": "",
+        "meaning_vi": "Sau trận động đất, tình hình khủng hoảng đã lan rộng.",
+        "meaning_en": "After the earthquake, the crisis situation spread."
+      },
+      {
+        "example_text": "その地震の後、恐慌状態が広がった。",
+        "furigana": "その地震の後、恐慌状態が広がった。",
+        "meaning_vi": "Sau trận động đất, tình hình khủng hoảng đã lan rộng.",
+        "meaning_en": "After the earthquake, the crisis situation spread."
+      }
+    ],
+    "meaning_en": "Threatening, fear"
+  },
+  {
+    "kanji": "酸",
+    "han_viet": "TOAN",
+    "meaning_vi": "Chua. Đau ê ẩm. Axít",
+    "on_reading": [
+      "サン"
+    ],
+    "kun_reading": [
+      "す-い"
+    ],
+    "level": "N1",
+    "strokes": 14,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "酸は、金属に作用する。",
+        "furigana": "",
+        "meaning_vi": "Axit tác dụng với kim loại.",
+        "meaning_en": "Acid works with metal."
+      },
+      {
+        "example_text": "樹木は酸素を排出し、二酸化炭素を吸収する。",
+        "furigana": "樹木は酸素を排出し、二酸化炭素を吸収する。",
+        "meaning_vi": "Cây cối thì thải khí oxy, hấp thụ khí cacbonic.",
+        "meaning_en": "Trees are excreted oxygen, absorb carbon dioxide."
+      }
+    ],
+    "meaning_en": "Sour. Painful. Acid"
+  },
+  {
+    "kanji": "臭",
+    "han_viet": "XÚ, KHỨU",
+    "meaning_vi": "Bốc mùi",
+    "on_reading": [
+      "シュウ"
+    ],
+    "kun_reading": [
+      "くさ-い",
+      "くさ-い",
+      "にお-う",
+      "にお-い"
+    ],
+    "level": "N2",
+    "strokes": 9,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "超臭いよ。",
+        "furigana": "超臭いよ。",
+        "meaning_vi": "Nặng mùi quá.",
+        "meaning_en": "Heavy smell."
+      },
+      {
+        "example_text": "あいつが臭い。",
+        "furigana": "あいつが臭い。",
+        "meaning_vi": "Hắn ta thật hôi hám.",
+        "meaning_en": "He was so bad."
+      }
+    ],
+    "meaning_en": "Smell"
+  },
+  {
+    "kanji": "浅",
+    "han_viet": "THIỂN",
+    "meaning_vi": "Nông cạn, chật hẹp",
+    "on_reading": [
+      "セン"
+    ],
+    "kun_reading": [
+      "あさ-い"
+    ],
+    "level": "N2",
+    "strokes": 9,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "彼は浅薄な人。",
+        "furigana": "彼は浅薄な人。",
+        "meaning_vi": "Anh ta là người nông cạn.",
+        "meaning_en": "He is a shallow person."
+      },
+      {
+        "example_text": "眠りが浅いのです。",
+        "furigana": "眠りが浅いのです。",
+        "meaning_vi": "Giấc ngủ không sâu.",
+        "meaning_en": "Sleep is not deep."
+      }
+    ],
+    "meaning_en": "Shallow, cramped"
+  },
+  {
+    "kanji": "硬",
+    "han_viet": "NGẠNH",
+    "meaning_vi": "Cứng rắn, mạnh mẽ",
+    "on_reading": [
+      "コウ"
+    ],
+    "kun_reading": [
+      "かた-い"
+    ],
+    "level": "N2",
+    "strokes": 12,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "５ドル分を２５セント硬貨で、１ドル分を１０セント硬貨で。",
+        "furigana": "５ドル分を２５セント硬貨で、１ドル分を１０セント硬貨で。",
+        "meaning_vi": "5 đô la đổi được 25 xu, 1 đô la đổi được 10 xu.",
+        "meaning_en": "$ 5 changed 25 cents, 1 dollar exchange 10 cents."
+      },
+      {
+        "example_text": "肉が硬くて切れない。",
+        "furigana": "肉が硬くて切れない。",
+        "meaning_vi": "Miếng thịt này cứng không thể thái được.",
+        "meaning_en": "This piece of meat cannot be sliced."
+      }
+    ],
+    "meaning_en": "Tough, strong"
+  },
+  {
+    "kanji": "蒸",
+    "han_viet": "CHƯNG",
+    "meaning_vi": "Bốc hơi, hơi nước",
+    "on_reading": [
+      "ジョウ",
+      "セイ"
+    ],
+    "kun_reading": [
+      "む-す",
+      "む-らす",
+      "む-れる"
+    ],
+    "level": "N2",
+    "strokes": 13,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "飯を蒸らす。",
+        "furigana": "飯を蒸らす。",
+        "meaning_vi": "Hấp cơm.",
+        "meaning_en": "Steamed rice."
+      },
+      {
+        "example_text": "蒸かした芋です！",
+        "furigana": "蒸かした芋です！",
+        "meaning_vi": "Đó là khoai tây hấp!",
+        "meaning_en": "It is steamed potato!"
+      }
+    ],
+    "meaning_en": "Evaporation, steam"
+  },
+  {
+    "kanji": "清",
+    "han_viet": "THANH",
+    "meaning_vi": "Trong sạch",
+    "on_reading": [
+      "セイ",
+      "ショウ",
+      "シン"
+    ],
+    "kun_reading": [
+      "きよ-い",
+      "きよ-まる",
+      "きよ-める"
+    ],
+    "level": "N2",
+    "strokes": 11,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "清濁あわせのむ。",
+        "furigana": "清濁あわせのむ。",
+        "meaning_vi": "Con người có cả mặt thiện và mặt ác.",
+        "meaning_en": "People have both good and evil face."
+      },
+      {
+        "example_text": "君の手は清潔ですか。",
+        "furigana": "君の手は清潔ですか。",
+        "meaning_vi": "Tay em có sạch không?",
+        "meaning_en": "Is your hand clean?"
+      }
+    ],
+    "meaning_en": "Clean"
+  },
+  {
+    "kanji": "清",
+    "han_viet": "THANH",
+    "meaning_vi": "Trong sạch",
+    "on_reading": [
+      "セイ",
+      "ショウ",
+      "シン"
+    ],
+    "kun_reading": [
+      "きよ-い",
+      "きよ-まる",
+      "きよ-める"
+    ],
+    "level": "N2",
+    "strokes": 11,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "清潔は日本人の 習性だ。",
+        "furigana": "",
+        "meaning_vi": "Sạch sẽ là thói quen của người Nhật.",
+        "meaning_en": "Clean is the habit of Japanese people."
+      },
+      {
+        "example_text": "その別荘は清潔で整然としていた。",
+        "furigana": "",
+        "meaning_vi": "Ngôi biệt thự đó sạch sẽ và ngăn nắp.",
+        "meaning_en": "That villa is clean and tidy."
+      }
+    ],
+    "meaning_en": "Clean"
+  },
+  {
+    "kanji": "新",
+    "han_viet": "TÂN",
+    "meaning_vi": "Mới, trong sạch",
+    "on_reading": [
+      "シン"
+    ],
+    "kun_reading": [
+      "あたら-しい",
+      "あら-た",
+      "あら",
+      "にい"
+    ],
+    "level": "N4",
+    "strokes": 13,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "このレモンは新鮮だ。",
+        "furigana": "このレモンは新鮮だ。",
+        "meaning_vi": "Quả chanh này tươi.",
+        "meaning_en": "This lemon is fresh."
+      },
+      {
+        "example_text": "朝は空気が新鮮だ。",
+        "furigana": "朝は空気が新鮮だ。",
+        "meaning_vi": "Không khí buổi sáng thì trong lành.",
+        "meaning_en": "The morning atmosphere is fresh."
+      }
+    ],
+    "meaning_en": "New, clean"
+  },
+  {
+    "kanji": "豊",
+    "han_viet": "PHONG",
+    "meaning_vi": "Phong phú",
+    "on_reading": [
+      "ホウ",
+      "ブ"
+    ],
+    "kun_reading": [
+      "ゆた-か",
+      "とよ"
+    ],
+    "level": "N2",
+    "strokes": 13,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "その地域は鉱物資源が比較的豊かだ。",
+        "furigana": "その地域は鉱物資源が比較的豊かだ。",
+        "meaning_vi": "Khu vực đó khá giàu có về tài nguyên khoáng sản .",
+        "meaning_en": "That area is quite rich in mineral resources."
+      },
+      {
+        "example_text": "音楽は想像力を豊かにする。",
+        "furigana": "音楽は想像力を豊かにする。",
+        "meaning_vi": "Âm nhạc làm phong phú trí tưởng tượng.",
+        "meaning_en": "Music enriched imagination."
+      }
+    ],
+    "meaning_en": "Abundant"
+  },
+  {
+    "kanji": "激",
+    "han_viet": "KÍCH",
+    "meaning_vi": "Khích lệ, kích thích, cổ vũ",
+    "on_reading": [
+      "ゲキ"
+    ],
+    "kun_reading": [
+      "はげ-しい"
+    ],
+    "level": "N1",
+    "strokes": 16,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "ここが激しく痛みます。",
+        "furigana": "ここが激しく痛みます。",
+        "meaning_vi": "Ở đây, tôi bị đau dữ dội.",
+        "meaning_en": "Here, I have severe pain."
+      },
+      {
+        "example_text": "ショーンはコナーに激似なんだぜ。",
+        "furigana": "ショーンはコナーに激似なんだぜ。",
+        "meaning_vi": "Sean trông cực kì giống Connor.",
+        "meaning_en": "Sean looks extremely similar to Connor."
+      }
+    ],
+    "meaning_en": "Encourage, stimulate, cheer"
+  },
+  {
+    "kanji": "完",
+    "han_viet": "HOÀN",
+    "meaning_vi": "Đủ, toàn vẹn, xong",
+    "on_reading": [
+      "カン"
+    ],
+    "kun_reading": [],
+    "level": "N3",
+    "strokes": 7,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "完璧だ。",
+        "furigana": "完璧だ。",
+        "meaning_vi": "Hoàn hảo.",
+        "meaning_en": "Perfect."
+      },
+      {
+        "example_text": "すべて準備完了。",
+        "furigana": "すべて準備完了。",
+        "meaning_vi": "Tất cả đã chuẩn bị xong.",
+        "meaning_en": "All have been prepared."
+      }
+    ],
+    "meaning_en": "Enough, complete, finished"
+  },
+  {
+    "kanji": "大",
+    "han_viet": "ĐẠI",
+    "meaning_vi": "To lớn",
+    "on_reading": [
+      "ダイ",
+      "タイ"
+    ],
+    "kun_reading": [
+      "おお",
+      "おお-きい",
+      "おお-いに"
+    ],
+    "level": "N5",
+    "strokes": 3,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "彼を空港で盛大に見送った。",
+        "furigana": "彼を空港で盛大に見送った。",
+        "meaning_vi": "Chúng tôi hoành tráng tiễn anh ấy ra bân bay.",
+        "meaning_en": "We spectacularly see him off."
+      },
+      {
+        "example_text": "聴取は、その歌手に盛大な拍手をおくった。",
+        "furigana": "聴取は、その歌手に盛大な拍手をおくった。",
+        "meaning_vi": "Thính giả đã tặng người ca sĩ đó một tràng pháo tay nồng nhiệt.",
+        "meaning_en": "The audience gave the singer a warm applause."
+      }
+    ],
+    "meaning_en": "Huge"
+  },
+  {
+    "kanji": "能",
+    "han_viet": "NĂNG, NẠI",
+    "meaning_vi": "Tài năng, khả năng, vai trò",
+    "on_reading": [
+      "ノウ"
+    ],
+    "kun_reading": [
+      "よ.く"
+    ],
+    "level": "N3",
+    "strokes": 10,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "トムは不可能を可能にする男だ。",
+        "furigana": "トムは不可能を可能にする男だ。",
+        "meaning_vi": "Tom là người có thể biến điều không thể thành có thể.",
+        "meaning_en": "Tom is the one who can turn the impossible."
+      },
+      {
+        "example_text": "開墾可能地。",
+        "furigana": "開墾可能地。",
+        "meaning_vi": "Đất có khả năng khai khẩn.",
+        "meaning_en": "The soil is capable of reclaiming."
+      }
+    ],
+    "meaning_en": "Talent, ability, role"
+  },
+  {
+    "kanji": "基",
+    "han_viet": "CƠ",
+    "meaning_vi": "Căn bản, cơ sở, nền móng",
+    "on_reading": [
+      "キ"
+    ],
+    "kun_reading": [
+      "もと",
+      "もとい"
+    ],
+    "level": "N2",
+    "strokes": 11,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "鉄鋼は基幹産業である。",
+        "furigana": "鉄鋼は基幹産業である。",
+        "meaning_vi": "Thép là một ngành sản xuất quan trọng.",
+        "meaning_en": "Steel is an important manufacturing industry."
+      },
+      {
+        "example_text": "税金は収入に基づく。",
+        "furigana": "税金は収入に基づく。",
+        "meaning_vi": "Thuế sẽ dựa trên thu nhập.",
+        "meaning_en": "Taxes will be based on income."
+      }
+    ],
+    "meaning_en": "Basic, facility, foundation"
+  },
+  {
+    "kanji": "大",
+    "han_viet": "ĐẠI",
+    "meaning_vi": "To lớn",
+    "on_reading": [
+      "ダイ",
+      "タイ"
+    ],
+    "kun_reading": [
+      "おお",
+      "おお-きい",
+      "おお-いに"
+    ],
+    "level": "N5",
+    "strokes": 3,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "大統領は大衆を前に演説した。",
+        "furigana": "大統領は大衆を前に演説した。",
+        "meaning_vi": "Tổng thống đã phát biểu trước công chúng.",
+        "meaning_en": "The president spoke in public."
+      },
+      {
+        "example_text": "大統領はラジオで演説をするだろう。",
+        "furigana": "大統領はラジオで演説をするだろう。",
+        "meaning_vi": "Tổng thống sẽ có bài phát biểu trên đài phát thanh.",
+        "meaning_en": "The president will have a speech on the radio."
+      }
+    ],
+    "meaning_en": "Huge"
+  },
+  {
+    "kanji": "間",
+    "han_viet": "GIAN",
+    "meaning_vi": "Khoảng, ở giữa, bên trong (không gian)",
+    "on_reading": [
+      "カン",
+      "ケン"
+    ],
+    "kun_reading": [
+      "あいだ",
+      "ま",
+      "あい"
+    ],
+    "level": "N5",
+    "strokes": 12,
+    "radicals": "",
+    "examples": [],
+    "meaning_en": "Interval, in the middle, inside (space)"
+  },
+  {
+    "kanji": "芸",
+    "han_viet": "NGHỆ",
+    "meaning_vi": "Tài nghệ",
+    "on_reading": [
+      "ゲイ",
+      "ウン"
+    ],
+    "kun_reading": [
+      "う-える",
+      "のり",
+      "わざ"
+    ],
+    "level": "N2",
+    "strokes": 7,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "芸は身を助く。",
+        "furigana": "芸は身を助く。",
+        "meaning_vi": "Sự khéo léo sẽ giúp bản thân mình.",
+        "meaning_en": "The ingenuity will help yourself."
+      },
+      {
+        "example_text": "サーカスのアシカは曲芸を見せた。",
+        "furigana": "サーカスのアシカは曲芸を見せた。",
+        "meaning_vi": "Con hải sư của rạp xiếc đã biểu diễn những màn nhào lộn.",
+        "meaning_en": "The Circus Sea Master performed the acrobatics."
+      }
+    ],
+    "meaning_en": "Talented"
+  },
+  {
+    "kanji": "温",
+    "han_viet": "ÔN",
+    "meaning_vi": "Ấm, ôn hòa",
+    "on_reading": [
+      "オン"
+    ],
+    "kun_reading": [
+      "あたた-か",
+      "あたた-かい",
+      "あたた-まる",
+      "あたた-める",
+      "ぬく"
+    ],
+    "level": "N2",
+    "strokes": 12,
+    "radicals": "",
+    "examples": [],
+    "meaning_en": "Warm, mild"
+  },
+  {
+    "kanji": "血",
+    "han_viet": "HUYẾT",
+    "meaning_vi": "Con dao dính máu 血 cắm vào đĩa 皿 bánh.",
+    "on_reading": [
+      "ケツ"
+    ],
+    "kun_reading": [
+      "ち"
+    ],
+    "level": "N2",
+    "strokes": 7,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "血は水より濃い。",
+        "furigana": "",
+        "meaning_vi": "Máu đậm hơn nước.",
+        "meaning_en": "Blood is darker than water."
+      },
+      {
+        "example_text": "きずぐちから血がでた。",
+        "furigana": "",
+        "meaning_vi": "Máu chảy ra từ vết thương.",
+        "meaning_en": "Bleeding from the wound."
+      }
+    ],
+    "meaning_en": "Bloody knife 血 plug into a plate 皿 cake."
+  },
+  {
+    "kanji": "液",
+    "han_viet": "DỊCH",
+    "meaning_vi": "Dung dịch, chất lỏng",
+    "on_reading": [
+      "エキ"
+    ],
+    "kun_reading": [],
+    "level": "N2",
+    "strokes": 11,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "粘液便がでます。",
+        "furigana": "粘液便がでます。",
+        "meaning_vi": "Trong phân của tôi có chất nhầy.",
+        "meaning_en": "In my stool there is mucus."
+      },
+      {
+        "example_text": "液体は硫酸であった。",
+        "furigana": "液体は硫酸であった。",
+        "meaning_vi": "Dung dịch này là axit sulfuric.",
+        "meaning_en": "This solution is sulfuric acid."
+      }
+    ],
+    "meaning_en": "Solution, liquid"
+  },
+  {
+    "kanji": "療",
+    "han_viet": "LIỆU",
+    "meaning_vi": "Chữa trị, làm lành",
+    "on_reading": [
+      "リョウ"
+    ],
+    "kun_reading": [],
+    "level": "N2",
+    "strokes": 17,
+    "radicals": "",
+    "examples": [],
+    "meaning_en": "Treatment, healing"
+  },
+  {
+    "kanji": "症",
+    "han_viet": "CHỨNG",
+    "meaning_vi": "Chứng bệnh, triệu chứng",
+    "on_reading": [
+      "ショウ"
+    ],
+    "kun_reading": [],
+    "level": "N1",
+    "strokes": 10,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "不眠症です。",
+        "furigana": "不眠症です。",
+        "meaning_vi": "Tôi thường mất ngủ.",
+        "meaning_en": "I often have insomnia."
+      },
+      {
+        "example_text": "花粉症です。",
+        "furigana": "花粉症です。",
+        "meaning_vi": "Tôi bị cúm rồi.",
+        "meaning_en": "I have the flu."
+      }
+    ],
+    "meaning_en": "Diseases, symptoms"
+  },
+  {
+    "kanji": "状",
+    "han_viet": "TRẠNG",
+    "meaning_vi": "Hình dáng, tình trạng, hoàn cảnh",
+    "on_reading": [
+      "ジョウ"
+    ],
+    "kun_reading": [],
+    "level": "N3",
+    "strokes": 7,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "難しい状況です。",
+        "furigana": "難しい状況です。",
+        "meaning_vi": "Đây là một vấn đề khó khăn.",
+        "meaning_en": "This is a difficult problem."
+      },
+      {
+        "example_text": "お礼状のカードです。",
+        "furigana": "お礼状のカードです。",
+        "meaning_vi": "Đây là thư cảm ơn của tôi.",
+        "meaning_en": "This is my thank you letter."
+      }
+    ],
+    "meaning_en": "Shape, situation, circumstances"
+  },
+  {
+    "kanji": "防",
+    "han_viet": "PHÒNG",
+    "meaning_vi": "Phòng ngừa, đề phòng, bảo vệ",
+    "on_reading": [
+      "ボウ"
+    ],
+    "kun_reading": [
+      "ふせ-ぐ"
+    ],
+    "level": "N2",
+    "strokes": 7,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "彼女は寒気を防ぐために厚いコートを着ていた。",
+        "furigana": "",
+        "meaning_vi": "Cô mặc một chiếc áo khoác dày chống lại cái lạnh.",
+        "meaning_en": "She wore a thick coat against the cold."
+      },
+      {
+        "example_text": "泥棒の侵入を防ぐ。",
+        "furigana": "",
+        "meaning_vi": "Đề phòng kẻ gian đột nhập.",
+        "meaning_en": "Preventing intruder crooks."
+      }
+    ],
+    "meaning_en": "Prevention, precaution, protection"
+  },
+  {
+    "kanji": "栄",
+    "han_viet": "VINH",
+    "meaning_vi": "Vẻ vang, phồn vinh",
+    "on_reading": [
+      "エイ",
+      "ヨウ"
+    ],
+    "kun_reading": [
+      "は-える",
+      "さか-える"
+    ],
+    "level": "N2",
+    "strokes": 9,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "身に余る栄光。",
+        "furigana": "身に余る栄光。",
+        "meaning_vi": "Bản thân tôi không xứng đáng với vinh quang đó.",
+        "meaning_en": "I myself do not deserve that glory."
+      },
+      {
+        "example_text": "繁栄している 都市。",
+        "furigana": "繁栄している 都市。",
+        "meaning_vi": "Thành phố đang hưng thịnh.",
+        "meaning_en": "The city is flourishing."
+      }
+    ],
+    "meaning_en": "Glorious, prosperous"
+  },
+  {
+    "kanji": "養",
+    "han_viet": "DƯỠNG, DƯỢNG",
+    "meaning_vi": "Sự nuôi dưỡng",
+    "on_reading": [
+      "ヨウ",
+      "リョウ"
+    ],
+    "kun_reading": [
+      "やしな.う"
+    ],
+    "level": "N1",
+    "strokes": 15,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "良い習慣は 子供時代に養うべきである。",
+        "furigana": "",
+        "meaning_vi": "Những thói quen tốt nên được nuôi dưỡng khi còn nhỏ.",
+        "meaning_en": "Good habits should be nurtured when young."
+      },
+      {
+        "example_text": "青山さんは養う家族が多い。",
+        "furigana": "",
+        "meaning_vi": "Ông Aoyama có một đại gia đình phải nuôi.",
+        "meaning_en": "Aoyama has a big family."
+      }
+    ],
+    "meaning_en": "Nourishment"
+  },
+  {
+    "kanji": "誤",
+    "han_viet": "NGỘ",
+    "meaning_vi": "Nhầm lẫn, hiểu sai, hiểu lầm",
+    "on_reading": [
+      "ゴ"
+    ],
+    "kun_reading": [
+      "あやま-る"
+    ],
+    "level": "N3",
+    "strokes": 14,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "誤りを直せ。",
+        "furigana": "誤りを直せ。",
+        "meaning_vi": "Sửa lỗi đi.",
+        "meaning_en": "Fix the error."
+      },
+      {
+        "example_text": "誤解があるようだ。",
+        "furigana": "誤解があるようだ。",
+        "meaning_vi": "Hình như là có hiểu lầm thì phải.",
+        "meaning_en": "It seems that there is a misunderstanding."
+      }
+    ],
+    "meaning_en": "Confusion, misunderstanding, misunderstanding"
+  },
+  {
+    "kanji": "態",
+    "han_viet": "THÁI",
+    "meaning_vi": "Thái độ, hình dạng, trạng thái",
+    "on_reading": [
+      "タイ"
+    ],
+    "kun_reading": [
+      "わざ-と"
+    ],
+    "level": "N1",
+    "strokes": 14,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "事態は険悪だ。",
+        "furigana": "事態は険悪だ。",
+        "meaning_vi": "Tình hình đáng sợ.",
+        "meaning_en": "Scary situation."
+      },
+      {
+        "example_text": "会社は経営状態がいい。",
+        "furigana": "会社は経営状態がいい。",
+        "meaning_vi": "Công ty có tình hình tài chính tốt.",
+        "meaning_en": "The company has good financial situation."
+      }
+    ],
+    "meaning_en": "Attitude, shape, state"
+  },
+  {
+    "kanji": "癖",
+    "han_viet": "PHÍCH, TÍCH",
+    "meaning_vi": "Thói quen, phong cách riêng, nét đặc trưng",
+    "on_reading": [
+      "ヘキ"
+    ],
+    "kun_reading": [
+      "くせ",
+      "くせ-に"
+    ],
+    "level": "N1",
+    "strokes": 18,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "彼には夜更かしの癖がある。",
+        "furigana": "",
+        "meaning_vi": "Anh ta có thói quen xấu là thức khuya.",
+        "meaning_en": "He has a bad habit of staying up late."
+      },
+      {
+        "example_text": "寝癖がついちゃった。",
+        "furigana": "",
+        "meaning_vi": "Tóc bị quăn hết cả lên.",
+        "meaning_en": "The hair is curly up."
+      }
+    ],
+    "meaning_en": "Habits, unique styles, characteristics"
+  },
+  {
+    "kanji": "儀",
+    "han_viet": "NGHI",
+    "meaning_vi": "Phép tắc",
+    "on_reading": [
+      "ギ"
+    ],
+    "kun_reading": [],
+    "level": "N1",
+    "strokes": 15,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "彼は礼儀にかけている。",
+        "furigana": "彼は礼儀にかけている。",
+        "meaning_vi": "Anh ấy đang hành lễ.",
+        "meaning_en": "He is performing the ceremony."
+      },
+      {
+        "example_text": "彼女は礼儀正しい。",
+        "furigana": "彼女は礼儀正しい。",
+        "meaning_vi": "Cô ấy rất lễ phép.",
+        "meaning_en": "She is very polite."
+      }
+    ],
+    "meaning_en": "Law"
+  },
+  {
+    "kanji": "句",
+    "han_viet": "CÚ, CÂU, CẤU",
+    "meaning_vi": "Mệnh đề, câu, đoạn văn",
+    "on_reading": [
+      "ク"
+    ],
+    "kun_reading": [],
+    "level": "N1",
+    "strokes": 5,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "引用句を用いる。",
+        "furigana": "",
+        "meaning_vi": "Sử dụng câu trích dẫn.",
+        "meaning_en": "Use the quote."
+      },
+      {
+        "example_text": "この句はどう意味ですか。",
+        "furigana": "",
+        "meaning_vi": "Câu văn này có nghĩa là gì?",
+        "meaning_en": "What does this sentence mean?"
+      }
+    ],
+    "meaning_en": "Clauses, sentences, paragraphs"
+  },
+  {
+    "kanji": "距",
+    "han_viet": "CỰ",
+    "meaning_vi": "Cự ly, khoảng cách",
+    "on_reading": [
+      "キョ"
+    ],
+    "kun_reading": [
+      "へだ-たる",
+      "けづめ"
+    ],
+    "level": "N1",
+    "strokes": 12,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "あなたが許容できる『遠距離恋愛』の距離は？",
+        "furigana": "あなたが許容できる『遠距離恋愛』の距離は？",
+        "meaning_vi": "Khoảng cách có thể chấp nhận trong \"yêu xa\" của bạn là?",
+        "meaning_en": "Is the acceptable distance in your \"love\"?"
+      },
+      {
+        "example_text": "すごい飛距離ですね。",
+        "furigana": "すごい飛距離ですね。",
+        "meaning_vi": "Khoảng cách nhảy đáng kinh ngạc nhỉ?",
+        "meaning_en": "The dance distance is incredible, right?"
+      }
+    ],
+    "meaning_en": "Distance, distance"
+  },
+  {
+    "kanji": "提",
+    "han_viet": "ĐỀ, THÌ, ĐỂ",
+    "meaning_vi": "Mang, cầm",
+    "on_reading": [
+      "テイ",
+      "チョウ",
+      "ダイ"
+    ],
+    "kun_reading": [
+      "さ-げる"
+    ],
+    "level": "N1",
+    "strokes": 12,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "提携しましょう。",
+        "furigana": "提携しましょう。",
+        "meaning_vi": "Hãy cùng hợp tác",
+        "meaning_en": "Let's cooperate"
+      },
+      {
+        "example_text": "彼は意見書を提出した。",
+        "furigana": "彼は意見書を提出した。",
+        "meaning_vi": "Anh ấy đã nộp bản ý kiến .",
+        "meaning_en": "He submitted an opinion."
+      }
+    ],
+    "meaning_en": "Carry, hold"
+  },
+  {
+    "kanji": "影",
+    "han_viet": "ẢNH",
+    "meaning_vi": "Bóng dáng, hình bóng",
+    "on_reading": [
+      "エイ"
+    ],
+    "kun_reading": [
+      "かげ"
+    ],
+    "level": "N1",
+    "strokes": 15,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "ドアの影から男が現れた。",
+        "furigana": "ドアの影から男が現れた。",
+        "meaning_vi": "Một người đàn ông hiện ra từ bóng cửa lớn.",
+        "meaning_en": "A man appears from the big door."
+      },
+      {
+        "example_text": "あの人は影が薄い。",
+        "furigana": "あの人は影が薄い。",
+        "meaning_vi": "Bóng dáng người đó thật mảnh mai.",
+        "meaning_en": "That figure is so slender."
+      }
+    ],
+    "meaning_en": "The silhouette, the silhouette"
+  },
+  {
+    "kanji": "響",
+    "han_viet": "HƯỞNG",
+    "meaning_vi": "Tiếng vang",
+    "on_reading": [
+      "キョウ"
+    ],
+    "kun_reading": [
+      "ひび-く"
+    ],
+    "level": "N1",
+    "strokes": 20,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "銃声が響き渡った。",
+        "furigana": "銃声が響き渡った。",
+        "meaning_vi": "Một tiếng súng vang lên .",
+        "meaning_en": "A gunfire rang out."
+      },
+      {
+        "example_text": "谷は滝の音を反響する。",
+        "furigana": "谷は滝の音を反響する。",
+        "meaning_vi": "Các thung lũng vang những âm thanh của thác nước.",
+        "meaning_en": "The valleys of the sounds of the waterfall."
+      }
+    ],
+    "meaning_en": "Echo"
+  },
+  {
+    "kanji": "象",
+    "han_viet": "TƯỢNG",
+    "meaning_vi": "Con voi",
+    "on_reading": [
+      "ショウ",
+      "ゾウ"
+    ],
+    "kun_reading": [
+      "かたど-る",
+      "ぞう"
+    ],
+    "level": "N2",
+    "strokes": 14,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "象は鼻が長い。",
+        "furigana": "象は鼻が長い。",
+        "meaning_vi": "Con voi có chiếc vòi dài .",
+        "meaning_en": "The elephant has a long faucet."
+      },
+      {
+        "example_text": "象は巨大な動物である。",
+        "furigana": "象は巨大な動物である。",
+        "meaning_vi": "Voi là một con vật rất lớn.",
+        "meaning_en": "Elephants are a huge animal."
+      }
+    ],
+    "meaning_en": "Elephant"
+  },
+  {
+    "kanji": "共",
+    "han_viet": "CỘNG",
+    "meaning_vi": "Cùng, chung",
+    "on_reading": [
+      "キョウ"
+    ],
+    "kun_reading": [
+      "とも",
+      "とも-に",
+      "ども"
+    ],
+    "level": "N3",
+    "strokes": 6,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "共同責任無責任。",
+        "furigana": "共同責任無責任。",
+        "meaning_vi": "Thật vô trách nhiệm với việc chung.",
+        "meaning_en": "It is irresponsible to the common."
+      },
+      {
+        "example_text": "輝ける魂と共に。",
+        "furigana": "輝ける魂と共に。",
+        "meaning_vi": "Ánh sáng chiếu rọi tâm hồn tôi",
+        "meaning_en": "Light shines my soul"
+      }
+    ],
+    "meaning_en": "Same, general"
+  },
+  {
+    "kanji": "略",
+    "han_viet": "LƯỢC",
+    "meaning_vi": "Tóm tắt, mưu lược, qua loa, sơ sài",
+    "on_reading": [
+      "リャク"
+    ],
+    "kun_reading": [
+      "ほぼ",
+      "おか-す",
+      "おさ-める",
+      "はかりごと",
+      "はか-る",
+      "はぶ-く",
+      "りゃく-す",
+      "りゃく-する"
+    ],
+    "level": "N2",
+    "strokes": 11,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "UN は United Nations の略です。",
+        "furigana": "UN は United Nations の略です。",
+        "meaning_vi": "UN là chữ viết tắt của United Nations.",
+        "meaning_en": "Un is the abbreviation of United Nations."
+      },
+      {
+        "example_text": "何の略字ですか。",
+        "furigana": "何の略字ですか。",
+        "meaning_vi": "Viết tắt của gì vậy ạ?",
+        "meaning_en": "What is the abbreviation of?"
+      }
+    ],
+    "meaning_en": "Summary, strategy, through speakers, sketchy"
+  },
+  {
+    "kanji": "戦",
+    "han_viet": "CHIẾN",
+    "meaning_vi": "Cuộc chiến , chiến tranh",
+    "on_reading": [
+      "セン"
+    ],
+    "kun_reading": [
+      "いくさ",
+      "たたか-う",
+      "おのの-く",
+      "そよ-ぐ",
+      "わなな-く"
+    ],
+    "level": "N3",
+    "strokes": 13,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "この挑戦は失敗した。",
+        "furigana": "",
+        "meaning_vi": "Tôi đã thất bại ở thử thách này.",
+        "meaning_en": "I failed in this challenge."
+      },
+      {
+        "example_text": "私はあなたの挑戦を待っています。",
+        "furigana": "",
+        "meaning_vi": "Tôi chờ đợi thử thách của bạn.",
+        "meaning_en": "I wait for your challenge."
+      }
+    ],
+    "meaning_en": "War, war"
+  },
+  {
+    "kanji": "勇",
+    "han_viet": "DŨNG",
+    "meaning_vi": "Dũng cảm, gan dạ",
+    "on_reading": [
+      "ユウ"
+    ],
+    "kun_reading": [
+      "いさ-む"
+    ],
+    "level": "N2",
+    "strokes": 9,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "将校は部下を鼓舞して勇気を出させた。",
+        "furigana": "",
+        "meaning_vi": "Cấp trên khích lệ, truyền dũng khí cho cấp dưới.",
+        "meaning_en": "The superior encourages and passes courage to subordinates."
+      },
+      {
+        "example_text": "その勇敢なる騎士は進み出てその貴婦人の手にキスをする。",
+        "furigana": "",
+        "meaning_vi": "Những hiệp sĩ dũng cảm bước về phía trước để hôn lên bàn tay người phụ nữ đó.",
+        "meaning_en": "The brave knights walked forward to kiss the woman's hand."
+      }
+    ],
+    "meaning_en": "Brave, brave"
+  },
+  {
+    "kanji": "請",
+    "han_viet": "THỈNH, TÍNH",
+    "meaning_vi": "Yêu cầu, nhận",
+    "on_reading": [
+      "セイ",
+      "シン",
+      "ショウ"
+    ],
+    "kun_reading": [
+      "こ-う",
+      "う-ける"
+    ],
+    "level": "N1",
+    "strokes": 15,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "そういう事情なのでその要請は認められない。",
+        "furigana": "そういう事情なのでその要請は認められない。",
+        "meaning_vi": "Ở trong tình hình đó thì lời thỉnh cầu đó không thể được chấp nhận.",
+        "meaning_en": "In that situation, that request cannot be accepted."
+      },
+      {
+        "example_text": "恩恵を請うのは私の威厳に関わる。",
+        "furigana": "恩恵を請うのは私の威厳に関わる。",
+        "meaning_vi": "Việc thỉnh cầu ơn huệ liên quan đến sự uy nghiêm của tôi.",
+        "meaning_en": "The request for grace Hue regarding my solemnity."
+      }
+    ],
+    "meaning_en": "Request, receive"
+  },
+  {
+    "kanji": "契",
+    "han_viet": "KHẾ, TIẾT, KHIẾT, KHẤT",
+    "meaning_vi": "Thề ước, hứa hẹn",
+    "on_reading": [
+      "ケイ"
+    ],
+    "kun_reading": [
+      "ちぎ-る"
+    ],
+    "level": "N1",
+    "strokes": 9,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "契約の詳細は契約書に示されている。",
+        "furigana": "契約の詳細は契約書に示されている。",
+        "meaning_vi": "Các chi tiết của thỏa thuận đã được thể hiện trong hợp đồng.",
+        "meaning_en": "The details of the agreement are shown in the contract."
+      },
+      {
+        "example_text": "契約条件の履行する。",
+        "furigana": "契約条件の履行する。",
+        "meaning_vi": "Thi hành các điều khoản hợp đồng.",
+        "meaning_en": "Implementation of contract terms."
+      }
+    ],
+    "meaning_en": "Vow, promise"
+  },
+  {
+    "kanji": "更",
+    "han_viet": "CANH",
+    "meaning_vi": "Canh giờ, về khuya (đêm)",
+    "on_reading": [
+      "コウ"
+    ],
+    "kun_reading": [
+      "さら",
+      "さら-に",
+      "ふ-ける",
+      "ふ-かす"
+    ],
+    "level": "N3",
+    "strokes": 7,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "夜更かしをする。",
+        "furigana": "夜更かしをする。",
+        "meaning_vi": "Thức khuya.",
+        "meaning_en": "Stay up late."
+      },
+      {
+        "example_text": "夜更けが始めた。",
+        "furigana": "夜更けが始めた。",
+        "meaning_vi": "Đêm đã bắt đầu về khuya.",
+        "meaning_en": "The night has started late at night."
+      }
+    ],
+    "meaning_en": "At night, late at night (night)"
+  },
+  {
+    "kanji": "存",
+    "han_viet": "TỒN",
+    "meaning_vi": "Còn, hiện có, tồn tại",
+    "on_reading": [
+      "ソン",
+      "ゾン"
+    ],
+    "kun_reading": [],
+    "level": "N3",
+    "strokes": 6,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "それは現存する最古の木造建築である。",
+        "furigana": "それは現存する最古の木造建築である。",
+        "meaning_vi": "Đó là tòa nhà bằng gỗ lâu đời nhất còn tồn tại.",
+        "meaning_en": "It is the oldest wooden building."
+      },
+      {
+        "example_text": "レオナルド・ダ・ヴィンチの美術素描は約９００点現存しています。",
+        "furigana": "レオナルド・ダ・ヴィンチの美術素描は約９００点現存しています。",
+        "meaning_vi": "Bức vẽ phác nghệ thuật của Leonardo da Vinci còn tồn tại khoảng 900 bức.",
+        "meaning_en": "The artistic sketch of Leonardo Da Vinci still exists about 900 pictures."
+      }
+    ],
+    "meaning_en": "Also, existing, exist"
+  },
+  {
+    "kanji": "環",
+    "han_viet": "HOÀN",
+    "meaning_vi": "Hoàn cảnh, tuần hoàn",
+    "on_reading": [
+      "カン"
+    ],
+    "kun_reading": [
+      "わ"
+    ],
+    "level": "N2",
+    "strokes": 17,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "血液は体内を循環する。",
+        "furigana": "血液は体内を循環する。",
+        "meaning_vi": "Máu lưu thông khắp cơ thể.",
+        "meaning_en": "Blood circulates throughout the body."
+      },
+      {
+        "example_text": "人工環境と自然環境の関係について書きなさい。",
+        "furigana": "人工環境と自然環境の関係について書きなさい。",
+        "meaning_vi": "Hãy viết về quan hệ của môi trường tự nhiên và môi trường nhân tạo.",
+        "meaning_en": "Write about the relationship of the natural and artificial environment."
+      }
+    ],
+    "meaning_en": "Circumstances, circulation"
+  },
+  {
+    "kanji": "境",
+    "han_viet": "CẢNH",
+    "meaning_vi": "Ranh giới, biên giới, giới hạn",
+    "on_reading": [
+      "キョウ",
+      "ケイ"
+    ],
+    "kun_reading": [
+      "さかい"
+    ],
+    "level": "N2",
+    "strokes": 14,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "人工環境と自然環境の関係について書きなさい。",
+        "furigana": "人工環境と自然環境の関係について書きなさい。",
+        "meaning_vi": "Hãy viết về quan hệ của môi trường tự nhiên và môi trường nhân tạo.",
+        "meaning_en": "Write about the relationship of the natural and artificial environment."
+      },
+      {
+        "example_text": "もう少し環境を整えてほしい。",
+        "furigana": "もう少し環境を整えてほしい。",
+        "meaning_vi": "Tôi mong muốn điều chỉnh môi trường một chút.",
+        "meaning_en": "I want to adjust the environment a bit."
+      }
+    ],
+    "meaning_en": "Boundaries, borders, limits"
+  },
+  {
+    "kanji": "一",
+    "han_viet": "NHẤT",
+    "meaning_vi": "Một",
+    "on_reading": [
+      "イチ",
+      "イツ"
+    ],
+    "kun_reading": [
+      "ひと",
+      "ひと-つ",
+      "ひと-り"
+    ],
+    "level": "N5",
+    "strokes": 1,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "大きさは均一である。",
+        "furigana": "",
+        "meaning_vi": "Kích cỡ đều như nhau.",
+        "meaning_en": "The size is the same."
+      },
+      {
+        "example_text": "僕は平均で一日2時間英語を勉強する。",
+        "furigana": "僕は平均で一日2時間英語を勉強する。",
+        "meaning_vi": "Trung bình tôi học tiếng anh hai tiếng một ngày.",
+        "meaning_en": "On average, I study English for two hours a day."
+      }
+    ],
+    "meaning_en": "One"
+  },
+  {
+    "kanji": "商",
+    "han_viet": "THƯƠNG",
+    "meaning_vi": "Trao đổi, buôn bán",
+    "on_reading": [
+      "ショウ"
+    ],
+    "kun_reading": [
+      "あきな-う"
+    ],
+    "level": "N3",
+    "strokes": 11,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "商品に触れるな。",
+        "furigana": "商品に触れるな。",
+        "meaning_vi": "Không chạm vào hàng hóa.",
+        "meaning_en": "Do not touch the goods."
+      },
+      {
+        "example_text": "商事伒社の名前",
+        "furigana": "商事伒社の名前",
+        "meaning_vi": "Tên của công ty thương mại",
+        "meaning_en": "The name of the Trade Company"
+      }
+    ],
+    "meaning_en": "Exchange, trade"
+  },
+  {
+    "kanji": "型",
+    "han_viet": "HÌNH",
+    "meaning_vi": "Khuôn mẫu, làm gương, làm mẫu",
+    "on_reading": [
+      "ケイ"
+    ],
+    "kun_reading": [
+      "かた"
+    ],
+    "level": "N2",
+    "strokes": 9,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "この車は最新型です。",
+        "furigana": "",
+        "meaning_vi": "Chiếc xe này là loại mới nhất.",
+        "meaning_en": "This car is the latest type."
+      },
+      {
+        "example_text": "大きな型の冷蔵庫がほしい。",
+        "furigana": "",
+        "meaning_vi": "Tôi thích loại tủ lạnh kích thước lớn.",
+        "meaning_en": "I like the large refrigerator."
+      }
+    ],
+    "meaning_en": "Mold, set an example, model"
+  },
+  {
+    "kanji": "費",
+    "han_viet": "PHÍ, BỈ",
+    "meaning_vi": "Kinh phí, chi phí",
+    "on_reading": [
+      "ヒ"
+    ],
+    "kun_reading": [
+      "つい-やす",
+      "つい-える"
+    ],
+    "level": "N3",
+    "strokes": 13,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "私費で旅行した。",
+        "furigana": "私費で旅行した。",
+        "meaning_vi": "Tôi đi du lịch bằng tiền của mình",
+        "meaning_en": "I travel with my money"
+      },
+      {
+        "example_text": "費用は最低一万円です。",
+        "furigana": "費用は最低一万円です。",
+        "meaning_vi": "Chi phí tối thiểu là 10000 yen.",
+        "meaning_en": "The minimum cost is 10000 yen."
+      }
+    ],
+    "meaning_en": "Funds, expenses"
+  },
+  {
+    "kanji": "琴",
+    "han_viet": "CẦM",
+    "meaning_vi": "Đàn cầm Koto của Nhật",
+    "on_reading": [
+      "キン"
+    ],
+    "kun_reading": [
+      "こと"
+    ],
+    "level": "N1",
+    "strokes": 12,
+    "radicals": "",
+    "examples": [],
+    "meaning_en": "Japanese Koto"
+  },
+  {
+    "kanji": "帯",
+    "han_viet": "ĐỚI, ĐÁI",
+    "meaning_vi": "Đai, thắt lưng",
+    "on_reading": [
+      "タイ"
+    ],
+    "kun_reading": [
+      "お-びる",
+      "おび"
+    ],
+    "level": "N2",
+    "strokes": 10,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "今携帯持ってる？",
+        "furigana": "今携帯持ってる？",
+        "meaning_vi": "Bây giờ bạn có mang theo điện thoại di động không?",
+        "meaning_en": "Do you bring your mobile phone now?"
+      },
+      {
+        "example_text": "酒気帯び運転をするな。",
+        "furigana": "酒気帯び運転をするな。",
+        "meaning_vi": "Cấm uống rượu nếu lái xe.",
+        "meaning_en": "Prohibit drinking if driving."
+      }
+    ],
+    "meaning_en": "Belt, belt"
+  },
+  {
+    "kanji": "超",
+    "han_viet": "SIÊU",
+    "meaning_vi": "Siêu đẳng, vượt quá, quá",
+    "on_reading": [
+      "チョウ"
+    ],
+    "kun_reading": [
+      "こ-える",
+      "こ-す"
+    ],
+    "level": "N2",
+    "strokes": 12,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "超ロマンティックだわ！",
+        "furigana": "超ロマンティックだわ！",
+        "meaning_vi": "Đúng là quá lãng mạn.",
+        "meaning_en": "It is so romantic."
+      },
+      {
+        "example_text": "超臭いよ。",
+        "furigana": "超臭いよ。",
+        "meaning_vi": "Nặng mùi quá.",
+        "meaning_en": "Heavy smell."
+      }
+    ],
+    "meaning_en": "Super level, beyond, too"
+  },
+  {
+    "kanji": "移",
+    "han_viet": "DI",
+    "meaning_vi": "Di chuyển, di động",
+    "on_reading": [
+      "イ"
+    ],
+    "kun_reading": [
+      "うつ-る",
+      "うつ-す"
+    ],
+    "level": "N2",
+    "strokes": 11,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "アメリカは移民の国である。",
+        "furigana": "アメリカは移民の国である。",
+        "meaning_vi": "Mỹ là đất nước của những người nhập cư.",
+        "meaning_en": "The US is the country of immigrants."
+      },
+      {
+        "example_text": "白鳥は当地からフロリダに移動する。",
+        "furigana": "白鳥は当地からフロリダに移動する。",
+        "meaning_vi": "Thiên nga di chuyển từ đây đến Florida.",
+        "meaning_en": "Swan moves from here to Florida."
+      }
+    ],
+    "meaning_en": "Move, mobile"
+  },
+  {
+    "kanji": "寄",
+    "han_viet": "KÍ",
+    "meaning_vi": "Phó thác, ký gửi",
+    "on_reading": [
+      "キ"
+    ],
+    "kun_reading": [
+      "よ-る",
+      "よ-り",
+      "よ-せる"
+    ],
+    "level": "N3",
+    "strokes": 11,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "年寄りは家の宝。",
+        "furigana": "年寄りは家の宝。",
+        "meaning_vi": "Kính lão đắc thọ.",
+        "meaning_en": "Lao Dac Tho."
+      },
+      {
+        "example_text": "寄らば大樹の陰。",
+        "furigana": "寄らば大樹の陰。",
+        "meaning_vi": "Phụ thuộc vào cái bóng của người khác",
+        "meaning_en": "Depends on the shadow of others"
+      }
+    ],
+    "meaning_en": "Entrust, deposit"
+  },
+  {
+    "kanji": "与",
+    "han_viet": "DỮ, DỰ",
+    "meaning_vi": "Cho, cấp, giúp đỡ, dự vào",
+    "on_reading": [
+      "ヨ"
+    ],
+    "kun_reading": [
+      "あた-える"
+    ],
+    "level": "N2",
+    "strokes": 3,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "訓戒を与える。",
+        "furigana": "訓戒を与える。",
+        "meaning_vi": "Đưa ra lời cảnh cáo.",
+        "meaning_en": "Give a warning."
+      },
+      {
+        "example_text": "彼に助言を与えるだけでなく尺八も与えた。",
+        "furigana": "彼に助言を与えるだけでなく尺八も与えた。",
+        "meaning_vi": "Tôi không chỉ cho anh ta lời khuyên mà còn tặng anh ta một cây sáo nữa.",
+        "meaning_en": "I not only gave him advice but also gave him a flute."
+      }
+    ],
+    "meaning_en": "Giving, granting, helping, attending"
+  },
+  {
+    "kanji": "勧",
+    "han_viet": "KHUYẾN",
+    "meaning_vi": "Khuyến khích, khích lệ",
+    "on_reading": [
+      "カン",
+      "ケン"
+    ],
+    "kun_reading": [
+      "すす-める"
+    ],
+    "level": "N1",
+    "strokes": 13,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "マウイ島がお勧めです。",
+        "furigana": "マウイ島がお勧めです。",
+        "meaning_vi": "Tôi xin đề xuất hòn đảo Maui.",
+        "meaning_en": "I would like to propose the island of Maui."
+      },
+      {
+        "example_text": "医者は転地を勧めた。",
+        "furigana": "医者は転地を勧めた。",
+        "meaning_vi": "Bác sĩ khuyên chúng tôi nên thay đổi không khí.",
+        "meaning_en": "The doctor advised us to change the atmosphere."
+      }
+    ],
+    "meaning_en": "Encourage and encouragement"
+  },
+  {
+    "kanji": "薦",
+    "han_viet": "TIẾN",
+    "meaning_vi": "Tiến cử, đề cử, giới thiệu",
+    "on_reading": [
+      "セン"
+    ],
+    "kun_reading": [
+      "すす-める"
+    ],
+    "level": "N1",
+    "strokes": 16,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "自賛は推薦にならない。",
+        "furigana": "自賛は推薦にならない。",
+        "meaning_vi": "Tự khen ngợi bản thân không phải là sự tiến cử .",
+        "meaning_en": "Praise yourself is not the recommendation."
+      },
+      {
+        "example_text": "このレストランは推薦できます。",
+        "furigana": "このレストランは推薦できます。",
+        "meaning_vi": "Tôi có thể đề cử nhà hàng này.",
+        "meaning_en": "I can nominate this restaurant."
+      }
+    ],
+    "meaning_en": "Recommend, nominate, introduce"
+  },
+  {
+    "kanji": "和",
+    "han_viet": "HÒA",
+    "meaning_vi": "Hòa, trộn lẫn",
+    "on_reading": [
+      "ワ",
+      "オ",
+      "カ"
+    ],
+    "kun_reading": [
+      "やわ-らぐ",
+      "やわ-らげる",
+      "なご-む",
+      "なご-やか"
+    ],
+    "level": "N3",
+    "strokes": 8,
+    "radicals": "",
+    "examples": [],
+    "meaning_en": "Mix, mix"
+  },
+  {
+    "kanji": "巻",
+    "han_viet": "QUYỂN",
+    "meaning_vi": "Cuộn lại, cuốn lại",
+    "on_reading": [
+      "カン",
+      "ケン"
+    ],
+    "kun_reading": [
+      "まき",
+      "ま-く"
+    ],
+    "level": "N2",
+    "strokes": 9,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "葉巻はいかが？",
+        "furigana": "葉巻はいかが？",
+        "meaning_vi": "Có xì gà không?",
+        "meaning_en": "Is there a cigar?"
+      },
+      {
+        "example_text": "私たちは交通事故に巻き込まれた。",
+        "furigana": "私たちは交通事故に巻き込まれた。",
+        "meaning_vi": "Chúng tôi có liên quan tới một vụ tai nạn giao thông.",
+        "meaning_en": "We are involved in a traffic accident."
+      }
+    ],
+    "meaning_en": "Roll, roll"
+  },
+  {
+    "kanji": "伸",
+    "han_viet": "THÂN",
+    "meaning_vi": "Duỗi ra, kéo ra",
+    "on_reading": [
+      "シン"
+    ],
+    "kun_reading": [
+      "の-びる",
+      "の-ばす",
+      "の-べる",
+      "の-す"
+    ],
+    "level": "N2",
+    "strokes": 7,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "追伸愛してます。",
+        "furigana": "追伸愛してます。",
+        "meaning_vi": "Tái bút: Anh yêu em.",
+        "meaning_en": "Pen: I love you."
+      },
+      {
+        "example_text": "追伸 愛してます。",
+        "furigana": "追伸 愛してます。",
+        "meaning_vi": "Tái bút: Anh yêu em.",
+        "meaning_en": "Pen: I love you."
+      }
+    ],
+    "meaning_en": "Stretching out, pulling out"
+  },
+  {
+    "kanji": "延",
+    "han_viet": "DUYÊN",
+    "meaning_vi": "Kéo dài",
+    "on_reading": [
+      "エン"
+    ],
+    "kun_reading": [
+      "の-ばす",
+      "の-べる",
+      "の-びる"
+    ],
+    "level": "N2",
+    "strokes": 8,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "決定は延期された。",
+        "furigana": "決定は延期された。",
+        "meaning_vi": "Quyết định này đã được hoãn lại.",
+        "meaning_en": "This decision was postponed."
+      },
+      {
+        "example_text": "イベントを延期しました。",
+        "furigana": "イベントを延期しました。",
+        "meaning_vi": "Chúng tôi đã tạm hoãn sự kiện đó.",
+        "meaning_en": "We have postponed that event."
+      }
+    ],
+    "meaning_en": "Lengthen"
+  },
+  {
+    "kanji": "溶",
+    "han_viet": "DUNG, DONG",
+    "meaning_vi": "Tan chảy, dung nham",
+    "on_reading": [
+      "ヨウ"
+    ],
+    "kun_reading": [
+      "と-ける",
+      "と-かす",
+      "と-く"
+    ],
+    "level": "N2",
+    "strokes": 13,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "油脂は水に溶けない。",
+        "furigana": "油脂は水に溶けない。",
+        "meaning_vi": "Mỡ không tan vào nước.",
+        "meaning_en": "Fat insoluble into water."
+      },
+      {
+        "example_text": "水中の氷が溶けた。",
+        "furigana": "水中の氷が溶けた。",
+        "meaning_vi": "Băng ở trong nước đã tan ra.",
+        "meaning_en": "The tape in the water has melted."
+      }
+    ],
+    "meaning_en": "Melting, lava"
+  },
+  {
+    "kanji": "含",
+    "han_viet": "HÀM",
+    "meaning_vi": "Ngậm, bao gồm",
+    "on_reading": [
+      "ガン"
+    ],
+    "kun_reading": [
+      "ふく-む",
+      "ふく-める"
+    ],
+    "level": "N2",
+    "strokes": 7,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "寸動 を含む。",
+        "furigana": "",
+        "meaning_vi": "Bao hàm từng bước.",
+        "meaning_en": "Step by step."
+      },
+      {
+        "example_text": "寸動 を含む。",
+        "furigana": "寸動 を含む。",
+        "meaning_vi": "Bao hàm từng bước.",
+        "meaning_en": "Step by step."
+      }
+    ],
+    "meaning_en": "Suck, include"
+  },
+  {
+    "kanji": "差",
+    "han_viet": "SOA, SI, SAI",
+    "meaning_vi": "Sự khác biệt, khoảng cách",
+    "on_reading": [
+      "サ"
+    ],
+    "kun_reading": [
+      "さ-す",
+      "さ-し"
+    ],
+    "level": "N3",
+    "strokes": 10,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "AとBとの歴然とした待遇の差。",
+        "furigana": "",
+        "meaning_vi": "Có một sự cách biệt hiển nhiên giữa A và B.",
+        "meaning_en": "There is an obvious difference between A and B."
+      },
+      {
+        "example_text": "同僚と差しつ差されつお酒を飲んだ。",
+        "furigana": "同僚と差しつ差されつお酒を飲んだ。",
+        "meaning_vi": "Tôi đã đi uống rượu với đồng nghiệp, liên miên chén chú chén anh.",
+        "meaning_en": "I went to drink with my colleagues, constantly my cup."
+      }
+    ],
+    "meaning_en": "Differences, distance"
+  },
+  {
+    "kanji": "炊",
+    "han_viet": "XUY, XÚY",
+    "meaning_vi": "Đốt lửa, nấu ăn",
+    "on_reading": [
+      "スイ"
+    ],
+    "kun_reading": [
+      "た-く"
+    ],
+    "level": "N1",
+    "strokes": 8,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "とろ火で時間をかけて豆を炊いてください。",
+        "furigana": "とろ火で時間をかけて豆を炊いてください。",
+        "meaning_vi": "Hãy để lửa nhỏ trong suốt thời gian luộc đậu.",
+        "meaning_en": "Leave the low heat during the boiled beans."
+      }
+    ],
+    "meaning_en": "Fire burning, cooking"
+  },
+  {
+    "kanji": "炒",
+    "han_viet": "SAO",
+    "meaning_vi": "Sao, rang. Cãi vã.",
+    "on_reading": [
+      "ソウ",
+      "ショウ"
+    ],
+    "kun_reading": [
+      "い-る",
+      "いた-める"
+    ],
+    "level": "N1",
+    "strokes": 8,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "コーヒー豆を炒る",
+        "furigana": "",
+        "meaning_vi": "Rang hạt cà phê",
+        "meaning_en": "Roast coffee beans"
+      },
+      {
+        "example_text": "タマネギを弱火で炒る",
+        "furigana": "",
+        "meaning_vi": "Phi hành bằng lửa nhỏ",
+        "meaning_en": "Astronaut"
+      }
+    ],
+    "meaning_en": "Star, roast. Quarrel."
+  },
+  {
+    "kanji": "揚",
+    "han_viet": "DƯƠNG",
+    "meaning_vi": "Giơ lên, giương lên, bốc lên",
+    "on_reading": [
+      "ヨウ"
+    ],
+    "kun_reading": [
+      "あ-げる",
+      "あ-がる"
+    ],
+    "level": "N1",
+    "strokes": 12,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "彼はたこを揚げた。",
+        "furigana": "彼はたこを揚げた。",
+        "meaning_vi": "Anh ấy đã chiên bạch tuộc.",
+        "meaning_en": "He fried octopus."
+      },
+      {
+        "example_text": "凧が揚がっている。",
+        "furigana": "凧が揚がっている。",
+        "meaning_vi": "Diều bay lên cao.",
+        "meaning_en": "The kite flew up high."
+      }
+    ],
+    "meaning_en": "Raise, raise, rise"
+  },
+  {
+    "kanji": "互",
+    "han_viet": "HỖ",
+    "meaning_vi": "Giúp lẫn nhau, hỗ trợ, qua lại",
+    "on_reading": [
+      "ゴ"
+    ],
+    "kun_reading": [
+      "たが-い",
+      "かたみ-に"
+    ],
+    "level": "N2",
+    "strokes": 4,
+    "radicals": "",
+    "examples": [
+      {
+        "example_text": "彼らはお互いに座席を交換した。",
+        "furigana": "彼らはお互いに座席を交換した。",
+        "meaning_vi": "Họ đã đổi chỗ ngồi cho nhau.",
+        "meaning_en": "They changed their seats."
+      }
+    ],
+    "meaning_en": "Help each other, support, back and forth"
+  },
+  {
+    "kanji": "司",
+    "kun_reading": ["つかさどる"],
+    "on_reading": ["し"],
+    "han_viet": "TƯ",
+    "meaning_vi": "quản lý, điều hành",
+    "meaning_en": "manage, rule, administer",
+    "radicals": "口",
+    "strokes": 5,
+    "level": "N3",
+    "examples": [
+        {
+            "example_text": "彼は司会を務めた。",
+            "furigana": "かれはしかいをつとめた。",
+            "meaning_vi": "Anh ấy đã làm người dẫn chương trình.",
+            "meaning_en": "He served as the host."
+        }
+    ]
+},
+{
+    "kanji": "郷",
+    "kun_reading": ["さと"],
+    "on_reading": ["きょう", "ごう"],
+    "han_viet": "HƯƠNG",
+    "meaning_vi": "quê hương, làng",
+    "meaning_en": "hometown, village",
+    "radicals": "邑",
+    "strokes": 11,
+    "level": "N2",
+    "examples": [
+        {
+            "example_text": "故郷に帰る。",
+            "furigana": "こきょうにかえる。",
+            "meaning_vi": "Trở về quê hương.",
+            "meaning_en": "Return to hometown."
+        }
+    ]
+},
+{
+    "kanji": "粧",
+    "kun_reading": ["よそおう"],
+    "on_reading": ["しょう"],
+    "han_viet": "TRANG",
+    "meaning_vi": "trang điểm, trang sức",
+    "meaning_en": "makeup, adornment",
+    "radicals": "米",
+    "strokes": 12,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "化粧をする。",
+            "furigana": "けしょうをする。",
+            "meaning_vi": "Trang điểm.",
+            "meaning_en": "Put on makeup."
+        }
+    ]
+},
+{
+    "kanji": "貯",
+    "kun_reading": ["たくわえる"],
+    "on_reading": ["ちょ"],
+    "han_viet": "TRỮ",
+    "meaning_vi": "dự trữ, tích lũy",
+    "meaning_en": "store, save",
+    "radicals": "貝",
+    "strokes": 12,
+    "level": "N2",
+    "examples": [
+        {
+            "example_text": "貯金する。",
+            "furigana": "ちょきんする。",
+            "meaning_vi": "Tiết kiệm tiền.",
+            "meaning_en": "Save money."
+        }
+    ]
+},
+{
+    "kanji": "徹",
+    "kun_reading": [],
+    "on_reading": ["てつ"],
+    "han_viet": "TRIỆT",
+    "meaning_vi": "triệt để, thấu suốt",
+    "meaning_en": "thorough, complete",
+    "radicals": "彳",
+    "strokes": 15,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "徹夜する。",
+            "furigana": "てつやする。",
+            "meaning_vi": "Thức suốt đêm.",
+            "meaning_en": "Stay up all night."
+        }
+    ]
+},
+{
+    "kanji": "慮",
+    "kun_reading": ["おもんぱかる"],
+    "on_reading": ["りょ"],
+    "han_viet": "LỰ",
+    "meaning_vi": "suy xét, cân nhắc",
+    "meaning_en": "consideration, concern",
+    "radicals": "心",
+    "strokes": 15,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "考慮する。",
+            "furigana": "こうりょする。",
+            "meaning_vi": "Cân nhắc.",
+            "meaning_en": "Consider."
+        }
+    ]
+},
+{
+    "kanji": "惑",
+    "kun_reading": ["まどう"],
+    "on_reading": ["わく"],
+    "han_viet": "HOẶC",
+    "meaning_vi": "mê hoặc, nghi ngờ",
+    "meaning_en": "bewilder, doubt",
+    "radicals": "心",
+    "strokes": 12,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "惑星。",
+            "furigana": "わくせい。",
+            "meaning_vi": "Hành tinh.",
+            "meaning_en": "Planet."
+        }
+    ]
+},
+{
+    "kanji": "湿",
+    "kun_reading": ["しめる", "しめす"],
+    "on_reading": ["しつ"],
+    "han_viet": "THẤP",
+    "meaning_vi": "ẩm ướt",
+    "meaning_en": "wet, damp",
+    "radicals": "水",
+    "strokes": 12,
+    "level": "N2",
+    "examples": [
+        {
+            "example_text": "湿気。",
+            "furigana": "しっき。",
+            "meaning_vi": "Độ ẩm.",
+            "meaning_en": "Humidity."
+        }
+    ]
+},
+{
+    "kanji": "屈",
+    "kun_reading": ["かがむ", "かがめる"],
+    "on_reading": ["くつ"],
+    "han_viet": "KHUẤT",
+    "meaning_vi": "uốn cong, khuất phục",
+    "meaning_en": "bend, yield",
+    "radicals": "尸",
+    "strokes": 8,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "屈服する。",
+            "furigana": "くっぷくする。",
+            "meaning_vi": "Khuất phục.",
+            "meaning_en": "Surrender."
+        }
+    ]
+},
+{
+    "kanji": "躍",
+    "kun_reading": ["おどる"],
+    "on_reading": ["やく"],
+    "han_viet": "DƯỢC",
+    "meaning_vi": "nhảy, nhảy vọt",
+    "meaning_en": "leap, jump",
+    "radicals": "足",
+    "strokes": 21,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "活躍する。",
+            "furigana": "かつやくする。",
+            "meaning_vi": "Hoạt động tích cực.",
+            "meaning_en": "Be active."
+        }
+    ]
+},
+{
+    "kanji": "援",
+    "kun_reading": [],
+    "on_reading": ["えん"],
+    "han_viet": "VIỆN",
+    "meaning_vi": "viện trợ, giúp đỡ",
+    "meaning_en": "aid, support",
+    "radicals": "手",
+    "strokes": 12,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "援助する。",
+            "furigana": "えんじょする。",
+            "meaning_vi": "Hỗ trợ.",
+            "meaning_en": "Assist."
+        }
+    ]
+},
+{
+    "kanji": "宣",
+    "kun_reading": ["のべる"],
+    "on_reading": ["せん"],
+    "han_viet": "TUYÊN",
+    "meaning_vi": "tuyên bố, công bố",
+    "meaning_en": "proclaim, announce",
+    "radicals": "宀",
+    "strokes": 9,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "宣言する。",
+            "furigana": "せんげんする。",
+            "meaning_vi": "Tuyên bố.",
+            "meaning_en": "Declare."
+        }
+    ]
+},
+{
+    "kanji": "滞",
+    "kun_reading": ["とどこおる"],
+    "on_reading": ["たい"],
+    "han_viet": "TRỆ",
+    "meaning_vi": "trì trệ, lưu lại",
+    "meaning_en": "stagnate, stay",
+    "radicals": "水",
+    "strokes": 13,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "滞在する。",
+            "furigana": "たいざいする。",
+            "meaning_vi": "Lưu lại.",
+            "meaning_en": "Stay."
+        }
+    ]
+},
+{
+    "kanji": "緊",
+    "kun_reading": [],
+    "on_reading": ["きん"],
+    "han_viet": "KHẨN",
+    "meaning_vi": "khẩn cấp, căng thẳng",
+    "meaning_en": "urgent, tense",
+    "radicals": "糸",
+    "strokes": 14,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "緊急。",
+            "furigana": "きんきゅう。",
+            "meaning_vi": "Khẩn cấp.",
+            "meaning_en": "Emergency."
+        }
+    ]
+},
+{
+    "kanji": "奮",
+    "kun_reading": ["ふるう"],
+    "on_reading": ["ふん"],
+    "han_viet": "PHẤN",
+    "meaning_vi": "phấn khởi, nỗ lực",
+    "meaning_en": "rouse, exert",
+    "radicals": "大",
+    "strokes": 16,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "奮闘する。",
+            "furigana": "ふんとうする。",
+            "meaning_vi": "Nỗ lực chiến đấu.",
+            "meaning_en": "Struggle hard."
+        }
+    ]
+},
+{
+    "kanji": "慌",
+    "kun_reading": ["あわてる", "あわただしい"],
+    "on_reading": ["こう"],
+    "han_viet": "HOẢNG",
+    "meaning_vi": "hoảng hốt, vội vã",
+    "meaning_en": "panic, hurry",
+    "radicals": "心",
+    "strokes": 12,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "慌てる。",
+            "furigana": "あわてる。",
+            "meaning_vi": "Hoảng hốt.",
+            "meaning_en": "Panic."
+        }
+    ]
+},
+{
+    "kanji": "潔",
+    "kun_reading": ["いさぎよい"],
+    "on_reading": ["けつ"],
+    "han_viet": "KHIẾT",
+    "meaning_vi": "trong sạch, dứt khoát",
+    "meaning_en": "pure, resolute",
+    "radicals": "水",
+    "strokes": 15,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "清潔。",
+            "furigana": "せいけつ。",
+            "meaning_vi": "Sạch sẽ.",
+            "meaning_en": "Clean."
+        }
+    ]
+},
+{
+    "kanji": "鮮",
+    "kun_reading": ["あざやか"],
+    "on_reading": ["せん"],
+    "han_viet": "TIÊN",
+    "meaning_vi": "tươi, rõ ràng",
+    "meaning_en": "fresh, vivid",
+    "radicals": "魚",
+    "strokes": 17,
+    "level": "N2",
+    "examples": [
+        {
+            "example_text": "新鮮な魚。",
+            "furigana": "しんせんなさかな。",
+            "meaning_vi": "Cá tươi.",
+            "meaning_en": "Fresh fish."
+        }
+    ]
+},
+{
+    "kanji": "盛",
+    "kun_reading": ["もる", "さかる"],
+    "on_reading": ["せい", "じょう"],
+    "han_viet": "THỊNH",
+    "meaning_vi": "thịnh vượng, đầy",
+    "meaning_en": "prosper, full",
+    "radicals": "皿",
+    "strokes": 11,
+    "level": "N2",
+    "examples": [
+        {
+            "example_text": "盛大。",
+            "furigana": "せいだい。",
+            "meaning_vi": "Long trọng.",
+            "meaning_en": "Grand."
+        }
+    ]
+},
+{
+    "kanji": "演",
+    "kun_reading": ["えんじる"],
+    "on_reading": ["えん"],
+    "han_viet": "DIỄN",
+    "meaning_vi": "diễn xuất, trình diễn",
+    "meaning_en": "perform, act",
+    "radicals": "水",
+    "strokes": 14,
+    "level": "N3",
+    "examples": [
+        {
+            "example_text": "演技.。",
+            "furigana": "えんぎ。",
+            "meaning_vi": "Diễn xuất.",
+            "meaning_en": "Acting."
+        }
+    ]
+},
+{
+    "kanji": "奏",
+    "kun_reading": ["かなでる"],
+    "on_reading": ["そう"],
+    "han_viet": "TẤU",
+    "meaning_vi": "chơi nhạc, tấu",
+    "meaning_en": "play (music), perform",
+    "radicals": "大",
+    "strokes": 9,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "演奏する。",
+            "furigana": "えんそうする。",
+            "meaning_vi": "Chơi nhạc.",
+            "meaning_en": "Perform music."
+        }
+    ]
+},
+{
+    "kanji": "検",
+    "kun_reading": [],
+    "on_reading": ["けん"],
+    "han_viet": "KIỂM",
+    "meaning_vi": "kiểm tra, điều tra",
+    "meaning_en": "inspect, examine",
+    "radicals": "木",
+    "strokes": 12,
+    "level": "N2",
+    "examples": [
+        {
+            "example_text": "検査する。",
+            "furigana": "けんさする。",
+            "meaning_vi": "Kiểm tra.",
+            "meaning_en": "Inspect."
+        }
+    ]
+},
+{
+    "kanji": "挑",
+    "kun_reading": ["いどむ"],
+    "on_reading": ["ちょう"],
+    "han_viet": "KHIÊU",
+    "meaning_vi": "thách thức, khiêu khích",
+    "meaning_en": "challenge, provoke",
+    "radicals": "手",
+    "strokes": 9,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "挑戦する。",
+            "furigana": "ちょうせんする。",
+            "meaning_vi": "Thách thức.",
+            "meaning_en": "Challenge."
+        }
+    ]
+},
+{
+    "kanji": "均",
+    "kun_reading": [],
+    "on_reading": ["きん"],
+    "han_viet": "QUÂN",
+    "meaning_vi": "đều, cân bằng",
+    "meaning_en": "even, balance",
+    "radicals": "土",
+    "strokes": 7,
+    "level": "N2",
+    "examples": [
+        {
+            "example_text": "平均。",
+            "furigana": "へいきん。",
+            "meaning_vi": "Trung bình.",
+            "meaning_en": "Average."
+        }
+    ]
+},
+{
+    "kanji": "携",
+    "kun_reading": ["たずさえる", "たずさわる"],
+    "on_reading": ["けい"],
+    "han_viet": "HUY",
+    "meaning_vi": "mang theo, tham gia",
+    "meaning_en": "carry, participate",
+    "radicals": "手",
+    "strokes": 13,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "携帯する。",
+            "furigana": "けいたいする。",
+            "meaning_vi": "Mang theo.",
+            "meaning_en": "Carry (e.g., a phone)."
+        }
+    ]
+},
+{
+    "kanji": "飽",
+    "kun_reading": ["あく", "あかす"],
+    "on_reading": ["ほう"],
+    "han_viet": "BÃO",
+    "meaning_vi": "no đủ, chán",
+    "meaning_en": "satiated, bored",
+    "radicals": "食",
+    "strokes": 13,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "飽きる。",
+            "furigana": "あきる。",
+            "meaning_vi": "Chán.",
+            "meaning_en": "Get bored."
+        }
+    ]
+},
+{
+    "kanji": "痩",
+    "kun_reading": ["やせる"],
+    "on_reading": ["そう"],
+    "han_viet": "SẤU",
+    "meaning_vi": "gầy, giảm cân",
+    "meaning_en": "thin, lose weight",
+    "radicals": "疒",
+    "strokes": 12,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "痩せる。",
+            "furigana": "やせる。",
+            "meaning_vi": "Gầy đi.",
+            "meaning_en": "Lose weight."
+        }
+    ]
+},
+{
+    "kanji": "篤",
+    "kun_reading": ["あつい"],
+    "on_reading": ["とく"],
+    "han_viet": "ĐỐC",
+    "meaning_vi": "nồng hậu, chân thành",
+    "meaning_en": "earnest, fervent",
+    "radicals": "竹",
+    "strokes": 16,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "篤志家。",
+            "furigana": "とくしか。",
+            "meaning_vi": "Nhà từ thiện.",
+            "meaning_en": "Philanthropist."
+        }
+    ]
+},
+{
+    "kanji": "規",
+    "kun_reading": [],
+    "on_reading": ["き"],
+    "han_viet": "QUY",
+    "meaning_vi": "quy tắc, chuẩn mực",
+    "meaning_en": "rule, standard",
+    "radicals": "見",
+    "strokes": 11,
+    "level": "N2",
+    "examples": [
+        {
+            "example_text": "規則。",
+            "furigana": "きそく。",
+            "meaning_vi": "Quy tắc.",
+            "meaning_en": "Rule."
+        }
+    ]
+},
+{
+    "kanji": "隧",
+    "kun_reading": [],
+    "on_reading": ["すい", "ずい"],
+    "han_viet": "TUỆ",
+    "meaning_vi": "đường hầm",
+    "meaning_en": "tunnel",
+    "radicals": "阜",
+    "strokes": 15,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "隧道。",
+            "furigana": "ずいどう。",
+            "meaning_vi": "Đường hầm.",
+            "meaning_en": "Tunnel."
+        }
+    ]
+},
+{
+    "kanji": "玄",
+    "kun_reading": [],
+    "on_reading": ["げん"],
+    "han_viet": "HUYỀN",
+    "meaning_vi": "huyền bí, đen",
+    "meaning_en": "mysterious, black",
+    "radicals": "玄",
+    "strokes": 5,
+    "level": "N1",
+    "examples": [
+        {
+            "example_text": "玄関。",
+            "furigana": "げんかん。",
+            "meaning_vi": "Cửa ra vào.",
+            "meaning_en": "Entrance."
+        }
+    ]
+},
+{
+    "kanji": "復",
+    "kun_reading": ["ふく"],
+    "on_reading": ["ふく"],
+    "han_viet": "PHỤC",
+    "meaning_vi": "phục hồi, trở lại",
+    "meaning_en": "restore, return",
+    "radicals": "彳",
+    "strokes": 12,
+    "level": "N2",
+    "examples": [
+        {
+            "example_text": "復習する。",
+            "furigana": "ふくしゅうする。",
+            "meaning_vi": "Ôn tập.",
+            "meaning_en": "Review."
+        }
+    ]
+},
+{
+    "kanji": "植",
+    "kun_reading": ["うえる", "うわる"],
+    "on_reading": ["しょく"],
+    "han_viet": "THỰC",
+    "meaning_vi": "trồng, gieo",
+    "meaning_en": "plant, sow",
+    "radicals": "木",
+    "strokes": 12,
+    "level": "N2",
+    "examples": [
+        {
+            "example_text": "植える。",
+            "furigana": "うえる。",
+            "meaning_vi": "Trồng.",
+            "meaning_en": "Plant."
+        }
+    ]
+},
+{
+    "kanji": "曜",
+    "kun_reading": [],
+    "on_reading": ["よう"],
+    "han_viet": "DIỆU",
+    "meaning_vi": "ngày, thứ (trong tuần)",
+    "meaning_en": "day (of the week)",
+    "radicals": "日",
+    "strokes": 18,
+    "level": "N4",
+    "examples": [
+        {
+            "example_text": "月曜日。",
+            "furigana": "げつようび。",
+            "meaning_vi": "Thứ Hai.",
+            "meaning_en": "Monday."
+        }
+    ]
+},
   ];
   

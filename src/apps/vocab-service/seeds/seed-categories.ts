@@ -17,8 +17,8 @@ async function seedCategories() {
     },
     {
       name: 'N3',
-      description_vi: 'Trình độ trung cấp – Giáo trình Shinkanzen Master N3',
-      description_en: 'Intermediate level – Shinkanzen Master N3 textbook',
+      description_vi: 'Trình độ trung cấp – Giáo trình Mimikara Oboeru N3',
+      description_en: 'Intermediate level – Mimikara Oboeru N3 textbook',
     },
   ];
 

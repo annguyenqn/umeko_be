@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Vocabulary } from '../entities/Vocabulary.entity';
 import { Repository } from 'typeorm';
@@ -16,18 +16,37 @@ export class VocabService {
 
   ) {}
 
-  async getVocabByLesson(lessonNumber: number): Promise<Vocabulary[]> {
-    const lesson = await this.lessonRepo.findOne({
-      where: { lesson_number: lessonNumber },
-      relations: ['vocabularies', 'vocabularies.kanjis', 'vocabularies.examples'],
-    });
+  async getVocabByLesson(lessonNumber: number, categoryId: string): Promise<Vocabulary[]> {
+    try {
+      // Kiểm tra xem category có tồn tại không
+      const categoryExists = await this.categoryRepo.findOne({ where: { id: categoryId } });
+      if (!categoryExists) {
+        throw new NotFoundException(`Category with ID ${categoryId} not found.`);
+      }
 
-    if (!lesson) {
-      throw new Error(`Lesson with number ${lessonNumber} not found`);
+      // Kiểm tra xem lesson có tồn tại trong category không
+      const lesson = await this.lessonRepo.findOne({
+        where: { lesson_number: lessonNumber, category: { id: categoryId } },
+        relations: ['vocabularies', 'vocabularies.kanjis', 'vocabularies.examples'],
+      });
+
+      if (!lesson) {
+        throw new NotFoundException(`Lesson number ${lessonNumber} does not exist in category ID ${categoryId}.`);
+      }
+
+      return lesson.vocabularies;
+    } catch (error) {
+      console.error(`Error in getVocabByLesson:`, error);
+
+      if (error instanceof NotFoundException) {
+        throw error; // Ném lại lỗi để controller xử lý
+      }
+
+      throw new InternalServerErrorException('An unexpected error occurred while retrieving vocabularies.');
     }
-
-    return lesson.vocabularies;
   }
+  
+  
 
   async getAllCategories(): Promise<Category[]> {
     return this.categoryRepo.find();

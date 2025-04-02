@@ -29,7 +29,7 @@ async function seedVocabs(vocabs) {
     const kanjiList = vocabItem.vocab.replace(/[^一-龯]/g, '').split('');
     const hasKanji = kanjiList.length > 0;
 
-    const lesson = await lessonRepo.findOne({ where: { lesson_number: vocabItem.lesson_number } });
+    const lesson = await lessonRepo.findOne({ where: { lesson_number: vocabItem.lesson_number, level: In(['N5', 'N4']) } });
     if (!lesson) {
       failedVocabs.push({
         vocab: vocabItem.vocab,
