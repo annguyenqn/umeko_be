@@ -20,6 +20,11 @@ async function seedCategories() {
       description_vi: 'Trình độ trung cấp – Giáo trình Mimikara Oboeru N3',
       description_en: 'Intermediate level – Mimikara Oboeru N3 textbook',
     },
+    {
+      name: 'N2',
+      description_vi: 'Trình độ trung cao cấp – Giáo trình Mimikara Oboeru N2',
+      description_en: 'Upper-intermediate level – Mimikara Oboeru N2 textbook',
+    }
   ];
 
   const repo = dataSourceSeed.getRepository(Category);
