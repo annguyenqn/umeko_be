@@ -24,7 +24,7 @@
     "seed:lessonsMimikaraN2": "ts-node -r tsconfig-paths/register src/apps/vocab-service/seeds/seed-lessonMimikaraN2.ts",
     "seed:kanji": "ts-node -r tsconfig-paths/register src/apps/vocab-service/seeds/seed-kanji.ts",
     "seed:vocab": "ts-node -r tsconfig-paths/register src/apps/vocab-service/seeds/seed-vocabs.ts",
-    "seed:vocabMimikara": "ts-node -r tsconfig-paths/register src/apps/vocab-service/seeds/seed_vocabMimikara.ts",
+    "seed:vocabMimikaraN3": "ts-node -r tsconfig-paths/register src/apps/vocab-service/seeds/seed_vocabMimikaraN3.ts",
     "seed:vocabMimikaraN2": "ts-node -r tsconfig-paths/register src/apps/vocab-service/seeds/seed-vocabMimikaraN2.ts",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",

@@ -13,7 +13,7 @@ dotenv.config();
 
 const vocabDB = databaseConfig().vocab;
 
-const AppDataSource =  new DataSource({
+const AppDataSource = new DataSource({
   type: 'postgres',
   host: vocabDB.host,
   port: vocabDB.port,
@@ -22,14 +22,9 @@ const AppDataSource =  new DataSource({
   database: vocabDB.database,
   synchronize: false,
   logging: vocabDB.logging,
-  entities: [
-    Category,
-    Lesson,
-    Vocabulary,
-    VocabExample,
-    Kanji,
-    KanjiExample,
-  ],
+  entities: [__dirname + '/entities/*.entity.{js,ts}'],
+  migrations: [__dirname + '/migrations/*.{js,ts}'],
 });
+
 
 export default AppDataSource;

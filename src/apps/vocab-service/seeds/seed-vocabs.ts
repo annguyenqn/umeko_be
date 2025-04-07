@@ -14,22 +14,15 @@ async function seedVocabs(vocabs) {
   const lessonRepo = dataSourceSeed.getRepository(Lesson);
   const exampleRepo = dataSourceSeed.getRepository(VocabExample);
 
-  const existingVocabs = await vocabRepo.find({ select: ['vocab', 'id'] });
-  const existingVocabSet = new Map(existingVocabs.map((v) => [v.vocab, v.id]));
-  const newVocabs = vocabs.filter((v) => !existingVocabSet.has(v.vocab));
-  console.log(`🔍 Found ${newVocabs.length} new vocabs to insert.`);
-
   const failedVocabs = [];
-  const skippedVocabs = [];
 
-  for (const vocabItem of newVocabs) {
+  for (const vocabItem of vocabs) {
     console.log('Processing vocab:', JSON.stringify(vocabItem, null, 2));
 
-    // Nới lỏng kiểm tra: Nếu không chứa Kanji, coi như từ Hiragana/Katakana hợp lệ
-    const kanjiList = vocabItem.vocab.replace(/[^一-龯]/g, '').split('');
-    const hasKanji = kanjiList.length > 0;
-
-    const lesson = await lessonRepo.findOne({ where: { lesson_number: vocabItem.lesson_number, level: In(['N5', 'N4']) } });
+    // Tìm bài học tương ứng (N5 hoặc N4)
+    const lesson = await lessonRepo.findOne({
+      where: { lesson_number: vocabItem.lesson_number, level: In(['N5', 'N4']) },
+    });
     if (!lesson) {
       failedVocabs.push({
         vocab: vocabItem.vocab,
@@ -38,6 +31,52 @@ async function seedVocabs(vocabs) {
       continue;
     }
 
+    // Kiểm tra xem từ vựng đã tồn tại chưa
+    let existingVocab = await vocabRepo.findOne({
+      where: { vocab: vocabItem.vocab },
+      relations: ['lessons', 'kanjis'], // Load quan hệ lessons và kanjis
+    });
+
+    // Nới lỏng kiểm tra: Nếu không chứa Kanji, coi như từ Hiragana/Katakana hợp lệ
+    const kanjiList = vocabItem.vocab.replace(/[^一-龯]/g, '').split('');
+    const hasKanji = kanjiList.length > 0;
+
+    if (existingVocab) {
+      // Nếu từ vựng đã tồn tại, cập nhật danh sách lessons
+      if (!existingVocab.lessons.some((l) => l.lesson_number === lesson.lesson_number)) {
+        existingVocab.lessons.push(lesson);
+        try {
+          await vocabRepo.save(existingVocab);
+          console.log(`Đã cập nhật lesson ${lesson.lesson_number} cho từ '${vocabItem.vocab}'.`);
+        } catch (error) {
+          failedVocabs.push({
+            vocab: vocabItem.vocab,
+            reason: `Failed to update lessons: ${error.message}`,
+          });
+          continue;
+        }
+      } else {
+        console.log(`Từ '${vocabItem.vocab}' đã có lesson ${lesson.lesson_number}, bỏ qua.`);
+      }
+
+      // Cập nhật examples nếu có
+      if (vocabItem.examples && vocabItem.examples.length > 0) {
+        const newExamples = vocabItem.examples.map((ex) =>
+          exampleRepo.create({
+            example_text: ex.example_text,
+            furigana: ex.furigana,
+            meaning_vi: ex.meaning_vi,
+            meaning_en: ex.meaning_en || '',
+            vocab: existingVocab,
+          })
+        );
+        await exampleRepo.save(newExamples);
+        console.log(`Đã thêm ${newExamples.length} ví dụ cho từ '${vocabItem.vocab}'.`);
+      }
+      continue;
+    }
+
+    // Nếu từ vựng chưa tồn tại, xử lý như từ mới
     let savedVocab;
     if (!hasKanji) {
       // Xử lý từ không chứa Kanji (Hiragana, Katakana, hoặc ký tự đặc biệt)
@@ -52,14 +91,11 @@ async function seedVocabs(vocabs) {
       try {
         savedVocab = await vocabRepo.save(newVocab);
       } catch (error) {
-        if (error.code === '23505') {
-          skippedVocabs.push({
-            vocab: vocabItem.vocab,
-            reason: 'Duplicate key, skipped to keep existing record',
-          });
-          continue;
-        }
-        throw error;
+        failedVocabs.push({
+          vocab: vocabItem.vocab,
+          reason: `Failed to save: ${error.message}`,
+        });
+        continue;
       }
 
       if (vocabItem.examples && vocabItem.examples.length > 0) {
@@ -101,14 +137,11 @@ async function seedVocabs(vocabs) {
     try {
       savedVocab = await vocabRepo.save(newVocab);
     } catch (error) {
-      if (error.code === '23505') {
-        skippedVocabs.push({
-          vocab: vocabItem.vocab,
-          reason: 'Duplicate key, skipped to keep existing record',
-        });
-        continue;
-      }
-      throw error;
+      failedVocabs.push({
+        vocab: vocabItem.vocab,
+        reason: `Failed to save: ${error.message}`,
+      });
+      continue;
     }
 
     if (vocabItem.examples && vocabItem.examples.length > 0) {
@@ -134,11 +167,6 @@ async function seedVocabs(vocabs) {
   if (failedVocabs.length > 0) {
     console.log('⚠️ Các từ vựng không seed được:');
     failedVocabs.forEach((fv) => console.log(`- ${fv.vocab}: ${fv.reason}`));
-  }
-
-  if (skippedVocabs.length > 0) {
-    console.log('ℹ️ Các từ vựng bị bỏ qua do trùng lặp:');
-    skippedVocabs.forEach((sv) => console.log(`- ${sv.vocab}: ${sv.reason}`));
   }
 }
 

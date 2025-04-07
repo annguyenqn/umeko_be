@@ -22,6 +22,15 @@ import { Kanji } from './Kanji.entity';
   
     @Column('text')
     mean_en: string;
+
+    @Column({ nullable: true })
+    image_link: string;
+
+    @Column({ nullable: true })
+    sound_link: string;
+
+    @Column({ nullable: true })
+    word_type: string;
   
     @OneToMany(() => VocabExample, example => example.vocab)
     examples: VocabExample[];
