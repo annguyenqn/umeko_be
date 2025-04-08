@@ -85,6 +85,9 @@ async function seedVocabs(vocabs) {
         furigana: vocabItem.furigana,
         mean_vi: vocabItem.meaning_vi || vocabItem.mean_vi,
         mean_en: vocabItem.meaning_en || vocabItem.mean_en || '',
+        image_link: vocabItem.image_link || '',
+        sound_link: vocabItem.sound_link || '',
+        word_type: vocabItem.word_type || '',
         lessons: [lesson],
       });
 
@@ -130,6 +133,9 @@ async function seedVocabs(vocabs) {
       furigana: vocabItem.furigana,
       mean_vi: vocabItem.meaning_vi || vocabItem.mean_vi,
       mean_en: vocabItem.meaning_en || vocabItem.mean_en || '',
+      image_link: vocabItem.image_link || '',
+      sound_link: vocabItem.sound_link || '',
+      word_type: vocabItem.word_type || '',
       lessons: [lesson],
       kanjis: existingKanjis,
     });
