@@ -1,5 +1,5 @@
 import { DataSource } from 'typeorm';
-import { databaseConfig } from '../../libs/config/database.config';
+import { databaseConfig } from './libs/config/database.config';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
