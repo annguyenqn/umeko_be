@@ -7,8 +7,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
-    "start": "ts-node -r tsconfig-paths/register src/main.ts",
-    "start:dev": "ts-node-dev --respawn --transpile-only -r tsconfig-paths/register src/main.ts",
+    "start": "ts-node -r tsconfig-paths/register main.ts",
+    "start:dev": "ts-node-dev --respawn --transpile-only -r tsconfig-paths/register main.ts",
     "migration:generate": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:generate -d src/dataSource.ts src/migrations/InitSchema",
     "migration:run": "typeorm migration:run -d dist/dataSource.js",
     "seed:categories": "ts-node -r tsconfig-paths/register src/seeds/seed-categories.ts",
