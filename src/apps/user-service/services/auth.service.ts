@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
 import * as nodemailer from 'nodemailer';
 import { CodeAuthDto } from '../dto/code-auth.dto';
 import { UserService } from './user.service';
-import { TokenBlacklistService } from '@src/libs/common/services/token-blacklist.service';
+import { TokenBlacklistService } from '../libs/common/services/token-blacklist.service';
 @Injectable()
 export class AuthService {
   private transporter: nodemailer.Transporter;

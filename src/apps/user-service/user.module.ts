@@ -6,14 +6,14 @@ import { User } from './entities/user.entity';
 import { AuthService } from './services/auth.service';
 import { AuthController } from './controllers/auth.controller';
 import { JwtStrategy } from './strategies/jwt.strategy';
-import { RolesGuard } from '../../libs/common/guards/roles.guard';
-import { databaseConfig } from '../../libs/config/database.config';
-import { jwtConfig } from '../../libs/config/jwt.config';
+import { RolesGuard } from './libs/common/guards/roles.guard';
+import { databaseConfig } from './libs/config/database.config';
+import { jwtConfig } from './libs/config/jwt.config';
 import { UserController } from './controllers/user.controller';
 import { UserService } from './services/user.service';
 import { MailModule } from './mail/mail.module';
-import { TokenBlacklistService } from '@src/libs/common/services/token-blacklist.service';
-import { RedisModule } from '@src/redis/redis.module';
+import { TokenBlacklistService } from './libs/common/services/token-blacklist.service';
+import { RedisModule } from '@src/apps/user-service/redis/redis.module';
 @Module({
   imports: [
     MailModule,
