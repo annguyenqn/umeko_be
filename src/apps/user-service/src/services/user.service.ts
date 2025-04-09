@@ -1,7 +1,7 @@
 import { BadGatewayException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User } from '../entities/user.entity';
+import { User } from '@/entities/user.entity';
 import * as dayjs from 'dayjs';
 import { CodeAuthDto } from '../dto/code-auth.dto';
 

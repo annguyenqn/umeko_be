@@ -3,8 +3,8 @@ import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
-import { User } from '../entities/user.entity';
-import { MailService } from '../mail/services/mail.service';
+import { User } from '@/entities/user.entity';
+// import { MailerService } from '@nestjs-modules/mailer';
 import * as bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
 import * as nodemailer from 'nodemailer';
@@ -20,7 +20,7 @@ export class AuthService {
     private readonly userRepository: Repository<User>,
     private readonly userSerive: UserService,
     private readonly jwtService: JwtService,
-    private readonly mailService: MailService,
+    // private readonly mailService: MailService,
     private readonly configService: ConfigService,
     private readonly tokenBlacklistService: TokenBlacklistService,
   ) {
@@ -44,7 +44,7 @@ export class AuthService {
 
   async signup(email: string, password: string, firstName?: string, lastName?: string) {
     const existingUser = await this.userRepository.findOne({ where: { email } });
-    const otp = this.generateOtp();
+    // const otp = this.generateOtp();
     if (existingUser) {
       throw new BadRequestException('User with this email already exists');
     }
@@ -55,7 +55,7 @@ export class AuthService {
       firstName,
       lastName,
     });
-    await this.mailService.sendUserConfirmation(email, otp);
+    // await this.mailService.sendUserConfirmation(email, otp);
     await this.userRepository.save(user);
     return this.generateTokens(user);
   }

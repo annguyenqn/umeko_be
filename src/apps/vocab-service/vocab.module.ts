@@ -9,7 +9,7 @@ import { Kanji } from './entities/Kanji.entity';
 import { Lesson } from './entities/Lesson.entity';
 import { KanjiExample } from './entities/KanjiExample.entity';
 import { Category } from './entities/Category.entity';
-import { databaseConfig } from '@src/libs/config/database.config';
+import { databaseConfig } from '../user-service/src/libs/config/database.config';
 
 @Module({
   imports: [

@@ -3,6 +3,8 @@
 /node_modules
 /build
 /src/apps/user-service/node_modules
+/src/apps/vocab-service/node_modules
+
 # Logs
 logs
 *.log

@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { AuthService } from '../services/auth.service';
 import { MailerService } from '@nestjs-modules/mailer';
-import { JwtAuthGuard } from '../guards/jwt-auth.guard';
+import { JwtAuthGuard } from '@/guards/jwt-auth.guard';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import {
   SignUpDto,
