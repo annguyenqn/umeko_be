@@ -10,9 +10,11 @@ import { Lesson } from './src/entities/Lesson.entity';
 import { KanjiExample } from './src/entities/KanjiExample.entity';
 import { Category } from './src/entities/Category.entity';
 import { databaseConfig } from '@/config/database.config';
+import { ClientsModule, Transport } from '@nestjs/microservices';
 
 @Module({
   imports: [
+    
     ConfigModule.forRoot({
       isGlobal: true,
       load: [databaseConfig],
@@ -26,6 +28,19 @@ import { databaseConfig } from '@/config/database.config';
       inject: [ConfigService],
     }),
     TypeOrmModule.forFeature([VocabExample, Vocabulary, Kanji, Lesson, KanjiExample, Category]),
+    ClientsModule.register([
+      {
+        name: 'VOCAB_SERVICE', // Tên service của bạn
+        transport: Transport.RMQ,
+        options: {
+          urls: ['amqp://localhost:5672'], // Địa chỉ của RabbitMQ
+          queue: 'vocab_queue', // Tên của queue
+          queueOptions: {
+            durable: false, // Tùy chọn cho queue
+          },
+        },
+      },
+    ]),
   ],
   controllers: [VocabularyController],
   providers: [VocabService],

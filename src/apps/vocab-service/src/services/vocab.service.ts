@@ -4,6 +4,8 @@ import { Vocabulary } from '../entities/Vocabulary.entity';
 import { Repository } from 'typeorm';
 import { Lesson } from '../entities/Lesson.entity';
 import { Category } from '../entities/Category.entity';
+import { ClientProxy } from '@nestjs/microservices';
+import { Inject } from '@nestjs/common';
 @Injectable()
 export class VocabService {
   constructor(
@@ -13,7 +15,7 @@ export class VocabService {
     private readonly lessonRepo: Repository<Lesson>,
     @InjectRepository(Category)
     private readonly categoryRepo: Repository<Category>,
-
+    @Inject('VOCAB_SERVICE') private readonly vocabClient: ClientProxy, 
   ) {}
 
   async getVocabByLesson(lessonNumber: number, categoryId: string): Promise<Vocabulary[]> {

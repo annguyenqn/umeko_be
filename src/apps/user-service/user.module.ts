@@ -14,6 +14,7 @@ import { UserService } from './src/services/user.service';
 import { MailModule } from './mail/mail.module';
 import { TokenBlacklistService } from './src/libs/common/services/token-blacklist.service';
 import { RedisModule } from './src/redis/redis.module';
+import { ClientsModule, Transport } from '@nestjs/microservices';
 @Module({
   imports: [
     MailModule,
@@ -41,6 +42,19 @@ import { RedisModule } from './src/redis/redis.module';
       inject: [ConfigService],
     }),
     RedisModule,
+    ClientsModule.register([
+      {
+        name: 'USER_SERVICE', 
+        transport: Transport.RMQ,
+        options: {
+          urls: ['amqp://localhost:5672'],
+          queue: 'user_queue', 
+          queueOptions: {
+            durable: false, 
+          },
+        },
+      },
+    ]),
   ],
   controllers: [AuthController, UserController],
   providers: [AuthService, UserService, JwtStrategy, RolesGuard,TokenBlacklistService,],
