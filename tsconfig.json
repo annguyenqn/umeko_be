@@ -1,0 +1,9 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./src/apps/user-service" },
+    { "path": "./src/apps/spaced-repetition-service" },
+    { "path": "./src/apps/vocab-service" },
+    { "path": "./tsconfig.libs.json" } 
+  ]
+}

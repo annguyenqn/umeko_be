@@ -1,0 +1,9 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+      "composite": true, // cho project reference
+      "baseUrl": "./src"
+    },
+    "include": ["src/libs/**/*"]
+  }
+  

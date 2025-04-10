@@ -1,6 +1,7 @@
 import { DataSource } from 'typeorm';
 import { databaseConfig } from './src/libs/config/database.config';
 import * as dotenv from 'dotenv';
+
 dotenv.config();
 
 const userDB = databaseConfig().users;
@@ -12,10 +13,9 @@ export const AppDataSource = new DataSource({
   username: userDB.username,
   password: userDB.password,
   database: userDB.database,
-  entities: ['dist/apps/user-service/entities/*.entity.js'],
-  migrations: ['dist/apps/user-service/migrations/*.js'],
+  entities: ['src/entities/*.entity.ts'], 
+  migrations: ['src/migrations/*.ts'],    
   synchronize: false,
   logging: userDB.logging,
 });
 
-export default AppDataSource;

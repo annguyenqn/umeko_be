@@ -60,19 +60,4 @@ export class ReviewService {
     return review;
   }
 
-  // async create(reviewData: Partial<Review>) {
-  //   // Tạo review mới
-  //   const review = new this.reviewModel(reviewData);
-  //   await review.save();
-
-  //   // Gửi message qua RabbitMQ
-  //   this.userClient.emit('user_reviewed', { user_id: reviewData.user_id });
-  //   this.vocabClient.emit('vocab_reviewed', { vocab_id: reviewData.vocab_id });
-
-  //   return review;
-  // }
-
-  // async findAllByUser(userId: string) {
-  //   return this.reviewModel.find({ user_id: userId }).exec();
-  // }
 }

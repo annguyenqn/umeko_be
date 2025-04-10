@@ -3951,9 +3951,9 @@ export const vocabMimikaraSeedN3Data: VocabSeedData[] =
       "meaning_en": "Useful",
       "examples": [
         {
-          "example_text": "インターネットの情報を、勉強や仕事｛に役立てる／の役に立てる｝",
-          "furigana": "インターネットの情報（じょうほう）べんきょうしごとやくだやくたてる｝",
-          "meaning_vi": "Sử dụng thông tin trên Internet để giúp ích cho học tập cũng như công việc.",
+          "example_text": "このガイドブックは君が旅行の計画を立てるの役立つだろう。",
+          "furigana": "このガイドブックは君が旅行の計画を立てるの役立つだろう。",
+          "meaning_vi": "Cuốn sách hướng dẫn du lịch này sẽ rất có ích cho việc lên kế hoạch du lịch đây.",
           "meaning_en": "Use Internet information to study and work (use it for/use it for)"
         }
       ],
@@ -15620,6 +15620,5 @@ export const vocabMimikaraSeedN3Data: VocabSeedData[] =
       "sound_link": "https://storage.dekiru.vn/Data/2018/05/23/tsumari-636626844366906879.mp3",
       "word_type": "Phó từ"
     }
-
 
   ]
