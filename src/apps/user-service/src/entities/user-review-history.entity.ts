@@ -6,17 +6,17 @@ export class UserReviewHistory {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ type: 'uuid' })
+  @Column({ name: 'user_id', type: 'uuid' }) // ✅ Thêm name
   userId: string;
 
-  @Column({ type: 'uuid' })
+  @Column({ name: 'vocab_id', type: 'uuid' }) // ✅ Thêm name
   vocabId: string;
 
   @ManyToOne(() => User, (user) => user.id, { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'userId' })
+  @JoinColumn({ name: 'user_id' }) // ✅ Trùng với column
   user: User;
 
-  @Column({ type: 'timestamp' })
+  @Column({ name: 'review_date', type: 'timestamp' }) // ✅ Thêm name
   reviewDate: Date;
 
   @Column({ type: 'varchar', length: 10 })

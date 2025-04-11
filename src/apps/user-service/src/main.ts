@@ -4,10 +4,9 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { UserModule } from './user.module';
 import * as cookieParser from 'cookie-parser';
 import helmet from 'helmet';
-
+import { Transport } from '@nestjs/microservices';
 async function bootstrap() {
   const app = await NestFactory.create(UserModule);
-
   // Configure CORS
   app.enableCors({
     origin: true, // or specify your frontend URL like 'http://localhost:3000'

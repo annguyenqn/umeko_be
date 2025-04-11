@@ -9,6 +9,8 @@
     "build": "nest build",
     "start": "ts-node -r tsconfig-paths/register src/main.ts",
     "start:dev": "ts-node-dev --respawn --transpile-only -r tsconfig-paths/register src/main.ts",
+    "start:mq": "ts-node -r tsconfig-paths/register src/main.microservice.ts",
+    "start:mq:dev": "ts-node-dev --respawn --transpile-only -r tsconfig-paths/register src/main.microservice.ts",
     "migration:generate": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:generate -d src/dataSource.ts src/migrations/InitSchema",
     "migration:run": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run -d src/dataSource.ts",
     "migration:revert": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:revert -d src/dataSource.ts",

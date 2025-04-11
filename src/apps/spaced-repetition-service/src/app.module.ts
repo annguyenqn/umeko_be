@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { ReviewsModule } from './reviews/reviews.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
-import { ReviewService } from './reviews/reviews.service';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 const rmqUrl = process.env.RABBITMQ_URL || 'amqp://localhost:5672';
 @Module({
@@ -24,6 +23,5 @@ const rmqUrl = process.env.RABBITMQ_URL || 'amqp://localhost:5672';
       },
     ])
   ],
-  providers: [ReviewService],
 })
 export class AppModule {}

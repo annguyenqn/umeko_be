@@ -22,47 +22,40 @@ export class User {
   @Exclude()
   password: string;
 
-  @Column({ type: 'varchar', nullable: true })
+  @Column({ name: 'refresh_token', type: 'varchar', nullable: true })
   @Exclude()
   refreshToken?: string | null;
-
-  @Column({ type: 'varchar', nullable: true })
+  
+  @Column({ name: 'first_name', type: 'varchar', nullable: true })
   firstName?: string;
-
-  @Column({ type: 'varchar', nullable: true })
+  
+  @Column({ name: 'last_name', type: 'varchar', nullable: true })
   lastName?: string;
-
-  @Column({
-    type: 'enum',
-    enum: Role,
-    default: Role.USER,
-  })
-  role: Role;
-
-  @Column({ type: 'boolean', default: false })
+  
+  @Column({ name: 'is_email_verified', type: 'boolean', default: false })
   isEmailVerified: boolean;
-
-  @Column({ type: 'varchar', nullable: true })
+  
+  @Column({ name: 'password_reset_token', type: 'varchar', nullable: true })
   @Exclude()
   passwordResetToken?: string | null;
-
-  @Column({ type: 'timestamp', nullable: true })
+  
+  @Column({ name: 'password_reset_expires', type: 'timestamp', nullable: true })
   @Exclude()
   passwordResetExpires?: Date | null;
-
-  @Column({ type: 'timestamp' })
+  
+  @Column({ name: 'code_expired', type: 'timestamp' })
   codeExpired: Date;
-
-  @Column({ type: 'varchar', length: 10, nullable: true })
+  
+  @Column({ name: 'code_id', type: 'varchar', length: 10, nullable: true })
   codeId?: string;
-
-  @Column({ type: 'boolean', default: false })
+  
+  @Column({ name: 'is_active', type: 'boolean', default: false })
   isActive: boolean;
-
-  @CreateDateColumn({ type: 'timestamp' })
+  
+  @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
   createdAt: Date;
-
-  @UpdateDateColumn({ type: 'timestamp' })
+  
+  @UpdateDateColumn({ name: 'updated_at', type: 'timestamp' })
   updatedAt: Date;
 
   @BeforeInsert()

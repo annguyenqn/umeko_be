@@ -3,19 +3,19 @@ import { User } from './user.entity';
 
 @Entity('user_vocab')
 export class UserVocab {
-  @PrimaryColumn({ type: 'uuid' })
+  @PrimaryColumn({ name: 'user_id', type: 'uuid' })
   userId: string;
 
-  @PrimaryColumn({ type: 'uuid' })
+  @PrimaryColumn({ name: 'vocab_id', type: 'uuid' })
   vocabId: string;
 
   @ManyToOne(() => User, (user) => user.id, { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'userId' })
+  @JoinColumn({ name: 'user_id' })
   user: User;
 
-  @Column({ type: 'varchar', length: 20, nullable: true })
+  @Column({ name: 'learning_status', type: 'varchar', length: 20, nullable: true })
   learningStatus?: string;
 
-  @Column({ type: 'timestamp', nullable: true })
+  @Column({ name: 'added_at', type: 'timestamp', nullable: true })
   addedAt?: Date;
 }

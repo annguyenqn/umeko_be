@@ -11,6 +11,7 @@ import * as nodemailer from 'nodemailer';
 import { CodeAuthDto } from '../dto/code-auth.dto';
 import { UserService } from './user.service';
 import { TokenBlacklistService } from '../libs/common/services/token-blacklist.service';
+import { Role } from '@/enums/role.enum';
 @Injectable()
 export class AuthService {
   private transporter: nodemailer.Transporter;
@@ -54,6 +55,9 @@ export class AuthService {
       password,
       firstName,
       lastName,
+      isEmailVerified: false,
+      isActive: false,
+      codeExpired: new Date(Date.now() + 10 * 60 * 1000),
     });
     // await this.mailService.sendUserConfirmation(email, otp);
     await this.userRepository.save(user);
@@ -67,7 +71,6 @@ export class AuthService {
         id: true,
         email: true,
         password: true,
-        role: true,
         firstName: true,
         lastName: true,
       }
@@ -203,7 +206,6 @@ export class AuthService {
         'email',
         'firstName',
         'lastName',
-        'role',
         'isEmailVerified',
         'createdAt',
         'updatedAt',
@@ -223,7 +225,6 @@ export class AuthService {
           {
             sub: user.id,
             email: user.email,
-            role: user.role,
           },
           {
             secret: this.configService.get('jwt.secret'),

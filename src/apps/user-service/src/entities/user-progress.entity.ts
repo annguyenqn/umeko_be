@@ -3,19 +3,19 @@ import { User } from './user.entity';
 
 @Entity('user_progress')
 export class UserProgress {
-  @PrimaryColumn({ type: 'uuid' })
+  @PrimaryColumn({ name: 'user_id', type: 'uuid' })
   userId: string;
 
   @OneToOne(() => User, (user) => user.id, { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'userId' })
+  @JoinColumn({ name: 'user_id' })
   user: User;
 
-  @Column({ type: 'integer', default: 0 })
+  @Column({ name: 'total_words_learned', type: 'integer', default: 0 })
   totalWordsLearned: number;
 
-  @Column({ type: 'integer', default: 0 })
+  @Column({ name: 'total_reviews', type: 'integer', default: 0 })
   totalReviews: number;
 
-  @Column({ type: 'timestamp', nullable: true })
+  @Column({ name: 'last_review', type: 'timestamp', nullable: true })
   lastReview?: Date;
 }
