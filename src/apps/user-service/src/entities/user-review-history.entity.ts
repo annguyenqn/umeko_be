@@ -6,13 +6,13 @@ export class UserReviewHistory {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column('uuid')
+  @Column({ type: 'uuid' })
   userId: string;
 
-  @Column('uuid')
+  @Column({ type: 'uuid' })
   vocabId: string;
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => User, (user) => user.id, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'userId' })
   user: User;
 
@@ -23,5 +23,5 @@ export class UserReviewHistory {
   result: string;
 
   @Column({ type: 'text', nullable: true })
-  notes: string;
+  notes?: string;
 }

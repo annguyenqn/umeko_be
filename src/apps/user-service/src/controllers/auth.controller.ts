@@ -7,9 +7,10 @@ import {
   UseGuards,
   Req,
   Get,
+  UnauthorizedException,
 } from '@nestjs/common';
 import { AuthService } from '../services/auth.service';
-import { MailerService } from '@nestjs-modules/mailer';
+// import { MailerService } from '@nestjs-modules/mailer';
 import { JwtAuthGuard } from '@/guards/jwt-auth.guard';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import {
@@ -19,6 +20,7 @@ import {
   ForgotPasswordDto,
   ResetPasswordDto,
 } from '../dto/auth.dto';
+import { Request } from 'express';
 import { UserResponseDto } from '../dto/user.dto';
 import { Public } from '../decorators/public.decorator';
 import { ApiBearerAuth } from '@nestjs/swagger';
@@ -27,7 +29,7 @@ import { ApiBearerAuth } from '@nestjs/swagger';
 @ApiBearerAuth()
 export class AuthController {
   constructor(private readonly authService: AuthService,
-    private mailerService: MailerService
+    // private mailerService: MailerService
 
   ) {}
 
@@ -91,9 +93,17 @@ export class AuthController {
   @ApiOperation({ summary: 'Logout user' })
   @ApiResponse({ status: 200, description: 'User successfully logged out' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
-  async logout(@Req() req) {
-    const token = req.headers.authorization
-    return this.authService.logout(req.user.id, token)
+  async logout(@Req() req:Request) {
+    const token = req.headers.authorization;
+    if (!token) {
+      throw new UnauthorizedException('No token provided');
+    }
+    // Ép kiểu tạm thời cho req.user
+    const user = req.user as { id: string };
+    if (!user?.id) {
+      throw new UnauthorizedException('User not authenticated');
+    }
+    return this.authService.logout(user.id, token);
   }
 
   @Get('me')
@@ -101,7 +111,7 @@ export class AuthController {
 @ApiOperation({ summary: 'Get current logged in user' })
 @ApiResponse({ status: 200, description: 'Current user info', type: UserResponseDto })
 @ApiResponse({ status: 401, description: 'Unauthorized' })
-async getMe(@Req() req) {
+async getMe(@Req() req:Request) {
   return req.user;
 }
 
