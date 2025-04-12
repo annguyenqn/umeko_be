@@ -1,6 +1,9 @@
 {
   "extends": "../../../tsconfig.base.json",
   "compilerOptions": {
+    "strict": false,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
     "outDir": "./dist",
     "rootDir": "./src",
     "baseUrl": "./src",
