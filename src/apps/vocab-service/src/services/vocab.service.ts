@@ -1,7 +1,7 @@
 import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Vocabulary } from '../entities/Vocabulary.entity';
-import { Repository } from 'typeorm';
+import { In, Repository } from 'typeorm';
 import { Lesson } from '../entities/Lesson.entity';
 import { Category } from '../entities/Category.entity';
 import { ClientProxy } from '@nestjs/microservices';
@@ -59,5 +59,9 @@ export class VocabService {
       where: { category: { id: categoryId } },
       relations: ['category'],
     });
+  }
+
+  async getManyByIds(ids: string[]) {
+    return this.vocabRepo.findBy({ id: In(ids) });
   }
 }

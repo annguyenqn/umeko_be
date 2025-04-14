@@ -3,6 +3,7 @@ import { VocabService } from '@/services/vocab.service';
 import { Vocabulary } from '@/entities/Vocabulary.entity';
 import { Category } from '@/entities/Category.entity';
 import { Lesson } from '@/entities/Lesson.entity';
+import { MessagePattern, Payload } from '@nestjs/microservices';
 @Controller('vocabularies')
 export class VocabularyController {
   constructor(private readonly vocabularyService: VocabService) {}
@@ -27,5 +28,10 @@ export class VocabularyController {
   @Get('category/:categoryId/lessons')
   async getLessonsByCategory(@Param('categoryId') categoryId: string): Promise<Lesson[]> {
     return this.vocabularyService.getLessonsByCategory(categoryId);
+  }
+
+  @MessagePattern('vocab.getManyByIds')
+  async handleGetManyByIds(@Payload() ids: string[]) {
+    return this.vocabularyService.getManyByIds(ids);
   }
 }

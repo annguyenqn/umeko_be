@@ -7,8 +7,10 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
-    "start": "ts-node -r tsconfig-paths/register main.ts",
-    "start:dev": "ts-node-dev --respawn --transpile-only -r tsconfig-paths/register main.ts",
+    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start:http": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start:mq": "ts-node -r tsconfig-paths/register src/main.microservice.ts",
+    "start:dev": "concurrently -n HTTP,RMQ -c green,blue \"npm run start:http\" \"npm run start:mq\"",
     "migration:generate": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:generate -d src/dataSource.ts src/migrations/InitSchema",
     "migration:run": "typeorm migration:run -d dist/dataSource.js",
     "seed:categories": "ts-node -r tsconfig-paths/register src/seeds/seed-categories.ts",

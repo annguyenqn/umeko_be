@@ -4,6 +4,7 @@ import { Model } from 'mongoose';
 import { Review } from './schemas/review.schema';
 import { ClientProxy } from '@nestjs/microservices';
 import { calculateNextReview, ReviewResult } from 'libs/spaced-repetition';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable()
 export class ReviewService {
@@ -38,6 +39,8 @@ export class ReviewService {
         vocabId,
         result: 'again', 
         reviewDate: now.toISOString(),
+        learningStatus: 'new',
+        reset: false,   
       };
 
       this.userClient.emit('review.update', payload);
@@ -66,6 +69,7 @@ export class ReviewService {
       nextReview.setDate(now.getDate() + newState.interval);
 
       review.repetitionCount = newState.repetitionCount;
+      
       review.interval = newState.interval;
       review.efFactor = newState.efFactor;
       review.lastReview = now;
@@ -79,6 +83,8 @@ export class ReviewService {
         vocabId,
         result,
         reviewDate: now.toISOString(),
+        learningStatus: newState.learningStatus,
+        reset: newState.reset
       };
 
       this.userClient.emit('review.update', payload);
@@ -90,4 +96,56 @@ export class ReviewService {
       throw error;
     }
   }
+  async getDueReviews(userId: string, limit = 20) {
+    const now = new Date();
+
+    // 1. Truy vấn các từ đến hạn review
+    const reviews = await this.reviewModel
+      .find({
+        userId,
+        nextReview: { $lte: now },
+      })
+      .sort({ nextReview: 1 })
+      .limit(limit);
+
+      console.log('Found reviews:', reviews.length);
+      console.log(JSON.stringify(reviews, null, 2));
+
+    const vocabIds = reviews.map((r) => r.vocabId);
+
+    // 2. Gửi yêu cầu qua RabbitMQ để lấy chi tiết từ vựng
+    const vocabDetails = await firstValueFrom(
+      this.vocabClient.send('vocab.getManyByIds', vocabIds),
+    );
+
+    return {
+      dueVocab: vocabDetails,
+      reviewMeta: reviews,
+    };
+  }
+  
+async getFlexibleReviews(userId: string, limit = 20) {
+  const now = new Date();
+
+  const reviews = await this.reviewModel
+    .find({
+      userId,
+      nextReview: { $gt: now }, 
+    })
+    .sort({ nextReview: 1 })
+    .limit(limit);
+
+  const vocabIds = reviews.map((r) => r.vocabId);
+
+  const vocabDetails = await firstValueFrom(
+    this.vocabClient.send('vocab.getManyByIds', vocabIds),
+  );
+
+  return {
+    type: 'flexible',
+    dueVocab: vocabDetails,
+    reviewMeta: reviews,
+  };
+}
+
 }

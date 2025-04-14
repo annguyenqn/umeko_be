@@ -24,15 +24,9 @@ export class ReviewSyncService {
   async handleReviewUpdate(@Payload() data: any) {
     console.log('[RabbitMQ Receive] Got message:', data);
 
-    const { userId, vocabId, result, reviewDate } = data;
+    const { userId, vocabId, result, reviewDate, learningStatus  } = data;
+    const status = learningStatus ?? 'new'; 
 
-    // ✅ Xác định trạng thái từ kết quả ôn tập
-    const status =
-      result === 'easy'
-        ? 'mastered'
-        : result === 'hard'
-        ? 'learning'
-        : 'new'; // for 'again'
 
     try {
       // 1. Ghi lịch sử
@@ -69,7 +63,7 @@ export class ReviewSyncService {
         await this.userVocabRepo.save({
           userId,
           vocabId,
-          learningStatus: status,
+          learningStatus,
           addedAt: new Date(reviewDate),
         });
       } else {
