@@ -1,5 +1,6 @@
 # compiled output
 /dist
+/src/apps/vocab-service/dist/
 /node_modules
 /build
 /src/apps/user-service/node_modules
