@@ -4,7 +4,7 @@ export const databaseConfig = registerAs('database', () => ({
   users: {
     type: 'postgres',
     host: process.env.USERS_DB_HOST,
-    port: parseInt(process.env.USERS_DB_PORT || '5432', 10),
+    port: parseInt(process.env.USERS_DB_PORT || '5434', 10),
     username: process.env.USERS_DB_USERNAME,
     password: process.env.USERS_DB_PASSWORD,
     database: process.env.USERS_DB_NAME,

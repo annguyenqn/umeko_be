@@ -1,6 +1,4 @@
-import { EcosystemConfig } from 'pm2';
-
-const config: EcosystemConfig = {
+module.exports = {
   apps: [
     {
       name: 'user-http',
@@ -26,5 +24,3 @@ const config: EcosystemConfig = {
     },
   ],
 };
-
-export default config;

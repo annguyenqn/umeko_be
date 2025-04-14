@@ -7,14 +7,14 @@ import { User } from '@/entities/user.entity';
 // import { MailerService } from '@nestjs-modules/mailer';
 import * as bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
-import * as nodemailer from 'nodemailer';
+// import * as nodemailer from 'nodemailer';
 import { CodeAuthDto } from '../dto/code-auth.dto';
 import { UserService } from './user.service';
 import { TokenBlacklistService } from '../libs/common/services/token-blacklist.service';
 import { Role } from '@/enums/role.enum';
 @Injectable()
 export class AuthService {
-  private transporter: nodemailer.Transporter;
+  // private transporter: nodemailer.Transporter;
 
   constructor(
     @InjectRepository(User)
@@ -25,14 +25,14 @@ export class AuthService {
     private readonly configService: ConfigService,
     private readonly tokenBlacklistService: TokenBlacklistService,
   ) {
-    this.transporter = nodemailer.createTransport({
-      host: this.configService.get('MAIL_HOST'),
-      port: this.configService.get('MAIL_PORT'),
-      auth: {
-        user: this.configService.get('MAIL_USER'),
-        pass: this.configService.get('MAIL_PASSWORD'),
-      },
-    });
+    // this.transporter = nodemailer.createTransport({
+    //   host: this.configService.get('MAIL_HOST'),
+    //   port: this.configService.get('MAIL_PORT'),
+    //   auth: {
+    //     user: this.configService.get('MAIL_USER'),
+    //     pass: this.configService.get('MAIL_PASSWORD'),
+    //   },
+    // });
   }
 
   private generateOtp(): string {
@@ -75,7 +75,7 @@ export class AuthService {
         lastName: true,
       }
     });
-    
+
     if (!user) {
       throw new NotFoundException('User not found with this email');
     }
@@ -139,16 +139,16 @@ export class AuthService {
     await this.userRepository.save(user);
 
     const resetUrl = `${this.configService.get('APP_URL')}/reset-password?token=${resetToken}`;
-    await this.transporter.sendMail({
-      from: this.configService.get('MAIL_FROM'),
-      to: email,
-      subject: 'Password Reset Request',
-      html: `
-        <p>You requested a password reset</p>
-        <p>Click this <a href="${resetUrl}">link</a> to reset your password</p>
-        <p>If you didn't request this, please ignore this email</p>
-      `,
-    });
+    // await this.transporter.sendMail({
+    //   from: this.configService.get('MAIL_FROM'),
+    //   to: email,
+    //   subject: 'Password Reset Request',
+    //   html: `
+    //     <p>You requested a password reset</p>
+    //     <p>Click this <a href="${resetUrl}">link</a> to reset your password</p>
+    //     <p>If you didn't request this, please ignore this email</p>
+    //   `,
+    // });
 
     return { message: 'Password reset email sent' };
   }
@@ -181,7 +181,7 @@ export class AuthService {
     return { message: 'Password successfully reset' };
   }
 
-  async logout(userId: string,  token: string) {
+  async logout(userId: string, token: string) {
     const user = await this.userRepository.findOne({ where: { id: userId } });
     if (!user) {
       throw new NotFoundException('User not found');

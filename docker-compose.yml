@@ -9,7 +9,7 @@ services:
       POSTGRES_USER: umeko
       POSTGRES_PASSWORD: umeko_password
     ports:
-      - '5432:5432'
+      - '5434:5432'
     volumes:
       - postgres_users_data:/var/lib/postgresql/data
 
@@ -56,6 +56,7 @@ services:
       - '6379:6379'
     volumes:
       - redis_data:/data
+    command: redis-server --appendonly yes
 
 volumes:
   postgres_users_data:

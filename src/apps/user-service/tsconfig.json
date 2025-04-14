@@ -4,15 +4,25 @@
     "strict": true,
     "strictPropertyInitialization": false,
     "esModuleInterop": false, // Thêm hoặc đặt thành true
-    "allowSyntheticDefaultImports": true, 
-    "strictNullChecks":true,// Khuyến nghị bật cùng
+    "allowSyntheticDefaultImports": true,
+    "strictNullChecks": true, // Khuyến nghị bật cùng
     "outDir": "./dist",
     "rootDir": "./src",
     "baseUrl": "./src",
+    "types": [
+      "node"
+    ],
     "paths": {
-      "@/*": ["*"]
+      "@/*": [
+        "*"
+      ]
     }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

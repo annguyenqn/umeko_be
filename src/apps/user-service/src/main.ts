@@ -8,26 +8,26 @@ import { Transport } from '@nestjs/microservices';
 async function bootstrap() {
   const app = await NestFactory.create(UserModule);
   // Configure CORS
-  app.enableCors({
-    origin: true, // or specify your frontend URL like 'http://localhost:3000'
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-    credentials: true,
-  });
+  // app.enableCors({
+  //   origin: true, // or specify your frontend URL like 'http://localhost:3000'
+  //   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  //   credentials: true,
+  // });
 
   // Configure Helmet with less restrictive CSP
-  app.use(
-    helmet({
-      contentSecurityPolicy: {
-        directives: {
-          defaultSrc: [`'self'`],
-          styleSrc: [`'self'`, `'unsafe-inline'`, 'https:'],
-          imgSrc: [`'self'`, 'data:', 'https:'],
-          scriptSrc: [`'self'`, `'unsafe-inline'`, `'unsafe-eval'`],
-        },
-      },
-      crossOriginEmbedderPolicy: false,
-    })
-  );
+  // app.use(
+  //   helmet({
+  //     contentSecurityPolicy: {
+  //       directives: {
+  //         defaultSrc: [`'self'`],
+  //         styleSrc: [`'self'`, `'unsafe-inline'`, 'https:'],
+  //         imgSrc: [`'self'`, 'data:', 'https:'],
+  //         scriptSrc: [`'self'`, `'unsafe-inline'`, `'unsafe-eval'`],
+  //       },
+  //     },
+  //     crossOriginEmbedderPolicy: false,
+  //   })
+  // );
 
   // Global pipes
   app.use(cookieParser());

@@ -1,16 +1,16 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { VocabService } from './src/services/vocab.service';
-import { VocabularyController } from './src/controllers/vocab.controller';
-import { VocabExample } from './src/entities/VocabExample.entity';
-import { Vocabulary } from './src/entities/Vocabulary.entity';
-import { Kanji } from './src/entities/Kanji.entity';
-import { Lesson } from './src/entities/Lesson.entity';
-import { KanjiExample } from './src/entities/KanjiExample.entity';
-import { Category } from './src/entities/Category.entity';
+import { VocabService } from './services/vocab.service';
+import { VocabExample } from './entities/VocabExample.entity';
+import { Vocabulary } from './entities/Vocabulary.entity';
+import { Kanji } from './entities/Kanji.entity';
+import { Lesson } from './entities/Lesson.entity';
+import { KanjiExample } from './entities/KanjiExample.entity';
+import { Category } from './entities/Category.entity';
 import { databaseConfig } from '@/config/database.config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
+import { VocabularyController } from './controllers/vocab.controller';
 
 @Module({
   imports: [

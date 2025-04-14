@@ -11,28 +11,28 @@ async function bootstrap() {
   app.enableCors();
 
   // Security middleware
-  app.use(
-    helmet({
-      contentSecurityPolicy: {
-        directives: {
-          defaultSrc: [`'self'`],
-          styleSrc: [`'self'`, `'unsafe-inline'`, 'https:'],
-          imgSrc: [`'self'`, 'data:', 'https:'],
-          scriptSrc: [`'self'`, `'unsafe-inline'`, `'unsafe-eval'`],
-        },
-      },
-      crossOriginEmbedderPolicy: false,
-    })
-  );
+  // app.use(
+  //   helmet({
+  //     contentSecurityPolicy: {
+  //       directives: {
+  //         defaultSrc: [`'self'`],
+  //         styleSrc: [`'self'`, `'unsafe-inline'`, 'https:'],
+  //         imgSrc: [`'self'`, 'data:', 'https:'],
+  //         scriptSrc: [`'self'`, `'unsafe-inline'`, `'unsafe-eval'`],
+  //       },
+  //     },
+  //     crossOriginEmbedderPolicy: false,
+  //   })
+  // );
 
   // Global validation pipe
-  app.useGlobalPipes(
-    new ValidationPipe({
-      whitelist: true,
-      transform: true,
-      forbidNonWhitelisted: true,
-    })
-  );
+  // app.useGlobalPipes(
+  //   new ValidationPipe({
+  //     whitelist: true,
+  //     transform: true,
+  //     forbidNonWhitelisted: true,
+  //   })
+  // );
 
   // Swagger documentation
   const config = new DocumentBuilder()
