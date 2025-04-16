@@ -9,6 +9,8 @@ import { ClientProxy } from '@nestjs/microservices';
 import { UserVocab } from '@/entities/user-vocab.entity';
 import { UserReviewHistory } from '@/entities/user-review-history.entity';
 import { UserProgress } from '@/entities/user-progress.entity';
+import { firstValueFrom } from 'rxjs';
+import { ReviewResult } from '@/types/ReviewResult';
 @Injectable()
 export class UserService {
   constructor(
@@ -20,7 +22,10 @@ export class UserService {
     private readonly userReviewHistoryRepository: Repository<UserReviewHistory>,
     @InjectRepository(UserProgress)
     private readonly userProgressRepository: Repository<UserProgress>,
-    @Inject('USER_SERVICE') private readonly userClient: ClientProxy, 
+    @Inject('VOCAB_SERVICE') 
+    private readonly vocabClient: ClientProxy,
+    @Inject('SPACED_REPETITION_SERVICE')
+    private readonly spacedRepetitionClient: ClientProxy,
   ) {}
 
   async getFullUserInfo(userId: string) {
@@ -49,6 +54,26 @@ export class UserService {
     } catch (error) {
       throw new InternalServerErrorException('Failed to get user info');
     }
+  }
+
+  async getUserVocabDetails(userId: string) {
+    // 1. Lấy danh sách vocabId mà user đang học
+    const userVocabList = await this.userVocabRepository.find({
+      where: { userId },
+    });
+
+    const vocabIds = userVocabList.map((item) => item.vocabId);
+    if (vocabIds.length === 0) return { vocabList: [], total: 0 };
+
+    // 2. Gửi qua RabbitMQ để lấy chi tiết từ vựng
+    const vocabDetails = await firstValueFrom(
+      this.vocabClient.send('vocab.getManyByIds', vocabIds),
+    );
+
+    return {
+      vocabList: vocabDetails,
+      total: vocabDetails.length,
+    };
   }
 
   async findAll() {
@@ -109,6 +134,42 @@ export class UserService {
     } else {
       throw new BadGatewayException('The code is invalid or expired');
     }
+  }
+
+    // Gọi sang spaced-repetition để lấy các từ đến hạn review
+    async getDueReviewVocab(userId: string, limit = 20) {
+      const payload = { userId, limit };
+      return await firstValueFrom(
+        this.spacedRepetitionClient.send('review.getDue', payload),
+      );
+    }
+  
+    // Gọi sang spaced-repetition để lấy các từ ôn tự do (chưa đến hạn)
+    async getFlexibleReviewVocab(userId: string, limit = 20) {
+      const payload = { userId, limit };
+      return await firstValueFrom(
+        this.spacedRepetitionClient.send('review.getFlexible', payload),
+      );
+    }
+
+     // Gọi sang spaced-repetition để khởi tạo review lần đầu
+  async initUserReview(userId: string, vocabId: string) {
+    const payload = { userId, vocabId };
+    console.log('📤 Sending to review.initReview:', payload);
+
+    return await firstValueFrom(
+      this.spacedRepetitionClient.send('review.initReview', payload),
+    );
+  }
+
+  // Gọi sang spaced-repetition để xử lý kết quả review
+  async submitReview(userId: string, vocabId: string, result: ReviewResult) {
+    const payload = { userId, vocabId, result };
+    console.log('📤 Sending to review.submitReview:', payload);
+
+    return await firstValueFrom(
+      this.spacedRepetitionClient.send('review.submitReview', payload),
+    );
   }
 
 } 

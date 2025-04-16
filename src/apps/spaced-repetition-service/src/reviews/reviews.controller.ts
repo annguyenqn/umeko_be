@@ -3,47 +3,47 @@ import { Controller, Post, Body, Get, Param, Query } from '@nestjs/common';
 import { ReviewService } from './reviews.service';
 import { ApiTags, ApiBody, ApiOperation, ApiParam, ApiQuery, ApiResponse } from '@nestjs/swagger';
 import { InitReviewDto, SubmitReviewDto } from './dto/review.dto';
-
+import { MessagePattern, Payload } from '@nestjs/microservices';
+import { ReviewResult } from 'libs/spaced-repetition';
 @ApiTags('Review')
 @Controller('review')
 export class ReviewController {
   constructor(private readonly reviewService: ReviewService) {}
 
-  @Post('init')
+  @MessagePattern('review.initReview')
   @ApiBody({ type: InitReviewDto })
-  async init(@Body() body: InitReviewDto) {
-    return this.reviewService.initReview(body.userId, body.vocabId);
+  async init(@Payload() data: { userId: string; vocabId: string }) {
+    console.log('📩 Received review.initReview:', data);
+    return this.reviewService.initReview(data.userId, data.vocabId);
   }
 
-  @Post('submit')
-  @ApiBody({ type: SubmitReviewDto })
-  async review(@Body() body: SubmitReviewDto) {
-    return this.reviewService.review(body.userId, body.vocabId, body.result);
+  @MessagePattern('review.submitReview')
+  async handleSubmitReview(@Payload() data: { userId: string; vocabId: string; result: ReviewResult }) {
+    try {
+      console.log('📩 Received review.submitReview:', data);
+      return await this.reviewService.review(data.userId, data.vocabId, data.result);
+    } catch (error) {
+      console.error('🔥 Error inside handler review.submitReview:', error);
+      throw error;
+    }
   }
 
-  @Get('due/:userId')
-  @ApiOperation({ summary: 'Lấy danh sách từ cần ôn cho người dùng' })
-  @ApiParam({ name: 'userId', required: true, description: 'ID người dùng' })
-  @ApiQuery({ name: 'limit', required: false, description: 'Giới hạn số từ trả về (default: 20)' })
-  @ApiResponse({ status: 200, description: 'Danh sách từ cần ôn' })
+  @MessagePattern('review.getDue')
   async getDueReviews(
-    @Param('userId') userId: string,
-    @Query('limit') limitParam?: string,
+    @Payload() data: { userId: string; limit?: number }
   ) {
-    const limit = parseInt(limitParam ?? '20', 10);
+    const userId = data?.userId;
+    const limit = data?.limit ?? 20;
     return this.reviewService.getDueReviews(userId, limit);
   }
 
-  @Get('flexible/:userId')
-  @ApiOperation({ summary: 'Lấy danh sách từ để ôn thêm (không theo spacing)' })
-  @ApiParam({ name: 'userId', required: true, description: 'ID người dùng' })
-  @ApiQuery({ name: 'limit', required: false, description: 'Số lượng từ trả về (mặc định: 20)' })
-  @ApiResponse({ status: 200, description: 'Danh sách từ để ôn thêm' })
-  async getFlexibleReviews(
-    @Param('userId') userId: string,
-    @Query('limit') limitParam?: string,
-  ) {
-    const limit = parseInt(limitParam ?? '20', 10);
+  @MessagePattern('review.getFlexible')
+  async handleFlexible(@Payload() data: { userId: string; limit?: number }) {
+    console.log('🎯 [MQ] review.getFlexible triggered:', data);
+
+    const userId = data?.userId;
+    const limit = data?.limit ?? 20;
+
     return this.reviewService.getFlexibleReviews(userId, limit);
   }
 }

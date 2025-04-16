@@ -9,14 +9,19 @@ export interface ReviewState {
 
 export interface NextReviewResult extends ReviewState {
   learningStatus: LearningStatus;
-  reset: boolean; // true nếu reset do answer sai
+  reset: boolean; 
 }
-
 export function calculateNextReview(
   quality: ReviewResult,
   state: ReviewState
 ): NextReviewResult {
   let { repetitionCount, interval, efFactor } = state;
+
+  if (typeof efFactor !== 'number' || isNaN(efFactor)) {
+    console.warn('⚠️ efFactor invalid, fallback to 2.5');
+    efFactor = 2.5;
+  }
+
   let q: number;
   switch (quality) {
     case 'again':
@@ -28,6 +33,8 @@ export function calculateNextReview(
     case 'easy':
       q = 5;
       break;
+    default:
+      throw new Error(`Invalid ReviewResult: ${quality}`);
   }
 
   let reset = false;
@@ -47,10 +54,9 @@ export function calculateNextReview(
 
   efFactor = Math.max(1.3, efFactor + (0.1 - (5 - q) * (0.08 + (5 - q) * 0.02)));
 
-  // Gán trạng thái học mới
   if (repetitionCount === 0) learningStatus = 'forgotten';
   else if (repetitionCount < 3) learningStatus = 'learning';
-  else learningStatus = 'mastered'; // hoặc 'graduated' nếu muốn phân biệt
+  else learningStatus = 'mastered';
 
   return {
     repetitionCount,
@@ -60,3 +66,4 @@ export function calculateNextReview(
     reset,
   };
 }
+

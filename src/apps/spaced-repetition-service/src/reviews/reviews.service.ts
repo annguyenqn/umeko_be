@@ -57,45 +57,59 @@ export class ReviewService {
     try {
       const review = await this.reviewModel.findOne({ userId, vocabId });
       if (!review) throw new Error('Review not found');
-
-      const newState = calculateNextReview(result, {
+  
+      // Log để kiểm tra giá trị trước khi tính
+      console.log('📊 Current review state:', {
         repetitionCount: review.repetitionCount,
         interval: review.interval,
         efFactor: review.efFactor,
       });
-
+  
+      // Fallback an toàn
+      const safeEfFactor = isNaN(review.efFactor) ? 2.5 : review.efFactor;
+      const safeInterval = review.interval ?? 1;
+      const safeRepetition = review.repetitionCount ?? 0;
+  
+      const newState = calculateNextReview(result, {
+        repetitionCount: safeRepetition,
+        interval: safeInterval,
+        efFactor: safeEfFactor,
+      });
+  
       const now = new Date();
       const nextReview = new Date(now);
       nextReview.setDate(now.getDate() + newState.interval);
-
+  
       review.repetitionCount = newState.repetitionCount;
-      
       review.interval = newState.interval;
       review.efFactor = newState.efFactor;
       review.lastReview = now;
       review.nextReview = nextReview;
       review.lastResult = result;
-
+  
       await review.save();
-
+  
       const payload = {
         userId,
         vocabId,
         result,
         reviewDate: now.toISOString(),
         learningStatus: newState.learningStatus,
-        reset: newState.reset
+        reset: newState.reset,
       };
-
+  
       this.userClient.emit('review.update', payload);
       console.log('[RabbitMQ Emit] review.update sent (review):', payload);
-
+  
       return review;
     } catch (error) {
-      console.error('❌ Error in review:', error);
+      console.error('❌ Error in review():', error);
       throw error;
     }
   }
+  
+
+  // thằng này lấy các từ vựng đến hạn ôn rồi, thường là mỗi ngày sẽ có 
   async getDueReviews(userId: string, limit = 20) {
     const now = new Date();
 
@@ -124,7 +138,9 @@ export class ReviewService {
     };
   }
   
-async getFlexibleReviews(userId: string, limit = 20) {
+  // thằng này ngược với thằng trên là lấy các từ vựng chưa tới hạn ôn ( để ôn thêm) 
+  async getFlexibleReviews(userId: string, limit = 20) {
+    console.log('🔥 getFlexibleReviews CALLED');
   const now = new Date();
 
   const reviews = await this.reviewModel
@@ -134,7 +150,7 @@ async getFlexibleReviews(userId: string, limit = 20) {
     })
     .sort({ nextReview: 1 })
     .limit(limit);
-
+    console.log('✅ Found flexible reviews:', reviews.length);
   const vocabIds = reviews.map((r) => r.vocabId);
 
   const vocabDetails = await firstValueFrom(
@@ -146,6 +162,6 @@ async getFlexibleReviews(userId: string, limit = 20) {
     dueVocab: vocabDetails,
     reviewMeta: reviews,
   };
-}
+  }
 
 }

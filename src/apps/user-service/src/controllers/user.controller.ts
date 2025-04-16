@@ -1,8 +1,9 @@
-import { Controller, Get, Req, UseGuards } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
+import { Body, Controller, Get, Post, Query, Req, UnauthorizedException, UseGuards } from '@nestjs/common';
+import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth, ApiQuery, ApiBody } from '@nestjs/swagger';
 import { JwtAuthGuard } from '@/guards/jwt-auth.guard';
 import { UserService } from '@/services/user.service';
 import { UserResponseDto } from '@/dto/user.dto';
+import { ReviewResult } from '@/types/ReviewResult';
 import { Request } from 'express';
 @ApiTags('Users')
 @ApiBearerAuth()
@@ -17,12 +18,100 @@ export class UserController {
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   async getUserDetails(@Req() req: Request) {
     try {
+      if (!req.user) throw new UnauthorizedException('User not found');
       const userId = req.user['id'];
       return await this.userService.getFullUserInfo(userId);
     } catch (error) {
       console.error(error);
       throw error;
     }
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('me/vocab-details')
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Lấy danh sách từ vựng của chính người dùng (dùng JWT)' })
+  @ApiResponse({
+    status: 200,
+    description: 'Danh sách từ vựng của user hiện tại',
+  })
+  async getOwnVocabDetails(@Req() req: Request) {
+    try {
+      if (!req.user) throw new UnauthorizedException('User not found');
+      const userId = req.user['id'];
+      return await this.userService.getUserVocabDetails(userId);
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('me/reviews/init')
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Khởi tạo review cho từ vựng mới (initReview)' })
+  @ApiBody({
+    schema: {
+      type: 'object',
+      properties: {
+        vocabId: { type: 'string', example: 'a30f1c76-bf7d-4a77-83de-e0f91b0f1531' },
+      },
+      required: ['vocabId'],
+    },
+  })
+  async initReview(@Req() req: Request, @Body() body: { vocabId: string }) {
+    if (!req.user) throw new UnauthorizedException('User not found');
+    const userId = req.user['id'];
+    return this.userService.initUserReview(userId, body.vocabId);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('me/reviews/submit')
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Gửi kết quả ôn tập (review)' })
+  @ApiBody({
+    schema: {
+      type: 'object',
+      properties: {
+        vocabId: { type: 'string', example: 'a30f1c76-xxx' },
+        result: {
+          type: 'string',
+          enum: ['again', 'hard', 'easy'], 
+          example: 'easy',
+        },
+      },
+      required: ['vocabId', 'result'],
+    },
+  })
+  async submitReview(
+    @Req() req: Request,
+    @Body() body: { vocabId: string; result: ReviewResult }
+  ) {
+    if (!req.user) throw new UnauthorizedException('User not found');
+    const userId = req.user['id'];
+    return this.userService.submitReview(userId, body.vocabId, body.result);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('me/reviews/due')
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Lấy từ vựng đến hạn ôn tập (spaced repetition)' })
+  @ApiQuery({ name: 'limit', required: false, type: Number })
+  async getDue(@Req() req: Request, @Query('limit') limit?: number) {
+    if (!req.user) throw new UnauthorizedException('User not found');
+    const userId = req.user['id'];
+    return this.userService.getDueReviewVocab(userId, limit ?? 20);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('me/reviews/flexible')
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Lấy từ vựng ôn tự do (chưa đến hạn)' })
+  @ApiQuery({ name: 'limit', required: false, type: Number })
+  async getFlexible(@Req() req: Request, @Query('limit') limit?: number) {
+    if (!req.user) throw new UnauthorizedException('User not found');
+    const userId = req.user['id'];
+    return this.userService.getFlexibleReviewVocab(userId, limit ?? 20);
   }
 
   @Get()

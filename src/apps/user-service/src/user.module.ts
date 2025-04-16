@@ -65,6 +65,38 @@ import { ReviewSyncController } from './controllers/review-sync.controller';
         },
         inject: [ConfigService],
       },
+      {
+        name: 'VOCAB_SERVICE',
+        imports: [ConfigModule],
+        useFactory: (configService: ConfigService) => {
+          const rabbitUrl = configService.get<string>('RABBITMQ_URL') || 'amqp://localhost:5672';
+          return {
+            transport: Transport.RMQ,
+            options: {
+              urls: [rabbitUrl],
+              queue: 'vocab_queue',
+              queueOptions: { durable: false },
+            },
+          };
+        },
+        inject: [ConfigService],
+      },
+      {
+        name: 'SPACED_REPETITION_SERVICE',
+        imports: [ConfigModule],
+        useFactory: (configService: ConfigService) => {
+          const rabbitUrl = configService.get<string>('RABBITMQ_URL') || 'amqp://localhost:5672';
+          return {
+            transport: Transport.RMQ,
+            options: {
+              urls: [rabbitUrl],
+              queue: 'spaced_repetition_queue',
+              queueOptions: { durable: false }, 
+            },
+          };
+        },
+        inject: [ConfigService],
+      },
     ]),
     
     
