@@ -30,24 +30,38 @@ export class UserService {
 
   async getFullUserInfo(userId: string) {
     try {
+      // 1. Lấy thông tin user cơ bản
       const user = await this.userRepository.findOne({
         where: { id: userId },
         select: ['id', 'firstName', 'lastName'],
       });
-
+  
       if (!user) {
         throw new NotFoundException('User not found');
       }
-
-      const [vocab, reviewHistory, progress] = await Promise.all([
+  
+      // 2. Lấy song song: userVocab, reviewHistory, progress
+      const [userVocabList, reviewHistory, progress] = await Promise.all([
         this.userVocabRepository.find({ where: { userId } }),
         this.userReviewHistoryRepository.find({ where: { userId } }),
         this.userProgressRepository.findOne({ where: { userId } }),
       ]);
-
+  
+      // 3. Lấy chi tiết từ vựng nếu có vocabId
+      const vocabIds = userVocabList.map((item) => item.vocabId);
+      let vocabList = [];
+      if (vocabIds.length > 0) {
+        vocabList = await firstValueFrom(
+          this.vocabClient.send('vocab.getManyByIds', vocabIds),
+        );
+      }
+  
       return {
         user,
-        vocab,
+        vocab: {
+          vocabList,
+          total: vocabList.length,
+        },
         reviewHistory,
         progress,
       };
@@ -55,6 +69,7 @@ export class UserService {
       throw new InternalServerErrorException('Failed to get user info');
     }
   }
+  
 
   async getUserVocabDetails(userId: string) {
     // 1. Lấy danh sách vocabId mà user đang học
