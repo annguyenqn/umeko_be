@@ -47,50 +47,64 @@ export class UserController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Post('me/reviews/init')
+  @Post('me/reviews/inits')
   @ApiBearerAuth()
-  @ApiOperation({ summary: 'Khởi tạo review cho từ vựng mới (initReview)' })
+  @ApiOperation({ summary: 'Khởi tạo nhiều review cho các từ vựng' })
   @ApiBody({
     schema: {
       type: 'object',
       properties: {
-        vocabId: { type: 'string', example: 'a30f1c76-bf7d-4a77-83de-e0f91b0f1531' },
-      },
-      required: ['vocabId'],
-    },
-  })
-  async initReview(@Req() req: Request, @Body() body: { vocabId: string }) {
-    if (!req.user) throw new UnauthorizedException('User not found');
-    const userId = req.user['id'];
-    return this.userService.initUserReview(userId, body.vocabId);
-  }
-
-  @UseGuards(JwtAuthGuard)
-  @Post('me/reviews/submit')
-  @ApiBearerAuth()
-  @ApiOperation({ summary: 'Gửi kết quả ôn tập (review)' })
-  @ApiBody({
-    schema: {
-      type: 'object',
-      properties: {
-        vocabId: { type: 'string', example: 'a30f1c76-xxx' },
-        result: {
-          type: 'string',
-          enum: ['again', 'hard', 'easy'], 
-          example: 'easy',
+        vocabIds: {
+          type: 'array',
+          items: { type: 'string' },
         },
       },
-      required: ['vocabId', 'result'],
+      required: ['vocabIds'],
     },
   })
-  async submitReview(
+  async initReviews(@Req() req: Request, @Body() body: { vocabIds: string[] }) {
+    if (!req.user) throw new UnauthorizedException('User not found');
+    const userId = req.user['id'];
+    return this.userService.initUserReviews(userId, body.vocabIds);
+  }
+  
+
+  @UseGuards(JwtAuthGuard)
+  @Post('me/reviews/submit-many')
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Gửi nhiều kết quả ôn tập cùng lúc' })
+  @ApiBody({
+    schema: {
+      type: 'object',
+      properties: {
+        reviews: {
+          type: 'array',
+          items: {
+            type: 'object',
+            properties: {
+              vocabId: { type: 'string', example: 'a30f1c76-bf7d-xxxx' },
+              result: {
+                type: 'string',
+                enum: ['again', 'hard', 'easy'],
+                example: 'hard',
+              },
+            },
+            required: ['vocabId', 'result'],
+          },
+        },
+      },
+      required: ['reviews'],
+    },
+  })
+  async submitReviews(
     @Req() req: Request,
-    @Body() body: { vocabId: string; result: ReviewResult }
+    @Body() body: { reviews: { vocabId: string; result: ReviewResult }[] },
   ) {
     if (!req.user) throw new UnauthorizedException('User not found');
     const userId = req.user['id'];
-    return this.userService.submitReview(userId, body.vocabId, body.result);
+    return this.userService.submitReviews(userId, body.reviews);
   }
+  
 
   @UseGuards(JwtAuthGuard)
   @Get('me/reviews/due')

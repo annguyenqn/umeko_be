@@ -10,23 +10,20 @@ import { ReviewResult } from 'libs/spaced-repetition';
 export class ReviewController {
   constructor(private readonly reviewService: ReviewService) {}
 
-  @MessagePattern('review.initReview')
-  @ApiBody({ type: InitReviewDto })
-  async init(@Payload() data: { userId: string; vocabId: string }) {
-    console.log('📩 Received review.initReview:', data);
-    return this.reviewService.initReview(data.userId, data.vocabId);
+  @MessagePattern('review.initReviews')
+  async handleInitReviews(@Payload() data: { userId: string; vocabIds: string[] }) {
+    console.log('📩 Received review.initReviews:', data);
+    return this.reviewService.initReviews(data.userId, data.vocabIds);
   }
 
-  @MessagePattern('review.submitReview')
-  async handleSubmitReview(@Payload() data: { userId: string; vocabId: string; result: ReviewResult }) {
-    try {
-      console.log('📩 Received review.submitReview:', data);
-      return await this.reviewService.review(data.userId, data.vocabId, data.result);
-    } catch (error) {
-      console.error('🔥 Error inside handler review.submitReview:', error);
-      throw error;
-    }
+  @MessagePattern('review.submitReviews')
+  async handleSubmitReviews(
+    @Payload() data: { userId: string; reviews: { vocabId: string; result: ReviewResult }[] },
+  ) {
+    console.log('📩 Received review.submitReviews:', data);
+    return this.reviewService.reviewMany(data.userId, data.reviews);
   }
+  
 
   @MessagePattern('review.getDue')
   async getDueReviews(

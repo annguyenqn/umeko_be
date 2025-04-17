@@ -178,23 +178,25 @@ export class UserService {
     }
 
      // Gọi sang spaced-repetition để khởi tạo review lần đầu
-  async initUserReview(userId: string, vocabId: string) {
-    const payload = { userId, vocabId };
-    console.log('📤 Sending to review.initReview:', payload);
-
-    return await firstValueFrom(
-      this.spacedRepetitionClient.send('review.initReview', payload),
-    );
-  }
+     async initUserReviews(userId: string, vocabIds: string[]) {
+      const payload = { userId, vocabIds };
+      console.log('📤 Sending to review.initReviews:', payload);
+    
+      return await firstValueFrom(
+        this.spacedRepetitionClient.send('review.initReviews', payload),
+      );
+    }
+    
 
   // Gọi sang spaced-repetition để xử lý kết quả review
-  async submitReview(userId: string, vocabId: string, result: ReviewResult) {
-    const payload = { userId, vocabId, result };
-    console.log('📤 Sending to review.submitReview:', payload);
-
+  async submitReviews(userId: string, reviews: { vocabId: string; result: ReviewResult }[]) {
+    const payload = { userId, reviews };
+    console.log('📤 Sending to review.submitReviews:', payload);
+  
     return await firstValueFrom(
-      this.spacedRepetitionClient.send('review.submitReview', payload),
+      this.spacedRepetitionClient.send('review.submitReviews', payload),
     );
   }
+  
 
 } 

@@ -14,99 +14,137 @@ export class ReviewService {
     @Inject('VOCAB_SERVICE') private readonly vocabClient: ClientProxy,
   ) {}
 
-  async initReview(userId: string, vocabId: string) {
+  async initReviews(userId: string, vocabIds: string[]) {
     try {
-      const existing = await this.reviewModel.findOne({ userId, vocabId });
-      if (existing) return existing;
-
+      const existingReviews = await this.reviewModel.find({
+        userId,
+        vocabId: { $in: vocabIds },
+      });
+  
+      const existingVocabIds = new Set(existingReviews.map((r) => r.vocabId));
+      const toCreate = vocabIds.filter((id) => !existingVocabIds.has(id));
+  
       const now = new Date();
-      const nextReview = new Date(now);
-      nextReview.setDate(now.getDate() + 1);
-
-      const createdReview = await this.reviewModel.create({
+      const docsToInsert = toCreate.map((vocabId) => ({
         userId,
         vocabId,
         repetitionCount: 0,
         efFactor: 2.5,
         interval: 1,
         lastReview: now,
-        nextReview,
+        nextReview: now,
         lastResult: 'init',
-      });
-
-      const payload = {
-        userId,
-        vocabId,
-        result: 'again', 
-        reviewDate: now.toISOString(),
-        learningStatus: 'new',
-        reset: false,   
+      }));
+  
+      if (docsToInsert.length > 0) {
+        await this.reviewModel.insertMany(docsToInsert);
+  
+        docsToInsert.forEach((doc) => {
+          const payload = {
+            userId,
+            vocabId: doc.vocabId,
+            result: 'again',
+            reviewDate: now.toISOString(),
+            learningStatus: 'new',
+            reset: false,
+          };
+          this.userClient.emit('review.update', payload);
+          console.log('[RabbitMQ Emit] review.update sent (initReviews):', payload);
+        });
+      }
+  
+      return {
+        inserted: docsToInsert.length,
+        skipped: existingVocabIds.size,
+        total: vocabIds.length,
       };
-
-      this.userClient.emit('review.update', payload);
-      console.log('[RabbitMQ Emit] review.update sent (initReview):', payload);
-
-      return createdReview;
     } catch (error) {
-      console.error('❌ Error in initReview:', error);
+      console.error('❌ Error in initReviews:', error);
       throw error;
     }
   }
+  
+  
+  
 
-  async review(userId: string, vocabId: string, result: ReviewResult) {
+  async reviewMany(userId: string, reviews: { vocabId: string; result: ReviewResult }[]) {
     try {
-      const review = await this.reviewModel.findOne({ userId, vocabId });
-      if (!review) throw new Error('Review not found');
+      const vocabIds = reviews.map(r => r.vocabId);
   
-      // Log để kiểm tra giá trị trước khi tính
-      console.log('📊 Current review state:', {
-        repetitionCount: review.repetitionCount,
-        interval: review.interval,
-        efFactor: review.efFactor,
-      });
-  
-      // Fallback an toàn
-      const safeEfFactor = isNaN(review.efFactor) ? 2.5 : review.efFactor;
-      const safeInterval = review.interval ?? 1;
-      const safeRepetition = review.repetitionCount ?? 0;
-  
-      const newState = calculateNextReview(result, {
-        repetitionCount: safeRepetition,
-        interval: safeInterval,
-        efFactor: safeEfFactor,
+      const existingReviews = await this.reviewModel.find({
+        userId,
+        vocabId: { $in: vocabIds },
       });
   
       const now = new Date();
-      const nextReview = new Date(now);
-      nextReview.setDate(now.getDate() + newState.interval);
+      const results = [];
+      const skipped = [];
   
-      review.repetitionCount = newState.repetitionCount;
-      review.interval = newState.interval;
-      review.efFactor = newState.efFactor;
-      review.lastReview = now;
-      review.nextReview = nextReview;
-      review.lastResult = result;
+      for (const { vocabId, result } of reviews) {
+        try {
+          const review = existingReviews.find(r => r.vocabId === vocabId);
+          if (!review) {
+            console.warn(`⚠️ Review not found for vocabId ${vocabId}, skipping.`);
+            skipped.push(vocabId);
+            continue;
+          }
   
-      await review.save();
+          const safeEfFactor = isNaN(review.efFactor) ? 2.5 : review.efFactor;
+          const safeInterval = review.interval ?? 1;
+          const safeRepetition = review.repetitionCount ?? 0;
   
-      const payload = {
-        userId,
-        vocabId,
-        result,
-        reviewDate: now.toISOString(),
-        learningStatus: newState.learningStatus,
-        reset: newState.reset,
+          const newState = calculateNextReview(result, {
+            repetitionCount: safeRepetition,
+            interval: safeInterval,
+            efFactor: safeEfFactor,
+          });
+  
+          const nextReview = new Date(now);
+          nextReview.setDate(now.getDate() + newState.interval);
+  
+          review.repetitionCount = newState.repetitionCount;
+          review.interval = newState.interval;
+          review.efFactor = newState.efFactor;
+          review.lastReview = now;
+          review.nextReview = nextReview;
+          review.lastResult = result;
+  
+          await review.save();
+  
+          const payload = {
+            userId,
+            vocabId,
+            result,
+            reviewDate: now.toISOString(),
+            learningStatus: newState.learningStatus,
+            reset: newState.reset,
+          };
+  
+          this.userClient.emit('review.update', payload);
+          console.log('[RabbitMQ Emit] review.update sent (reviewMany):', payload);
+  
+          results.push(review);
+        } catch (innerErr) {
+          console.error(`❌ Error processing vocabId ${vocabId}:`, innerErr);
+          skipped.push(vocabId);
+          continue;
+        }
+      }
+  
+      return {
+        updated: results.length,
+        total: reviews.length,
+        skipped: skipped.length,
+        failedVocabIds: skipped,
+        reviews: results,
       };
-  
-      this.userClient.emit('review.update', payload);
-      console.log('[RabbitMQ Emit] review.update sent (review):', payload);
-  
-      return review;
     } catch (error) {
-      console.error('❌ Error in review():', error);
+      console.error('❌ Error in reviewMany():', error);
       throw error;
     }
   }
+  
+  
   
 
   // thằng này lấy các từ vựng đến hạn ôn rồi, thường là mỗi ngày sẽ có 
