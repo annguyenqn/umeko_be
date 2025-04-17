@@ -47,13 +47,22 @@ export class UserService {
         this.userProgressRepository.findOne({ where: { userId } }),
       ]);
   
-      // 3. Lấy chi tiết từ vựng nếu có vocabId
+      // 3. Gộp learningStatus từ userVocabList
       const vocabIds = userVocabList.map((item) => item.vocabId);
+      const statusMap = new Map(
+        userVocabList.map((item) => [item.vocabId, item.learningStatus])
+      );
+  
       let vocabList = [];
       if (vocabIds.length > 0) {
-        vocabList = await firstValueFrom(
+        const vocabDetails = await firstValueFrom(
           this.vocabClient.send('vocab.getManyByIds', vocabIds),
         );
+  
+        vocabList = vocabDetails.map((vocab: any) => ({
+          ...vocab,
+          learningStatus: statusMap.get(vocab.id) || null,
+        }));
       }
   
       return {
@@ -69,6 +78,7 @@ export class UserService {
       throw new InternalServerErrorException('Failed to get user info');
     }
   }
+  
   
 
   async getUserVocabDetails(userId: string) {
