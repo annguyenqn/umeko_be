@@ -7,12 +7,13 @@ import helmet from 'helmet';
 import { Transport } from '@nestjs/microservices';
 async function bootstrap() {
   const app = await NestFactory.create(UserModule);
+  
   // Configure CORS
-  // app.enableCors({
-  //   origin: true, // or specify your frontend URL like 'http://localhost:3000'
-  //   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-  //   credentials: true,
-  // });
+  app.enableCors({
+    origin:  '*', // or specify your frontend URL like 'http://localhost:3000'
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true,
+  });
 
   // Configure Helmet with less restrictive CSP
   // app.use(
