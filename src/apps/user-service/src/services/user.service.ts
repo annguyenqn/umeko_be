@@ -5,12 +5,13 @@ import { User } from '@/entities/user.entity';
 import * as dayjs from 'dayjs'
 import { CodeAuthDto } from '../dto/code-auth.dto';
 import { Inject } from '@nestjs/common';
-import { ClientProxy } from '@nestjs/microservices';
+import { ClientProxy, RpcException } from '@nestjs/microservices';
 import { UserVocab } from '@/entities/user-vocab.entity';
 import { UserReviewHistory } from '@/entities/user-review-history.entity';
 import { UserProgress } from '@/entities/user-progress.entity';
 import { firstValueFrom } from 'rxjs';
 import { ReviewResult } from '@/types/ReviewResult';
+import { SubmitReviewsDto } from '@/dto/review.dto';
 @Injectable()
 export class UserService {
   constructor(
@@ -177,19 +178,62 @@ export class UserService {
       );
     }
 
-     // Gọi sang spaced-repetition để khởi tạo review lần đầu
-     async initUserReviews(userId: string, vocabIds: string[]) {
-      const payload = { userId, vocabIds };
-      console.log('📤 Sending to review.initReviews:', payload);
-    
-      return await firstValueFrom(
-        this.spacedRepetitionClient.send('review.initReviews', payload),
-      );
+
+
+
+async initUserReviews(userId: string, vocabIds: string[]) {
+  const payload = { userId, vocabIds };
+  console.log('📤 Sending to review.initReviews:', payload);
+
+  try {
+    // Gửi yêu cầu qua RabbitMQ và chờ kết quả
+    return await firstValueFrom(
+      this.spacedRepetitionClient.send('review.initReviews', payload),
+    );
+  } catch (error) {
+    console.error('❌ Unexpected error in initUserReviews:', error);
+
+    // Log chi tiết của lỗi để kiểm tra
+    console.log('error details:', error);
+
+    // Kiểm tra nếu lỗi là RpcException từ spaced-repetition-service
+    if (error instanceof RpcException) {
+      // Nếu lỗi là RpcException, ném lại lỗi
+      console.log('erro vocab herre');
+      throw error; // Trả về chính lỗi đã nhận được
     }
+
+    // Kiểm tra nếu lỗi là một đối tượng có thuộc tính message, error, statusCode
+    if (error && typeof error === 'object' && 'message' in error && 'error' in error && 'statusCode' in error) {
+      // Nếu đối tượng lỗi có đủ thông tin, ném lại lỗi dưới dạng RpcException
+      console.log('erro vocab herre');
+      throw new RpcException(error); // Trả lại lỗi nguyên bản
+    }
+
+    // Nếu không phải là đối tượng hợp lệ, ném lại lỗi mặc định
+    console.log('erro 500 herre');
+    throw new RpcException({
+      message: 'Unexpected error during user review initialization',
+      error: 'INTERNAL_SERVER_ERROR',
+      statusCode: 500,
+    });
+  }
+}
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 
   // Gọi sang spaced-repetition để xử lý kết quả review
-  async submitReviews(userId: string, reviews: { vocabId: string; result: ReviewResult }[]) {
+  async submitReviews(userId: string, reviews: SubmitReviewsDto[]) {
     const payload = { userId, reviews };
     console.log('📤 Sending to review.submitReviews:', payload);
   
@@ -197,6 +241,4 @@ export class UserService {
       this.spacedRepetitionClient.send('review.submitReviews', payload),
     );
   }
-  
-
 } 

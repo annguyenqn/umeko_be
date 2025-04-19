@@ -1,10 +1,12 @@
-import { BadRequestException, Controller, Get, Param, Query } from '@nestjs/common';
+import { BadRequestException, Controller, Get, Param, Query, UseInterceptors  } from '@nestjs/common';
 import { VocabService } from '@/services/vocab.service';
 import { Vocabulary } from '@/entities/Vocabulary.entity';
 import { Category } from '@/entities/Category.entity';
 import { Lesson } from '@/entities/Lesson.entity';
 import { MessagePattern, Payload } from '@nestjs/microservices';
+import { VocabInterceptor } from '@/common/interceptor/vocab.interceptor';
 @Controller('vocabularies')
+// @UseInterceptors(VocabInterceptor) 
 export class VocabularyController {
   constructor(private readonly vocabularyService: VocabService) {}
 
@@ -34,4 +36,9 @@ export class VocabularyController {
   async handleGetManyByIds(@Payload() ids: string[]) {
     return this.vocabularyService.getManyByIds(ids);
   }
+
+  // @MessagePattern('vocab.getManyByIds')
+  // async getManyByIds(vocabIds: string[]) {
+  //   return this.vocabularyService.getManyByIds(vocabIds); 
+  // }
 }

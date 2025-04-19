@@ -3,10 +3,14 @@ import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { VocabModule } from './vocab.module';
 import helmet from 'helmet';
+import { RpcExceptionFilter } from './common/filters/rpc-exception.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(VocabModule);
 
+  app.useGlobalFilters(
+    new RpcExceptionFilter(),  
+  );
   // Enable CORS for public API
   app.enableCors();
 

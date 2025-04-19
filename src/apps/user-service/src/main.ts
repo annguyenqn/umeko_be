@@ -5,6 +5,8 @@ import { UserModule } from './user.module';
 import * as cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import { Transport } from '@nestjs/microservices';
+import { HttpExceptionFilter } from './common/filters/http-exception.filter';
+import { RpcExceptionFilter } from './common/filters/rpc-exception.filter';
 async function bootstrap() {
   const app = await NestFactory.create(UserModule);
   
@@ -14,6 +16,11 @@ async function bootstrap() {
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
   });
+
+  app.useGlobalFilters(
+    new HttpExceptionFilter(),
+    new RpcExceptionFilter(),  
+  );
 
   // Configure Helmet with less restrictive CSP
   // app.use(

@@ -2,9 +2,16 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { Transport } from '@nestjs/microservices';
+import { SpacedRepetitionExceptionFilter } from './common/filters/spaced-repetition-exception.filter';
+import { RpcExceptionFilter } from './common/filters/rpc-exception.filter';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  
+  app.useGlobalFilters(
+    new SpacedRepetitionExceptionFilter(),
+    new RpcExceptionFilter(),  
+  );
   app.connectMicroservice({
     transport: Transport.RMQ,
     options: {
@@ -14,6 +21,7 @@ async function bootstrap() {
     },
   });
   
+
   await app.startAllMicroservices();
   const config = new DocumentBuilder()
     .setTitle('Spaced Repetition Service')

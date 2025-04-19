@@ -1,10 +1,11 @@
-import { Injectable, Inject } from '@nestjs/common';
+import { Injectable, Inject, BadRequestException, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Review } from './schemas/review.schema';
-import { ClientProxy } from '@nestjs/microservices';
+import { ClientProxy, RpcException } from '@nestjs/microservices';
 import { calculateNextReview, ReviewResult } from 'libs/spaced-repetition';
 import { firstValueFrom } from 'rxjs';
+import { SpacedRepetitionError } from '@/common/errors/spaced-repetition-error';
 
 @Injectable()
 export class ReviewService {
@@ -14,13 +15,45 @@ export class ReviewService {
     @Inject('VOCAB_SERVICE') private readonly vocabClient: ClientProxy,
   ) {}
 
+
+
+  async validateVocabIds(vocabIds: string[]) {
+    try {
+      console.log('vocabDetails -----------------');
+      const vocabDetails = await firstValueFrom(
+        this.vocabClient.send('vocab.getManyByIds', vocabIds),
+      );
+      console.log('vocabDetails -----------------', vocabDetails);
+      if (!vocabDetails || vocabDetails.length === 0) {
+        throw new RpcException(new NotFoundException(`No vocabularies found for the provided IDs: ${vocabIds.join(', ')}`));
+      }
+      return vocabDetails;
+    } catch (error) {
+      if (error instanceof RpcException) {
+        console.log('Caught RpcException:', error.getError());
+        throw error;  // Trả lại RpcException
+      }
+      
+      // Nếu lỗi không phải là RpcException, ném lại lỗi dưới dạng RpcException
+      console.log('Throwing new RpcException for non-Rpc error');
+      throw new RpcException({
+        message: error instanceof Error ? error.message : 'Unknown error',
+        error: 'INTERNAL_SERVER_ERROR',
+        statusCode: 500,
+      });
+    }
+  }
+  
+
   async initReviews(userId: string, vocabIds: string[]) {
+    console.log('init review data ',userId,vocabIds);
+    
+    await this.validateVocabIds(vocabIds);
     try {
       const existingReviews = await this.reviewModel.find({
         userId,
         vocabId: { $in: vocabIds },
       });
-  
       const existingVocabIds = new Set(existingReviews.map((r) => r.vocabId));
       const toCreate = vocabIds.filter((id) => !existingVocabIds.has(id));
   
@@ -70,7 +103,7 @@ export class ReviewService {
   async reviewMany(userId: string, reviews: { vocabId: string; result: ReviewResult }[]) {
     try {
       const vocabIds = reviews.map(r => r.vocabId);
-  
+      await this.validateVocabIds(vocabIds);
       const existingReviews = await this.reviewModel.find({
         userId,
         vocabId: { $in: vocabIds },

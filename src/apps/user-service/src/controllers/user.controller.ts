@@ -1,12 +1,16 @@
-import { Body, Controller, Get, Post, Query, Req, UnauthorizedException, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query, Req, UnauthorizedException, UseGuards,UseInterceptors  } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth, ApiQuery, ApiBody } from '@nestjs/swagger';
 import { JwtAuthGuard } from '@/guards/jwt-auth.guard';
 import { UserService } from '@/services/user.service';
 import { UserResponseDto } from '@/dto/user.dto';
 import { ReviewResult } from '@/types/ReviewResult';
 import { Request } from 'express';
+import { UserInterceptor } from '@/common/interceptors/user.interceptor';
+import { CustomError } from '@/common/errors/custom-error';
+import { InitReviewsDto, SubmitReviewsDto } from '@/dto/review.dto';
 @ApiTags('Users')
 @ApiBearerAuth()
+@UseInterceptors(UserInterceptor)
 @Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}
@@ -17,127 +21,91 @@ export class UserController {
   @ApiResponse({ status: 200, description: 'Full user info' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   async getUserDetails(@Req() req: Request) {
-    try {
-      if (!req.user) throw new UnauthorizedException('User not found');
-      const userId = req.user['id'];
-      return await this.userService.getFullUserInfo(userId);
-    } catch (error) {
-      console.error(error);
-      throw error;
+    if (!req.user) {
+      throw new CustomError(401, 'USER_NOT_FOUND', 'User not found');
     }
-  }
-
-  @UseGuards(JwtAuthGuard)
-  @Get('me/vocab-details')
-  @ApiBearerAuth()
-  @ApiOperation({ summary: 'Lấy danh sách từ vựng của chính người dùng (dùng JWT)' })
-  @ApiResponse({
-    status: 200,
-    description: 'Danh sách từ vựng của user hiện tại',
-  })
-  async getOwnVocabDetails(@Req() req: Request) {
-    try {
-      if (!req.user) throw new UnauthorizedException('User not found');
-      const userId = req.user['id'];
-      return await this.userService.getUserVocabDetails(userId);
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
-  }
-
-  @UseGuards(JwtAuthGuard)
-  @Post('me/reviews/inits')
-  @ApiBearerAuth()
-  @ApiOperation({ summary: 'Khởi tạo nhiều review cho các từ vựng' })
-  @ApiBody({
-    schema: {
-      type: 'object',
-      properties: {
-        vocabIds: {
-          type: 'array',
-          items: { type: 'string' },
-        },
-      },
-      required: ['vocabIds'],
-    },
-  })
-  async initReviews(@Req() req: Request, @Body() body: { vocabIds: string[] }) {
-    if (!req.user) throw new UnauthorizedException('User not found');
     const userId = req.user['id'];
-    return this.userService.initUserReviews(userId, body.vocabIds);
+    return await this.userService.getFullUserInfo(userId);
   }
-  
 
+  @Get('me/vocab-details')
   @UseGuards(JwtAuthGuard)
+  @ApiOperation({ summary: 'Get user vocab details' })
+  @ApiResponse({ status: 200, description: 'Vocabulary details for current user' })
+  async getOwnVocabDetails(@Req() req: Request) {
+    if (!req.user) {
+      throw new CustomError(401, 'USER_NOT_FOUND', 'User not found');
+    }
+    const userId = req.user['id'];
+    return await this.userService.getUserVocabDetails(userId);
+  }
+
+  @Post('me/reviews/inits')
+  @UseGuards(JwtAuthGuard)
+  @ApiOperation({ summary: 'Initialize reviews for vocab' })
+  @ApiBody({ type: InitReviewsDto, required: true })
+  @ApiResponse({ status: 200, description: 'Successfully initialized reviews' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  @ApiResponse({ status: 400, description: 'Invalid vocabIds array' })
+  async initReviews(@Req() req: Request, @Body() body: InitReviewsDto) {
+    if (!req.user) {
+      throw new CustomError(401, 'USER_NOT_FOUND', 'User not found');
+    }
+    if (!body.vocabIds) {
+      throw new CustomError(401, 'USER_NOT_FOUND', 'User not found');
+    }
+
+    const userId = req.user['id'];
+    return await this.userService.initUserReviews(userId, body.vocabIds);
+  }
+
   @Post('me/reviews/submit-many')
-  @ApiBearerAuth()
-  @ApiOperation({ summary: 'Gửi nhiều kết quả ôn tập cùng lúc' })
-  @ApiBody({
-    schema: {
-      type: 'object',
-      properties: {
-        reviews: {
-          type: 'array',
-          items: {
-            type: 'object',
-            properties: {
-              vocabId: { type: 'string', example: 'a30f1c76-bf7d-xxxx' },
-              result: {
-                type: 'string',
-                enum: ['again', 'hard', 'easy'],
-                example: 'hard',
-              },
-            },
-            required: ['vocabId', 'result'],
-          },
-        },
-      },
-      required: ['reviews'],
-    },
-  })
+  @UseGuards(JwtAuthGuard)
+  @ApiOperation({ summary: 'Submit multiple review results for vocab' })
+  @ApiBody({ type: [SubmitReviewsDto], required: true })
+  @ApiResponse({ status: 200, description: 'Reviews submitted successfully' })
+  @ApiResponse({ status: 400, description: 'Invalid review data' })
   async submitReviews(
     @Req() req: Request,
-    @Body() body: { reviews: { vocabId: string; result: ReviewResult }[] },
+    @Body() body:  SubmitReviewsDto[]
   ) {
-    if (!req.user) throw new UnauthorizedException('User not found');
+    if (!req.user) {
+      throw new CustomError(401, 'USER_NOT_FOUND', 'User not found');
+    }
     const userId = req.user['id'];
-    return this.userService.submitReviews(userId, body.reviews);
+    return await this.userService.submitReviews(userId, body);
   }
-  
 
-  @UseGuards(JwtAuthGuard)
   @Get('me/reviews/due')
-  @ApiBearerAuth()
-  @ApiOperation({ summary: 'Lấy từ vựng đến hạn ôn tập (spaced repetition)' })
+  @UseGuards(JwtAuthGuard)
+  @ApiOperation({ summary: 'Get due review vocab' })
   @ApiQuery({ name: 'limit', required: false, type: Number })
   async getDue(@Req() req: Request, @Query('limit') limit?: number) {
-    if (!req.user) throw new UnauthorizedException('User not found');
+    if (!req.user) {
+      throw new CustomError(401, 'USER_NOT_FOUND', 'User not found');
+    }
     const userId = req.user['id'];
-    return this.userService.getDueReviewVocab(userId, limit ?? 20);
+    return await this.userService.getDueReviewVocab(userId, limit ?? 20);
   }
 
-  @UseGuards(JwtAuthGuard)
   @Get('me/reviews/flexible')
-  @ApiBearerAuth()
-  @ApiOperation({ summary: 'Lấy từ vựng ôn tự do (chưa đến hạn)' })
+  @UseGuards(JwtAuthGuard)
+  @ApiOperation({ summary: 'Get flexible review vocab' })
   @ApiQuery({ name: 'limit', required: false, type: Number })
   async getFlexible(@Req() req: Request, @Query('limit') limit?: number) {
-    if (!req.user) throw new UnauthorizedException('User not found');
+    if (!req.user) {
+      throw new CustomError(401, 'USER_NOT_FOUND', 'User not found');
+    }
     const userId = req.user['id'];
-    return this.userService.getFlexibleReviewVocab(userId, limit ?? 20);
+    return await this.userService.getFlexibleReviewVocab(userId, limit ?? 20);
   }
 
   @Get()
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: 'Get all users' })
-  @ApiResponse({
-    status: 200,
-    description: 'List of all users',
-    type: [UserResponseDto],
-  })
+  @ApiResponse({ status: 200, description: 'List of all users', type: [UserResponseDto] })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   async getAllUsers() {
-    return this.userService.findAll();
+    return await this.userService.findAll();
   }
-} 
+}

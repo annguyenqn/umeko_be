@@ -1,12 +1,14 @@
 // review.controller.ts
-import { Controller, Post, Body, Get, Param, Query } from '@nestjs/common';
+import { Controller,UseInterceptors   } from '@nestjs/common';
 import { ReviewService } from './reviews.service';
-import { ApiTags, ApiBody, ApiOperation, ApiParam, ApiQuery, ApiResponse } from '@nestjs/swagger';
-import { InitReviewDto, SubmitReviewDto } from './dto/review.dto';
+import { ApiTags, } from '@nestjs/swagger';
+// import { InitReviewDto, SubmitReviewDto } from './dto/review.dto';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 import { ReviewResult } from 'libs/spaced-repetition';
+import { SpacedRepetitionInterceptor } from '@/common/interceptor/spaced-repetition.interceptor';
 @ApiTags('Review')
 @Controller('review')
+// @UseInterceptors(SpacedRepetitionInterceptor)
 export class ReviewController {
   constructor(private readonly reviewService: ReviewService) {}
 
