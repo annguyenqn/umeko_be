@@ -6,6 +6,7 @@ import { ApiTags, } from '@nestjs/swagger';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 import { ReviewResult } from 'libs/spaced-repetition';
 import { SpacedRepetitionInterceptor } from '@/common/interceptor/spaced-repetition.interceptor';
+import { ReviewSnapshot } from './dto/review.dto';
 @ApiTags('Review')
 @Controller('review')
 // @UseInterceptors(SpacedRepetitionInterceptor)
@@ -25,6 +26,29 @@ export class ReviewController {
     console.log('📩 Received review.submitReviews:', data);
     return this.reviewService.reviewMany(data.userId, data.reviews);
   }
+  
+  @MessagePattern('review.rollback.create')
+  async handleRollbackCreate(@Payload() data: { userId: string; vocabIds: string[] }) {
+    try {
+      await this.reviewService.rollbackCreatedReviews(data.userId, data.vocabIds);
+      return { success: true };
+    } catch (error) {
+      console.error('❌ Failed rollbackCreatedReviews:', error);
+      return { success: false };
+    }
+  }
+
+  @MessagePattern('review.rollback.update')
+async handleRollbackUpdate(@Payload() data: { userId: string; snapshot: ReviewSnapshot[] }) {
+  try {
+    await this.reviewService.restoreSnapshot(data.userId, data.snapshot);
+    return { success: true };
+  } catch (error) {
+    console.error('❌ Failed restoreSnapshot:', error);
+    return { success: false};
+  }
+}
+
   
 
   @MessagePattern('review.getDue')

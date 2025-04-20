@@ -225,13 +225,7 @@ async initUserReviews(userId: string, vocabIds: string[]) {
     
     
     
-    
-    
-    
-    
-    
-    
-
+  
   // Gọi sang spaced-repetition để xử lý kết quả review
   async submitReviews(userId: string, reviews: SubmitReviewsDto[]) {
     const payload = { userId, reviews };

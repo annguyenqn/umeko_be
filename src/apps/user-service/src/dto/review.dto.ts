@@ -31,3 +31,27 @@ export class SubmitReviewsDto {
   })
   result: ReviewResult;
 }
+
+export class ReviewSnapshot {
+  vocabId: string;
+  repetitionCount: number;
+  interval: number;
+  efFactor: number;
+  lastReview: Date;
+  nextReview: Date;
+  lastResult: string;
+}
+
+
+export class ReviewUpdateDto {
+  userId: string;
+  actionType: 'init' | 'update';
+  reviews: {
+    vocabId: string;
+    result: string;
+    reviewDate: string;
+    learningStatus?: string;
+  }[];
+  snapshot?: ReviewSnapshot[];
+}
+

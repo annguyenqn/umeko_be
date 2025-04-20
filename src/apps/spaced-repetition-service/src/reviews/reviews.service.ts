@@ -6,6 +6,7 @@ import { ClientProxy, RpcException } from '@nestjs/microservices';
 import { calculateNextReview, ReviewResult } from 'libs/spaced-repetition';
 import { firstValueFrom } from 'rxjs';
 import { SpacedRepetitionError } from '@/common/errors/spaced-repetition-error';
+import { ReviewSnapshot } from './dto/review.dto';
 
 @Injectable()
 export class ReviewService {
@@ -19,22 +20,27 @@ export class ReviewService {
 
   async validateVocabIds(vocabIds: string[]) {
     try {
-      console.log('vocabDetails -----------------');
       const vocabDetails = await firstValueFrom(
         this.vocabClient.send('vocab.getManyByIds', vocabIds),
       );
-      console.log('vocabDetails -----------------', vocabDetails);
-      if (!vocabDetails || vocabDetails.length === 0) {
-        throw new RpcException(new NotFoundException(`No vocabularies found for the provided IDs: ${vocabIds.join(', ')}`));
+      const foundIds = new Set(vocabDetails.map((v: { id: any; }) => v.id));
+      const notFoundIds = vocabIds.filter(id => !foundIds.has(id));
+  
+      if (notFoundIds.length > 0) {
+        throw new RpcException({
+          message: `The following vocab IDs were not found: ${notFoundIds.join(', ')}`,
+          error: 'VOCAB_NOT_FOUND',
+          statusCode: 404,
+        });
       }
+  
       return vocabDetails;
     } catch (error) {
       if (error instanceof RpcException) {
         console.log('Caught RpcException:', error.getError());
-        throw error;  // Trả lại RpcException
+        throw error;  // Trả lại RpcException gốc
       }
-      
-      // Nếu lỗi không phải là RpcException, ném lại lỗi dưới dạng RpcException
+  
       console.log('Throwing new RpcException for non-Rpc error');
       throw new RpcException({
         message: error instanceof Error ? error.message : 'Unknown error',
@@ -44,10 +50,11 @@ export class ReviewService {
     }
   }
   
+  
 
   async initReviews(userId: string, vocabIds: string[]) {
-    console.log('init review data ',userId,vocabIds);
-    
+    console.log('init review data ', userId, vocabIds);
+  
     await this.validateVocabIds(vocabIds);
     try {
       const existingReviews = await this.reviewModel.find({
@@ -72,18 +79,22 @@ export class ReviewService {
       if (docsToInsert.length > 0) {
         await this.reviewModel.insertMany(docsToInsert);
   
-        docsToInsert.forEach((doc) => {
-          const payload = {
-            userId,
-            vocabId: doc.vocabId,
-            result: 'again',
-            reviewDate: now.toISOString(),
-            learningStatus: 'new',
-            reset: false,
-          };
-          this.userClient.emit('review.update', payload);
-          console.log('[RabbitMQ Emit] review.update sent (initReviews):', payload);
-        });
+        // ✅ Emit một lần duy nhất
+        const reviewPayloads = docsToInsert.map((doc) => ({
+          vocabId: doc.vocabId,
+          result: 'again',
+          reviewDate: now.toISOString(),
+          learningStatus: 'new',
+        }));
+  
+        const payload = {
+          userId,
+          actionType: 'init',
+          reviews: reviewPayloads,
+        };
+  
+        this.userClient.emit('review.update', payload);
+        console.log('[RabbitMQ Emit] review.update sent (initReviews):', payload);
       }
   
       return {
@@ -97,20 +108,30 @@ export class ReviewService {
     }
   }
   
-  
-  
 
   async reviewMany(userId: string, reviews: { vocabId: string; result: ReviewResult }[]) {
     try {
       const vocabIds = reviews.map(r => r.vocabId);
       await this.validateVocabIds(vocabIds);
+  
       const existingReviews = await this.reviewModel.find({
         userId,
         vocabId: { $in: vocabIds },
       });
   
+      // 🔹 Snapshot trước khi update
+      const snapshot = existingReviews.map((review) => ({
+        vocabId: review.vocabId,
+        repetitionCount: review.repetitionCount,
+        interval: review.interval,
+        efFactor: review.efFactor,
+        lastReview: review.lastReview,
+        nextReview: review.nextReview,
+        lastResult: review.lastResult,
+      }));
+  
       const now = new Date();
-      const results = [];
+      const updatedReviewsForEmit = [];
       const skipped = [];
   
       for (const { vocabId, result } of reviews) {
@@ -144,19 +165,12 @@ export class ReviewService {
   
           await review.save();
   
-          const payload = {
-            userId,
+          updatedReviewsForEmit.push({
             vocabId,
             result,
             reviewDate: now.toISOString(),
             learningStatus: newState.learningStatus,
-            reset: newState.reset,
-          };
-  
-          this.userClient.emit('review.update', payload);
-          console.log('[RabbitMQ Emit] review.update sent (reviewMany):', payload);
-  
-          results.push(review);
+          });
         } catch (innerErr) {
           console.error(`❌ Error processing vocabId ${vocabId}:`, innerErr);
           skipped.push(vocabId);
@@ -164,16 +178,64 @@ export class ReviewService {
         }
       }
   
+      // 🔹 Emit review.update dạng batch với actionType: 'update'
+      const payload = {
+        userId,
+        actionType: 'update', // ✅ Bổ sung actionType
+        reviews: updatedReviewsForEmit,
+        snapshot, // ✅ Bổ sung snapshot cho rollback nếu lỗi
+      };
+  
+      this.userClient.emit('review.update', payload);
+      console.log('[RabbitMQ Emit] review.update sent (reviewMany):', payload);
+  
       return {
-        updated: results.length,
+        updated: updatedReviewsForEmit.length,
         total: reviews.length,
         skipped: skipped.length,
         failedVocabIds: skipped,
-        reviews: results,
+        reviews: existingReviews, // có thể là kết quả trước hoặc sau khi update
       };
     } catch (error) {
       console.error('❌ Error in reviewMany():', error);
       throw error;
+    }
+  }
+  
+  
+  async rollbackCreatedReviews(userId: string, vocabIds: string[]) {
+    try {
+      await this.reviewModel.deleteMany({
+        userId,
+        vocabId: { $in: vocabIds },
+      });
+      console.log(`🔥 [Rollback] Deleted ${vocabIds.length} reviews for user ${userId}`);
+    } catch (error) {
+      console.error(`❌ [Rollback Error] Failed to delete reviews for user ${userId}:`, error);
+      // Có thể emit rollback.failed nếu muốn notify hệ thống
+    }
+  }
+
+  async restoreSnapshot(userId: string, snapshot: ReviewSnapshot[]) {
+    try {
+      for (const item of snapshot) {
+        await this.reviewModel.updateOne(
+          { userId, vocabId: item.vocabId },
+          {
+            $set: {
+              repetitionCount: item.repetitionCount,
+              interval: item.interval,
+              efFactor: item.efFactor,
+              lastReview: item.lastReview,
+              nextReview: item.nextReview,
+              lastResult: item.lastResult,
+            },
+          }
+        );
+      }
+      console.log(`🌀 [Rollback] Restored ${snapshot.length} reviews for user ${userId}`);
+    } catch (error) {
+      console.error(`❌ [Rollback Error] Failed to restore snapshot for user ${userId}:`, error);
     }
   }
   
@@ -183,7 +245,7 @@ export class ReviewService {
   // thằng này lấy các từ vựng đến hạn ôn rồi, thường là mỗi ngày sẽ có 
   async getDueReviews(userId: string, limit = 20) {
     const now = new Date();
-
+  
     // 1. Truy vấn các từ đến hạn review
     const reviews = await this.reviewModel
       .find({
@@ -192,47 +254,67 @@ export class ReviewService {
       })
       .sort({ nextReview: 1 })
       .limit(limit);
-
-      console.log('Found reviews:', reviews.length);
-      console.log(JSON.stringify(reviews, null, 2));
-
+  
+    console.log('Found reviews:', reviews.length);
+  
+    // ✅ Nếu không có review nào đến hạn → return sớm
+    if (reviews.length === 0) {
+      return {
+        dueVocab: [],
+        reviewMeta: [],
+      };
+    }
+  
     const vocabIds = reviews.map((r) => r.vocabId);
-
-    // 2. Gửi yêu cầu qua RabbitMQ để lấy chi tiết từ vựng
+  
+    // 2. Gửi yêu cầu lấy chi tiết vocab
     const vocabDetails = await firstValueFrom(
       this.vocabClient.send('vocab.getManyByIds', vocabIds),
     );
-
+  
     return {
       dueVocab: vocabDetails,
       reviewMeta: reviews,
     };
   }
   
+  
   // thằng này ngược với thằng trên là lấy các từ vựng chưa tới hạn ôn ( để ôn thêm) 
   async getFlexibleReviews(userId: string, limit = 20) {
     console.log('🔥 getFlexibleReviews CALLED');
-  const now = new Date();
-
-  const reviews = await this.reviewModel
-    .find({
-      userId,
-      nextReview: { $gt: now }, 
-    })
-    .sort({ nextReview: 1 })
-    .limit(limit);
+    const now = new Date();
+  
+    const reviews = await this.reviewModel
+      .find({
+        userId,
+        nextReview: { $gt: now }, // flexible = chưa đến hạn
+      })
+      .sort({ nextReview: 1 })
+      .limit(limit);
+  
     console.log('✅ Found flexible reviews:', reviews.length);
-  const vocabIds = reviews.map((r) => r.vocabId);
-
-  const vocabDetails = await firstValueFrom(
-    this.vocabClient.send('vocab.getManyByIds', vocabIds),
-  );
-
-  return {
-    type: 'flexible',
-    dueVocab: vocabDetails,
-    reviewMeta: reviews,
-  };
+  
+    // ✅ Nếu không có review nào → trả về rỗng
+    if (reviews.length === 0) {
+      return {
+        type: 'flexible',
+        dueVocab: [],
+        reviewMeta: [],
+      };
+    }
+  
+    const vocabIds = reviews.map((r) => r.vocabId);
+  
+    const vocabDetails = await firstValueFrom(
+      this.vocabClient.send('vocab.getManyByIds', vocabIds),
+    );
+  
+    return {
+      type: 'flexible',
+      dueVocab: vocabDetails,
+      reviewMeta: reviews,
+    };
   }
+  
 
 }

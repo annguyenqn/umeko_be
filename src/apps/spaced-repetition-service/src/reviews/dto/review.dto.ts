@@ -1,37 +1,57 @@
 // src/dto/review.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
-
-export class InitReviewDto {
-  @ApiProperty({ 
-    example: 'user-123',
-    description: 'ID của người dùng đang thực hiện review' 
-  })
-  userId: string;
+import { ReviewResult } from '@/libs/spaced-repetition';
+import { ArrayNotEmpty, IsArray, IsString } from 'class-validator';
+export class InitReviewsDto {
 
   @ApiProperty({ 
-    example: 'vocab-456', 
-    description: 'ID của từ vựng mà người dùng sẽ review' 
+    type: [String], 
+    example: ['vocab-456', 'vocab-789'], 
+    description: 'Danh sách các vocabIds mà người dùng muốn review' 
   })
-  vocabId: string;
+  @IsArray()
+  @ArrayNotEmpty()
+  @IsString({ each: true }) 
+  vocabIds: string[];
 }
 
-export class SubmitReviewDto {
-  @ApiProperty({ 
-    example: 'user-123',
-    description: 'ID của người dùng đã hoàn thành review' 
-  })
-  userId: string;
+export class SubmitReviewsDto {
 
-  @ApiProperty({ 
-    example: 'vocab-456', 
-    description: 'ID của từ vựng mà người dùng đã review' 
+  @ApiProperty({
+    example: 'vocab-456',
+    description: 'ID của từ vựng mà người dùng đã review',
   })
   vocabId: string;
 
-  @ApiProperty({ 
-    enum: ['again', 'hard', 'easy'], 
-    example: 'again', 
-    description: 'Kết quả review, có thể là lại (again), khó (hard) hoặc dễ (easy)' 
+  @ApiProperty({
+    enum: ['again', 'hard', 'easy'],
+    example: 'again',
+    description:
+      'Kết quả review, có thể là lại (again), khó (hard) hoặc dễ (easy)',
   })
-  result: 'again' | 'hard' | 'easy';
+  result: ReviewResult;
 }
+
+export class ReviewSnapshot {
+  vocabId: string;
+  repetitionCount: number;
+  interval: number;
+  efFactor: number;
+  lastReview: Date;
+  nextReview: Date;
+  lastResult: string;
+}
+
+
+export class ReviewUpdateDto {
+  userId: string;
+  actionType: 'init' | 'update';
+  reviews: {
+    vocabId: string;
+    result: string;
+    reviewDate: string;
+    learningStatus?: string;
+  }[];
+  snapshot?: ReviewSnapshot[];
+}
+
