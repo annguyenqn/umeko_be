@@ -243,31 +243,24 @@ export class ReviewService {
   
 
   // thằng này lấy các từ vựng đến hạn ôn rồi, thường là mỗi ngày sẽ có 
-  async getDueReviews(userId: string, limit = 20) {
+  async getDueReviews(userId: string, limit?: number) {
     const now = new Date();
   
-    // 1. Truy vấn các từ đến hạn review
-    const reviews = await this.reviewModel
-      .find({
-        userId,
-        nextReview: { $lte: now },
-      })
-      .sort({ nextReview: 1 })
-      .limit(limit);
+    let query = this.reviewModel
+      .find({ userId, nextReview: { $lte: now } })
+      .sort({ nextReview: 1 });
   
-    console.log('Found reviews:', reviews.length);
-  
-    // ✅ Nếu không có review nào đến hạn → return sớm
-    if (reviews.length === 0) {
-      return {
-        dueVocab: [],
-        reviewMeta: [],
-      };
+    if (limit && limit > 0) {
+      query = query.limit(limit);
     }
   
-    const vocabIds = reviews.map((r) => r.vocabId);
+    const reviews = await query.exec();
   
-    // 2. Gửi yêu cầu lấy chi tiết vocab
+    if (reviews.length === 0) {
+      return { dueVocab: [], reviewMeta: [] };
+    }
+  
+    const vocabIds = reviews.map(r => r.vocabId);
     const vocabDetails = await firstValueFrom(
       this.vocabClient.send('vocab.getManyByIds', vocabIds),
     );
@@ -275,8 +268,13 @@ export class ReviewService {
     return {
       dueVocab: vocabDetails,
       reviewMeta: reviews,
+      totalDue: await this.reviewModel.countDocuments({
+        userId,
+        nextReview: { $lte: now },
+      }),
     };
   }
+  
   
   
   // thằng này ngược với thằng trên là lấy các từ vựng chưa tới hạn ôn ( để ôn thêm) 
