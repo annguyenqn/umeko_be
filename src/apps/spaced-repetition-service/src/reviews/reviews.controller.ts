@@ -56,7 +56,7 @@ async handleRollbackUpdate(@Payload() data: { userId: string; snapshot: ReviewSn
     @Payload() data: { userId: string; limit?: number }
   ) {
     const userId = data?.userId;
-    const limit = data?.limit ?? 20;
+    const limit = data?.limit;
     return this.reviewService.getDueReviews(userId, limit);
   }
 
