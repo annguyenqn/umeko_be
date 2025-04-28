@@ -82,7 +82,11 @@ export class VocabService {
         }
       }
       // Tìm từ vựng theo nhiều ID
-      const vocabularies = await this.vocabRepo.findBy({ id: In(ids) });
+      const vocabularies = await this.vocabRepo.find({
+        where: { id: In(ids) },
+        relations: ['kanjis'],
+      });
+      
   
       // Kiểm tra nếu không có vocab nào được tìm thấy
       if (vocabularies.length === 0) {
