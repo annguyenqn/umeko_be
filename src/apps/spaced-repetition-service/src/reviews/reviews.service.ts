@@ -268,10 +268,7 @@ export class ReviewService {
     return {
       dueVocab: vocabDetails,
       reviewMeta: reviews,
-      totalDue: await this.reviewModel.countDocuments({
-        userId,
-        nextReview: { $lte: now },
-      }),
+      totalDue: reviews.length,
     };
   }
   
