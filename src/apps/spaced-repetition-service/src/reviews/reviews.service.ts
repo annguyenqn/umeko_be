@@ -212,7 +212,6 @@ export class ReviewService {
       console.log(`🔥 [Rollback] Deleted ${vocabIds.length} reviews for user ${userId}`);
     } catch (error) {
       console.error(`❌ [Rollback Error] Failed to delete reviews for user ${userId}:`, error);
-      // Có thể emit rollback.failed nếu muốn notify hệ thống
     }
   }
 

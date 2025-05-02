@@ -14,15 +14,15 @@ export class UserResponseDto {
   @ApiPropertyOptional()
   lastName?: string;
 
-  @ApiProperty({ enum: Role })
-  role: Role;
+  // @ApiProperty({ enum: Role })
+  // role: Role;
 
   @ApiProperty()
   isEmailVerified: boolean;
 
-  @ApiProperty()
-  createdAt: Date;
+  // @ApiProperty()
+  // createdAt: Date;
 
-  @ApiProperty()
-  updatedAt: Date;
+  // @ApiProperty()
+  // updatedAt: Date;
 } 

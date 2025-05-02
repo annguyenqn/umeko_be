@@ -111,8 +111,14 @@ export class AuthController {
 @ApiOperation({ summary: 'Get current logged in user' })
 @ApiResponse({ status: 200, description: 'Current user info', type: UserResponseDto })
 @ApiResponse({ status: 401, description: 'Unauthorized' })
-async getMe(@Req() req:Request) {
-  return req.user;
+async getMe(@Req() req:Request) : Promise<UserResponseDto> {
+  const user = req.user as any; 
+  return {
+    id: user.id,
+    email: user.email,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    isEmailVerified: user.isEmailVerified,
+  };
 }
-
 } 
