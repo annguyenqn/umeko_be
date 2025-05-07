@@ -181,7 +181,7 @@ export class UserService {
 
 
 
-async initUserReviews(userId: string, vocabIds: string[]) {
+   async initUserReviews(userId: string, vocabIds: string[]) {
   const payload = { userId, vocabIds };
   console.log('📤 Sending to review.initReviews:', payload);
 
@@ -218,17 +218,30 @@ async initUserReviews(userId: string, vocabIds: string[]) {
       statusCode: 500,
     });
   }
-}
-
-    
-    
-    
-    
-    
+   }
   
   // Gọi sang spaced-repetition để xử lý kết quả review
   async submitReviews(userId: string, reviews: SubmitReviewsDto[]) {
     const payload = { userId, reviews };
+
+    const reviewsWithLearningStatus = await Promise.all(
+      reviews.map(async (review) => {
+        // Lấy learningStatus từ userVocabRepository bằng cách tìm theo userId và vocabId
+        const userVocab = await this.userVocabRepository.findOne({
+          where: { userId, vocabId: review.vocabId },
+        });
+  
+        // Nếu không tìm thấy, gán learningStatus mặc định là 'new'
+        const learningStatus = userVocab ? userVocab.learningStatus : 'new';
+  
+        // Thêm learningStatus vào review
+        return { ...review, learningStatus };
+      }),
+    );
+
+      // Cập nhật lại payload với learningStatus
+      payload.reviews = reviewsWithLearningStatus;
+  
     console.log('📤 Sending to review.submitReviews:', payload);
   
     return await firstValueFrom(

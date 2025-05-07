@@ -7,6 +7,7 @@ import { MessagePattern, Payload } from '@nestjs/microservices';
 import { ReviewResult } from 'libs/spaced-repetition';
 import { SpacedRepetitionInterceptor } from '@/common/interceptor/spaced-repetition.interceptor';
 import { ReviewSnapshot } from './dto/review.dto';
+import { LearningStatus } from 'libs/spaced-repetition';
 @ApiTags('Review')
 @Controller('review')
 // @UseInterceptors(SpacedRepetitionInterceptor)
@@ -21,7 +22,7 @@ export class ReviewController {
 
   @MessagePattern('review.submitReviews')
   async handleSubmitReviews(
-    @Payload() data: { userId: string; reviews: { vocabId: string; result: ReviewResult }[] },
+    @Payload() data: { userId: string; reviews: { vocabId: string; result: ReviewResult; learningStatus:LearningStatus }[] },
   ) {
     console.log('📩 Received review.submitReviews:', data);
     return this.reviewService.reviewMany(data.userId, data.reviews);

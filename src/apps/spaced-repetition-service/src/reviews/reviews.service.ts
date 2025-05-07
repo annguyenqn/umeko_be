@@ -5,7 +5,8 @@ import { Review } from './schemas/review.schema';
 import { ClientProxy, RpcException } from '@nestjs/microservices';
 import { calculateNextReview, ReviewResult } from 'libs/spaced-repetition';
 import { firstValueFrom } from 'rxjs';
-import { SpacedRepetitionError } from '@/common/errors/spaced-repetition-error';
+// import { SpacedRepetitionError } from '@/common/errors/spaced-repetition-error';
+import { LearningStatus } from 'libs/spaced-repetition';
 import { ReviewSnapshot } from './dto/review.dto';
 
 @Injectable()
@@ -109,8 +110,9 @@ export class ReviewService {
   }
   
 
-  async reviewMany(userId: string, reviews: { vocabId: string; result: ReviewResult }[]) {
+  async reviewMany(userId: string, reviews: { vocabId: string; result: ReviewResult ; learningStatus:LearningStatus }[]) {
     try {
+      
       const vocabIds = reviews.map(r => r.vocabId);
       await this.validateVocabIds(vocabIds);
   
@@ -134,7 +136,7 @@ export class ReviewService {
       const updatedReviewsForEmit = [];
       const skipped = [];
   
-      for (const { vocabId, result } of reviews) {
+      for (const { vocabId, result, learningStatus  } of reviews) {
         try {
           const review = existingReviews.find(r => r.vocabId === vocabId);
           if (!review) {
@@ -151,7 +153,7 @@ export class ReviewService {
             repetitionCount: safeRepetition,
             interval: safeInterval,
             efFactor: safeEfFactor,
-          });
+          },learningStatus);
   
           const nextReview = new Date(now);
           nextReview.setDate(now.getDate() + newState.interval);

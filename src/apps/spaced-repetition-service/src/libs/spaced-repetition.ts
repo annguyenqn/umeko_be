@@ -13,7 +13,8 @@ export interface NextReviewResult extends ReviewState {
 }
 export function calculateNextReview(
   quality: ReviewResult,
-  state: ReviewState
+  state: ReviewState,
+  currentStatus: LearningStatus,
 ): NextReviewResult {
   let { repetitionCount, interval, efFactor } = state;
 
@@ -40,23 +41,35 @@ export function calculateNextReview(
   let reset = false;
   let learningStatus: LearningStatus;
 
-  if (q < 3) {
-    repetitionCount = 0;
-    interval = 1;
-    reset = true;
-    learningStatus = 'forgotten';
-  } else {
+  // Xử lý khi từ vựng đã đạt trạng thái 'graduated'
+  if (currentStatus === 'graduated') {
     repetitionCount += 1;
-    if (repetitionCount === 1) interval = 1;
-    else if (repetitionCount === 2) interval = 6;
-    else interval = Math.round(interval * efFactor);
+    interval = Math.round(interval * 1.5); // Kéo dài thời gian lặp lại lên 1.5 lần
+    learningStatus = 'graduated'; // Giữ trạng thái graduated
+  } else {
+    if (q < 3) {
+      repetitionCount = 0;
+      interval = 1;
+      reset = true;
+      learningStatus = 'forgotten';
+    } else {
+      repetitionCount += 1;
+      if (repetitionCount === 1) interval = 1;
+      else if (repetitionCount === 2) interval = 6;
+      else interval = Math.round(interval * efFactor);
+
+      // Thêm logic thăng cấp từ 'mastered' lên 'graduated'
+      if (repetitionCount >= 5 && quality === 'easy') {
+        learningStatus = 'graduated';  // Thăng cấp lên 'graduated' nếu đạt đủ điều kiện
+      } else if (repetitionCount < 3) {
+        learningStatus = 'learning';
+      } else {
+        learningStatus = 'mastered';
+      }
+    }
   }
 
   efFactor = Math.max(1.3, efFactor + (0.1 - (5 - q) * (0.08 + (5 - q) * 0.02)));
-
-  if (repetitionCount === 0) learningStatus = 'forgotten';
-  else if (repetitionCount < 3) learningStatus = 'learning';
-  else learningStatus = 'mastered';
 
   return {
     repetitionCount,
@@ -66,4 +79,6 @@ export function calculateNextReview(
     reset,
   };
 }
+
+
 
