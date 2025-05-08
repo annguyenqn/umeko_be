@@ -1,13 +1,10 @@
 // review.controller.ts
-import { Controller,UseInterceptors   } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
 import { ReviewService } from './reviews.service';
 import { ApiTags, } from '@nestjs/swagger';
-// import { InitReviewDto, SubmitReviewDto } from './dto/review.dto';
 import { MessagePattern, Payload } from '@nestjs/microservices';
-import { ReviewResult } from 'libs/spaced-repetition';
-import { SpacedRepetitionInterceptor } from '@/common/interceptor/spaced-repetition.interceptor';
 import { ReviewSnapshot } from './dto/review.dto';
-import { LearningStatus } from 'libs/spaced-repetition';
+import { InitReviewsDto, SubmitReviewsDto } from './dto/review.dto';
 @ApiTags('Review')
 @Controller('review')
 // @UseInterceptors(SpacedRepetitionInterceptor)
@@ -15,17 +12,16 @@ export class ReviewController {
   constructor(private readonly reviewService: ReviewService) {}
 
   @MessagePattern('review.initReviews')
-  async handleInitReviews(@Payload() data: { userId: string; vocabIds: string[] }) {
-    console.log('📩 Received review.initReviews:', data);
+  async handleInitReviews(@Payload() data: InitReviewsDto) {
     return this.reviewService.initReviews(data.userId, data.vocabIds);
   }
 
   @MessagePattern('review.submitReviews')
   async handleSubmitReviews(
-    @Payload() data: { userId: string; reviews: { vocabId: string; result: ReviewResult; learningStatus:LearningStatus }[] },
+    @Payload() data: SubmitReviewsDto,
   ) {
     console.log('📩 Received review.submitReviews:', data);
-    return this.reviewService.reviewMany(data.userId, data.reviews);
+    return this.reviewService.reviewMany(data);
   }
   
   @MessagePattern('review.rollback.create')
@@ -40,7 +36,7 @@ export class ReviewController {
   }
 
   @MessagePattern('review.rollback.update')
-async handleRollbackUpdate(@Payload() data: { userId: string; snapshot: ReviewSnapshot[] }) {
+  async handleRollbackUpdate(@Payload() data: { userId: string; snapshot: ReviewSnapshot[] }) {
   try {
     await this.reviewService.restoreSnapshot(data.userId, data.snapshot);
     return { success: true };
@@ -48,7 +44,7 @@ async handleRollbackUpdate(@Payload() data: { userId: string; snapshot: ReviewSn
     console.error('❌ Failed restoreSnapshot:', error);
     return { success: false};
   }
-}
+  }
 
   
 

@@ -10,8 +10,7 @@ import { UserVocab } from '@/entities/user-vocab.entity';
 import { UserReviewHistory } from '@/entities/user-review-history.entity';
 import { UserProgress } from '@/entities/user-progress.entity';
 import { firstValueFrom } from 'rxjs';
-import { ReviewResult } from '@/types/ReviewResult';
-import { SubmitReviewsDto } from '@/dto/review.dto';
+import { SubmitReviewsRequestDto } from '@/dto/review.dto';
 @Injectable()
 export class UserService {
   constructor(
@@ -182,8 +181,7 @@ export class UserService {
 
 
    async initUserReviews(userId: string, vocabIds: string[]) {
-  const payload = { userId, vocabIds };
-  console.log('📤 Sending to review.initReviews:', payload);
+     const payload = { userId, vocabIds };
 
   try {
     // Gửi yêu cầu qua RabbitMQ và chờ kết quả
@@ -221,7 +219,7 @@ export class UserService {
    }
   
   // Gọi sang spaced-repetition để xử lý kết quả review
-  async submitReviews(userId: string, reviews: SubmitReviewsDto[]) {
+   async submitReviews(userId: string, reviews: SubmitReviewsRequestDto[]) {
     const payload = { userId, reviews };
 
     const reviewsWithLearningStatus = await Promise.all(

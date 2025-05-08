@@ -3,12 +3,11 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Review } from './schemas/review.schema';
 import { ClientProxy, RpcException } from '@nestjs/microservices';
-import { calculateNextReview, ReviewResult } from 'libs/spaced-repetition';
+import { calculateNextReview } from 'libs/spaced-repetition';
 import { firstValueFrom } from 'rxjs';
-// import { SpacedRepetitionError } from '@/common/errors/spaced-repetition-error';
-import { LearningStatus } from 'libs/spaced-repetition';
 import { ReviewSnapshot } from './dto/review.dto';
-
+import { InitReviewsResult, ReviewManyResult } from '@/common/interface/Review.interface';
+import { SubmitReviewsDto } from './dto/review.dto';
 @Injectable()
 export class ReviewService {
   constructor(
@@ -53,7 +52,7 @@ export class ReviewService {
   
   
 
-  async initReviews(userId: string, vocabIds: string[]) {
+  async initReviews(userId: string, vocabIds: string[]): Promise<InitReviewsResult> {
     console.log('init review data ', userId, vocabIds);
   
     await this.validateVocabIds(vocabIds);
@@ -110,7 +109,8 @@ export class ReviewService {
   }
   
 
-  async reviewMany(userId: string, reviews: { vocabId: string; result: ReviewResult ; learningStatus:LearningStatus }[]) {
+  async reviewMany(SubmitReviews : SubmitReviewsDto ) : Promise<ReviewManyResult> {
+    const { userId, reviews } = SubmitReviews;
     try {
       
       const vocabIds = reviews.map(r => r.vocabId);

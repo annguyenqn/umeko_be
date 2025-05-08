@@ -1,13 +1,12 @@
-import { Body, Controller, Get, Post, Query, Req, UnauthorizedException, UseGuards,UseInterceptors  } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query, Req, UseGuards,UseInterceptors  } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth, ApiQuery, ApiBody } from '@nestjs/swagger';
 import { JwtAuthGuard } from '@/guards/jwt-auth.guard';
 import { UserService } from '@/services/user.service';
 import { UserResponseDto } from '@/dto/user.dto';
-import { ReviewResult } from '@/types/ReviewResult';
 import { Request } from 'express';
 import { UserInterceptor } from '@/common/interceptors/user.interceptor';
 import { CustomError } from '@/common/errors/custom-error';
-import { InitReviewsDto, SubmitReviewsDto } from '@/dto/review.dto';
+import { InitReviewRequestDto, SubmitReviewsRequestDto } from '@/dto/review.dto';
 @ApiTags('Users')
 @ApiBearerAuth()
 @UseInterceptors(UserInterceptor)
@@ -43,11 +42,11 @@ export class UserController {
   @Post('me/reviews/inits')
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: 'Initialize reviews for vocab' })
-  @ApiBody({ type: InitReviewsDto, required: true })
+  @ApiBody({ type: InitReviewRequestDto, required: true })
   @ApiResponse({ status: 200, description: 'Successfully initialized reviews' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   @ApiResponse({ status: 400, description: 'Invalid vocabIds array' })
-  async initReviews(@Req() req: Request, @Body() body: InitReviewsDto) {
+  async initReviews(@Req() req: Request, @Body() body: InitReviewRequestDto) {
     if (!req.user) {
       throw new CustomError(401, 'USER_NOT_FOUND', 'User not found');
     }
@@ -62,12 +61,12 @@ export class UserController {
   @Post('me/reviews/submit-many')
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: 'Submit multiple review results for vocab' })
-  @ApiBody({ type: [SubmitReviewsDto], required: true })
+  @ApiBody({ type: [SubmitReviewsRequestDto], required: true })
   @ApiResponse({ status: 200, description: 'Reviews submitted successfully' })
   @ApiResponse({ status: 400, description: 'Invalid review data' })
   async submitReviews(
     @Req() req: Request,
-    @Body() body:  SubmitReviewsDto[]
+    @Body() body:  SubmitReviewsRequestDto[]
   ) {
     if (!req.user) {
       throw new CustomError(401, 'USER_NOT_FOUND', 'User not found');

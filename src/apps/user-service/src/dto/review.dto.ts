@@ -2,20 +2,15 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { ReviewResult } from '@/types/ReviewResult';
 import { ArrayNotEmpty, IsArray, IsString } from 'class-validator';
-export class InitReviewsDto {
-
-  @ApiProperty({ 
-    type: [String], 
-    example: ['vocab-456', 'vocab-789'], 
-    description: 'Danh sách các vocabIds mà người dùng muốn review' 
-  })
-  @IsArray()
+export class InitReviewRequestDto {
+  @ApiProperty({ example: ['vocab1', 'vocab2'] })
   @ArrayNotEmpty()
-  @IsString({ each: true }) 
+  @IsArray()
+  @IsString({ each: true })
   vocabIds: string[];
 }
 
-export class SubmitReviewsDto {
+export class SubmitReviewsRequestDto {
 
   @ApiProperty({
     example: 'vocab-456',

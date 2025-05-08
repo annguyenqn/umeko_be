@@ -1,6 +1,4 @@
-export type ReviewResult = 'again' | 'hard' | 'easy';
-export type LearningStatus = 'new' | 'learning' | 'mastered' | 'forgotten' | 'graduated';
-
+import { ReviewResult, LearningStatus } from "@/common/types/Review.type";
 export interface ReviewState {
   repetitionCount: number;
   interval: number;

@@ -1,35 +1,69 @@
 // src/dto/review.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
-import { ReviewResult } from '@/libs/spaced-repetition';
-import { ArrayNotEmpty, IsArray, IsString } from 'class-validator';
+import { ArrayNotEmpty, IsArray, IsString, ValidateNested } from 'class-validator';
+import { ReviewResult, LearningStatus } from '@/common/types/Review.type';
 export class InitReviewsDto {
+  @ApiProperty({
+    description: 'ID của người dùng muốn khởi tạo danh sách từ vựng cần ôn luyện',
+    example: 'user_12345',
+  })
+  @IsString()
+  userId: string;
 
-  @ApiProperty({ 
-    type: [String], 
-    example: ['vocab-456', 'vocab-789'], 
-    description: 'Danh sách các vocabIds mà người dùng muốn review' 
+  @ApiProperty({
+    description: 'Danh sách các vocabId cần khởi tạo review',
+    example: ['vocab_1', 'vocab_2', 'vocab_3'],
   })
   @IsArray()
   @ArrayNotEmpty()
-  @IsString({ each: true }) 
+  @IsString({ each: true })
   vocabIds: string[];
 }
 
-export class SubmitReviewsDto {
+// export class SubmitReviewsDto {
 
-  @ApiProperty({
-    example: 'vocab-456',
-    description: 'ID của từ vựng mà người dùng đã review',
-  })
+//   @ApiProperty({
+//     example: 'vocab-456',
+//     description: 'ID của từ vựng mà người dùng đã review',
+//   })
+//   vocabId: string;
+
+//   @ApiProperty({
+//     enum: ['again', 'hard', 'easy'],
+//     example: 'again',
+//     description:
+//       'Kết quả review, có thể là lại (again), khó (hard) hoặc dễ (easy)',
+//   })
+//   result: ReviewResult;
+// }
+
+
+export class SubmitReviewItemDto {
+  @ApiProperty({ example: 'vocab_123' })
+  @IsString()
   vocabId: string;
 
-  @ApiProperty({
-    enum: ['again', 'hard', 'easy'],
-    example: 'again',
-    description:
+  @ApiProperty({ example: 'again', enum: ['again', 'hard', 'easy'], 
+        description:
       'Kết quả review, có thể là lại (again), khó (hard) hoặc dễ (easy)',
-  })
+   })
+  @IsString()
   result: ReviewResult;
+
+  @ApiProperty({ example: 'new', enum: ['new', 'learning', 'mastered', 'forgotten', 'graduated'] })
+  @IsString()
+  learningStatus: LearningStatus;
+}
+
+export class SubmitReviewsDto {
+  @ApiProperty({ example: 'user_123' })
+  @IsString()
+  userId: string;
+
+  @ApiProperty({ type: [SubmitReviewItemDto] })
+  @IsArray()
+  @ValidateNested({ each: true })
+  reviews: SubmitReviewItemDto[];
 }
 
 export class ReviewSnapshot {
@@ -54,4 +88,3 @@ export class ReviewUpdateDto {
   }[];
   snapshot?: ReviewSnapshot[];
 }
-
