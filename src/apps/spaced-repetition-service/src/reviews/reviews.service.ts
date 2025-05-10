@@ -130,6 +130,7 @@ export class ReviewService {
         lastReview: review.lastReview,
         nextReview: review.nextReview,
         lastResult: review.lastResult,
+        
       }));
   
       const now = new Date();
@@ -164,6 +165,7 @@ export class ReviewService {
           review.lastReview = now;
           review.nextReview = nextReview;
           review.lastResult = result;
+          review.notified = false;
   
           await review.save();
   

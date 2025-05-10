@@ -27,6 +27,9 @@ export class Review extends Document {
 
   @Prop()
   lastResult: string;
+
+  @Prop({ default: false })
+  notified: boolean;
 }
 
 export const ReviewSchema = SchemaFactory.createForClass(Review);

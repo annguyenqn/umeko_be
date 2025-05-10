@@ -5,13 +5,15 @@ import { ReviewController } from './reviews.controller';
 import { Review, ReviewSchema } from './schemas/review.schema';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ScheduleModule } from '@nestjs/schedule';
+import { ReviewScheduler } from './review.scheduler';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-
+    ScheduleModule.forRoot(),
     MongooseModule.forFeature([{ name: Review.name, schema: ReviewSchema }]),
     MongooseModule.forRoot(process.env.MONGODB_URI || 'mongodb://umeko:umeko_password@localhost:27017/umeko_spaced_repetition?authSource=admin'),
     ClientsModule.registerAsync([
@@ -65,7 +67,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       },
     ]),
   ],
-  providers: [ReviewService],
+  providers: [ReviewService, ReviewScheduler],
   controllers: [ReviewController],
 })
 export class ReviewsModule {}
