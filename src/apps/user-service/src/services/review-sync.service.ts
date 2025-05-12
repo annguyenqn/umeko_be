@@ -81,7 +81,7 @@ export class ReviewSyncService {
         });
       } else {
         await this.userProgressRepo.increment({ userId }, 'totalReviews', reviews.length);
-        await this.userProgressRepo.increment({ userId }, 'totalWordsLearned', reviews.length);
+        await this.userProgressRepo.increment({ userId }, 'totalWordsLearned', userVocabToInsert.length);
         await this.userProgressRepo.update({ userId }, { lastReview: new Date(reviews[0].reviewDate) });
       }
   
