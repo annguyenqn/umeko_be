@@ -19,6 +19,17 @@ export class UserReviewHistory {
   @Column({ name: 'review_date', type: 'timestamp' }) // ✅ Thêm name
   reviewDate: Date;
 
+  
+@Column({
+  name: 'next_review_date',
+  type: 'timestamp',
+  nullable: true, 
+  default: null,  
+})
+nextReview: Date | null;
+
+
+
   @Column({ type: 'varchar', length: 10 })
   result: string;
 
