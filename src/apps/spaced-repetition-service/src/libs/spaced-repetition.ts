@@ -10,7 +10,7 @@ export interface NextReviewResult extends ReviewState {
   reset: boolean; 
 }
 export function calculateNextReview(
-  quality: ReviewResult,
+  result: ReviewResult,
   state: ReviewState,
   currentStatus: LearningStatus,
 ): NextReviewResult {
@@ -22,7 +22,7 @@ export function calculateNextReview(
   }
 
   let q: number;
-  switch (quality) {
+  switch (result) {
     case 'again':
       q = 0;
       break;
@@ -33,7 +33,7 @@ export function calculateNextReview(
       q = 5;
       break;
     default:
-      throw new Error(`Invalid ReviewResult: ${quality}`);
+      throw new Error(`Invalid ReviewResult: ${result}`);
   }
 
   let reset = false;
@@ -57,8 +57,8 @@ export function calculateNextReview(
       else interval = Math.round(interval * efFactor);
 
       // Thêm logic thăng cấp từ 'mastered' lên 'graduated'
-      if (repetitionCount >= 5 && quality === 'easy') {
-        learningStatus = 'graduated';  // Thăng cấp lên 'graduated' nếu đạt đủ điều kiện
+      if (repetitionCount >= 5 && result === 'easy') {
+        learningStatus = 'graduated';  
       } else if (repetitionCount < 3) {
         learningStatus = 'learning';
       } else {

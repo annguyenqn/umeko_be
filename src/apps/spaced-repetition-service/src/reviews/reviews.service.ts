@@ -154,8 +154,7 @@ export class ReviewService {
             repetitionCount: safeRepetition,
             interval: safeInterval,
             efFactor: safeEfFactor,
-          },learningStatus);
-  
+          },learningStatus);  
           const nextReview = new Date(now);
           nextReview.setDate(now.getDate() + newState.interval);
   
@@ -191,7 +190,6 @@ export class ReviewService {
       };
   
       this.userClient.emit('review.update', payload);
-      console.log('[RabbitMQ Emit] review.update sent (reviewMany):', payload);
   
       return {
         updated: updatedReviewsForEmit.length,

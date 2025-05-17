@@ -1,0 +1,17 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "compilerOptions": {
+    "strictPropertyInitialization": false,
+    "esModuleInterop": false, // Thêm hoặc đặt thành true
+    "allowSyntheticDefaultImports": true, 
+    "strictNullChecks":true,// Khuyến nghị bật cùng
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    }
+  },
+  "include": ["src/**/*", "dataSource.ts"],
+  "exclude": ["node_modules", "dist"]
+}
