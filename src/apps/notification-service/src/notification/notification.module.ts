@@ -5,7 +5,8 @@ import { NotificationController } from './notification.controller';
 import { Notification , NotificationSchema } from './schemas/notification.schema';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-
+import { NotificationGateway } from './notification.gateway';
+// import { NotificationListener } from './notification.listener';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -62,9 +63,30 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         },
         inject: [ConfigService],
       },
+      {
+        name: 'SPACED_REPETITION_SERVICE',
+        imports: [ConfigModule],
+        useFactory: (configService: ConfigService) => {
+          const rabbitUrl = configService.get<string>('RABBITMQ_URL') || 'amqp://localhost:5672';
+          return {
+            transport: Transport.RMQ,
+            options: {
+              urls: [rabbitUrl],
+              queue: 'spaced_repetition_queue',
+              queueOptions: { durable: false }, 
+            },
+          };
+        },
+        inject: [ConfigService],
+      },
     ]),
   ],
-  providers: [NotificationService],
+  providers: [NotificationService, NotificationGateway],
   controllers: [NotificationController],
+  exports: [NotificationGateway], 
 })
-export class NotificationModule {}
+export class NotificationModule {
+  //   constructor(private readonly listener: NotificationListener) {
+  //   console.log('🔁 NotificationModule loaded - Listener initialized');
+  // }
+}

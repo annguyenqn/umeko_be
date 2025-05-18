@@ -1,7 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-export type NotificationType = 'email' | 'in-app' | 'push';
 
 @Schema({ timestamps: true })
 export class Notification extends Document {
@@ -11,11 +10,11 @@ export class Notification extends Document {
   @Prop({ required: true })
   type: NotificationType;
 
-  @Prop({ required: true })
-  content: any; // tùy biến theo loại
+  @Prop({ type: Object, required: true })
+  content: any;
 
   @Prop({ default: 'pending' })
-  status: 'pending' | 'sent' | 'failed';
+  status: NotificationStatus;
 
   @Prop()
   sentAt?: Date;
@@ -26,8 +25,19 @@ export class Notification extends Document {
   @Prop({ default: false })
   read: boolean;
 
-  @Prop()
-  metadata?: any; // Dùng để lưu thêm các info tuỳ biến
+  @Prop({ type: Object })
+  metadata?: any; 
 }
 
+export enum NotificationStatus {
+  PENDING = 'pending',
+  SENT = 'sent',
+  FAILED = 'failed',
+}
+
+export enum NotificationType {
+  EMAIL = 'email',
+  IN_APP = 'in-app',
+  PUSH = 'push',
+}
 export const NotificationSchema = SchemaFactory.createForClass(Notification);

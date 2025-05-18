@@ -27,7 +27,7 @@ import { ReviewScheduler } from './review.scheduler';
             options: {
               urls: [rabbitUrl],
               queue: 'spaced_repetition_queue',
-              queueOptions: { durable: false }, // hoặc true nếu cần đảm bảo bền vững
+              queueOptions: { durable: false }, 
             },
           };
         },
@@ -65,7 +65,24 @@ import { ReviewScheduler } from './review.scheduler';
         },
         inject: [ConfigService],
       },
+      {
+  name: 'NOTIFICATION_SERVICE',
+  imports: [ConfigModule],
+  useFactory: (configService: ConfigService) => {
+    const rabbitUrl = configService.get<string>('RABBITMQ_URL') || 'amqp://localhost:5672';
+    return {
+      transport: Transport.RMQ,
+      options: {
+        urls: [rabbitUrl],
+        queue: 'notification_queue', 
+        queueOptions: { durable: false },
+      },
+    };
+  },
+  inject: [ConfigService],
+}
     ]),
+    
   ],
   providers: [ReviewService, ReviewScheduler],
   controllers: [ReviewController],

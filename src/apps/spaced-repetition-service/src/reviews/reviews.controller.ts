@@ -1,15 +1,30 @@
 // review.controller.ts
-import { Controller } from '@nestjs/common';
+import { Body, Controller, Inject, Post } from '@nestjs/common';
 import { ReviewService } from './reviews.service';
-import { ApiTags, } from '@nestjs/swagger';
-import { MessagePattern, Payload } from '@nestjs/microservices';
+import { ApiBody, ApiOperation, ApiResponse, ApiTags, } from '@nestjs/swagger';
+import { ClientProxy, MessagePattern, Payload } from '@nestjs/microservices';
 import { ReviewSnapshot } from './dto/review.dto';
 import { InitReviewsDto, SubmitReviewsDto } from './dto/review.dto';
+import { EmitReviewDueDto } from './dto/emit-review.dto';
+
 @ApiTags('Review')
 @Controller('review')
-// @UseInterceptors(SpacedRepetitionInterceptor)
 export class ReviewController {
-  constructor(private readonly reviewService: ReviewService) {}
+  constructor(
+    @Inject('NOTIFICATION_SERVICE') 
+    private readonly notifyClient: ClientProxy,
+    private readonly reviewService: ReviewService) {}
+
+
+  @Post('emit-review-due')
+  @ApiOperation({ summary: 'Emit review.due event manually for testing' })
+  @ApiBody({ type: EmitReviewDueDto })
+  @ApiResponse({ status: 201, description: 'Event emitted successfully' })
+  emitReviewDue(@Body() body: EmitReviewDueDto) {
+    console.log('🔥 Emitting review.due event manually...', body);
+    this.notifyClient.emit('review.due', body);
+    return { message: 'Event review.due emitted!' };
+  }
 
   @MessagePattern('review.initReviews')
   async handleInitReviews(@Payload() data: InitReviewsDto) {

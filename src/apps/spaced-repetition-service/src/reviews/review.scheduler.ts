@@ -12,7 +12,9 @@ export class ReviewScheduler implements OnModuleInit {
 
   constructor(
     @InjectModel(Review.name) private readonly reviewModel: Model<Review>,
-    @Inject('USER_SERVICE') private readonly userClient: ClientProxy,
+    @Inject('NOTIFICATION_SERVICE') 
+    private readonly notifyClient: ClientProxy,
+
   ) {}
 
   // Tạo index hỗ trợ query nhanh
@@ -48,7 +50,7 @@ export class ReviewScheduler implements OnModuleInit {
       const count = review.count;
 
       // Gửi event tới user-service
-      this.userClient.emit('review.due', { userId, count });
+      this.notifyClient.emit('review.due', { userId, count });
 
       // Đánh dấu notified = true cho các bản ghi đã gửi
       await this.reviewModel.updateMany(
