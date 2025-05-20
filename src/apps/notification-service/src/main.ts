@@ -45,7 +45,9 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/notification', app, document);
-
+  app.enableCors({
+  origin: '*',
+  });
   // Khởi động HTTP API
   await app.listen(8084);
   console.log('🚀 HTTP server is running on http://localhost:8084');
