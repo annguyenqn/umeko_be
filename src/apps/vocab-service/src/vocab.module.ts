@@ -11,6 +11,11 @@ import { Category } from './entities/Category.entity';
 import { databaseConfig } from '@/config/database.config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { VocabularyController } from './controllers/vocab.controller';
+import { CustomVocabService } from './vocab-custom/service/custom-vocab.service';
+import { CustomVocabController } from './vocab-custom/controller/custom-vocab.controller';
+import { CustomVocabSet } from './entities/CustomVocabSet.entity';
+import { CustomVocabEntry } from './entities/CustomVocabEntry.entity';
+
 
 @Module({
   imports: [
@@ -23,11 +28,11 @@ import { VocabularyController } from './controllers/vocab.controller';
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
         ...configService.get('database.vocab'),
-        entities: [VocabExample, Vocabulary, Kanji, Lesson, KanjiExample, Category],
+        entities: [VocabExample, Vocabulary, Kanji, Lesson, KanjiExample, Category, CustomVocabEntry, CustomVocabSet],
       }),
       inject: [ConfigService],
     }),
-    TypeOrmModule.forFeature([VocabExample, Vocabulary, Kanji, Lesson, KanjiExample, Category]),
+    TypeOrmModule.forFeature([VocabExample, Vocabulary, Kanji, Lesson, KanjiExample, Category, CustomVocabSet, CustomVocabEntry]),
     ClientsModule.register([
       {
         name: 'VOCAB_SERVICE', // Tên service của bạn
@@ -42,8 +47,8 @@ import { VocabularyController } from './controllers/vocab.controller';
       },
     ]),
   ],
-  controllers: [VocabularyController],
-  providers: [VocabService],
+  controllers: [VocabularyController, CustomVocabController],
+  providers: [VocabService, CustomVocabService],
   exports: [VocabService],
 })
 export class VocabModule {}
