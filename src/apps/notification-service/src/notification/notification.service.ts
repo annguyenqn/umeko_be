@@ -40,10 +40,13 @@ export class NotificationService {
   }
 
   // ✅ Đánh dấu đã đọc
-  async markAsRead(notificationId: string) {
-    return this.notificationModel.findByIdAndUpdate(notificationId, {
-      read: true,
-    });
-  }
+async markAsUnreadBulk(ids: string[]): Promise<any> {
+  const result = await this.notificationModel.updateMany(
+    { _id: { $in: ids } },
+    { $set: { read: false } }
+  );
+  return result;
+}
+
 
 }
