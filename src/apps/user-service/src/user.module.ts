@@ -97,6 +97,7 @@ import { ReviewSyncController } from './controllers/review-sync.controller';
         },
         inject: [ConfigService],
       },
+      
     ]),
     
     

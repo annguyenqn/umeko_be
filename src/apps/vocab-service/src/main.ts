@@ -1,44 +1,44 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { Transport, MicroserviceOptions } from '@nestjs/microservices';
 import { VocabModule } from './vocab.module';
 import helmet from 'helmet';
 import { RpcExceptionFilter } from './common/filters/rpc-exception.filter';
 
 async function bootstrap() {
+  // Khởi tạo app HTTP
   const app = await NestFactory.create(VocabModule);
 
-  app.useGlobalFilters(
-    new RpcExceptionFilter(),  
+  // Khởi tạo Microservice (RabbitMQ)
+  app.connectMicroservice<MicroserviceOptions>({
+    transport: Transport.RMQ,
+    options: {
+      urls: [process.env.RABBITMQ_URL || 'amqp://localhost:5672'],
+      queue: 'vocab_queue',
+      queueOptions: { durable: false },
+    },
+  });
+
+  // Global Filters
+  app.useGlobalFilters(new RpcExceptionFilter());
+
+  // Global Pipes
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      transform: true,
+      forbidNonWhitelisted: true,
+    }),
   );
-  // Enable CORS for public API
+
+  // Helmet security (tùy chọn bật lại)
+  // app.use(helmet({ crossOriginEmbedderPolicy: false }));
+
+  // CORS
   app.enableCors();
 
-  // Security middleware
-  // app.use(
-  //   helmet({
-  //     contentSecurityPolicy: {
-  //       directives: {
-  //         defaultSrc: [`'self'`],
-  //         styleSrc: [`'self'`, `'unsafe-inline'`, 'https:'],
-  //         imgSrc: [`'self'`, 'data:', 'https:'],
-  //         scriptSrc: [`'self'`, `'unsafe-inline'`, `'unsafe-eval'`],
-  //       },
-  //     },
-  //     crossOriginEmbedderPolicy: false,
-  //   })
-  // );
-
-  // Global validation pipe
-  // app.useGlobalPipes(
-  //   new ValidationPipe({
-  //     whitelist: true,
-  //     transform: true,
-  //     forbidNonWhitelisted: true,
-  //   })
-  // );
-
-  // Swagger documentation
+  // Swagger setup
   const config = new DocumentBuilder()
     .setTitle('Vocab API')
     .setDescription('Public API for vocabulary management')
@@ -47,9 +47,14 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/vocab', app, document);
 
+  // Khởi động microservice và HTTP cùng lúc
+  await app.startAllMicroservices();
   const port = process.env.APP_PORT || 8081;
   await app.listen(port);
-  console.log(`🚀 Vocab Service is running on http://localhost:${port}`);
-  console.log(`Swagger documentation available at http://localhost:${port}/api/vocab`);
+
+  console.log(`🚀 HTTP Server is running at http://localhost:${port}`);
+  console.log(`📘 Swagger available at http://localhost:${port}/api/vocab`);
+  console.log('✅ RabbitMQ Microservice is listening');
 }
+
 bootstrap();
